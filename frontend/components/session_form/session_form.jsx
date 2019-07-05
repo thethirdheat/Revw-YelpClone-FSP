@@ -19,6 +19,12 @@ class SessionForm extends React.Component{
         this.demoLoginFacebook = this.demoLoginFacebook.bind(this)
         this.demoLoginGoogle = this.demoLoginGoogle.bind(this)
     } 
+
+    componentWillUnmount(){
+        this.props.clearErr() 
+    }
+
+
     demoLoginFacebook(e){
         e.preventDefault(); 
         const facebook= {username: 'FacebookUser', password:'password'}

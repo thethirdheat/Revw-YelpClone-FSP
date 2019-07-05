@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, signUp, login, logout */
+/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, clearSessionError, signUp, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION", function() { return RECEIVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SESSION", function() { return REMOVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearSessionError", function() { return clearSessionError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signUp", function() { return signUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
@@ -125,8 +126,13 @@ var receiveErrors = function receiveErrors(errors) {
     type: RECEIVE_SESSION_ERRORS,
     errors: errors
   };
-}; //export const signUp = (userForm)=>{
+};
 
+var clearSessionError = function clearSessionError() {
+  return function (dispatch) {
+    return dispatch(receiveErrors([]));
+  };
+}; //export const signUp = (userForm)=>{
 
 var signUp = function signUp(userForm) {
   return function (dispatch) {
@@ -244,7 +250,7 @@ __webpack_require__.r(__webpack_exports__);
 var Dummy = function Dummy() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "fuck"
-  }, "get fucked"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), "rest of stuff dummy thick");
+  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), "rest of stuff");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);
@@ -402,6 +408,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     processSignUp: function processSignUp(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
+    },
+    clearErr: function clearErr() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["clearSessionError"])());
     }
   };
 };
@@ -470,6 +479,11 @@ function (_React$Component) {
   }
 
   _createClass(LoginForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErr();
+    }
+  }, {
     key: "demoLoginFacebook",
     value: function demoLoginFacebook(e) {
       var _this2 = this;
@@ -722,6 +736,11 @@ function (_React$Component) {
   }
 
   _createClass(SessionForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErr();
+    }
+  }, {
     key: "demoLoginFacebook",
     value: function demoLoginFacebook(e) {
       var _this2 = this;
@@ -946,7 +965,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var mstp = function mstp(state, prevProps) {
   return {
     errors: state.errors.session,
@@ -963,6 +981,9 @@ var mdtp = function mdtp(dispatch) {
     },
     signIn: function signIn(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
+    },
+    clearErr: function clearErr() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["clearSessionError"])());
     }
   };
 };
@@ -30692,7 +30713,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

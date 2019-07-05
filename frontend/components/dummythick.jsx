@@ -7,11 +7,11 @@ const Dummy=()=>{
         Look at Me!
         header goes here?
         <header>
-            <div className="fuck">get fucked</div>
+            <div className="fuck">this is a div</div>
             <GreetingContainer />
         </header>
         rest of stuff
-        dummy thick</div>
+        </div>
         )
     }
 export default Dummy

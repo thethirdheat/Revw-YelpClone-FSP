@@ -18,6 +18,10 @@ const receiveErrors = errors => ({
   errors
 });
 
+export const clearSessionError = () => dispatch=>(
+  dispatch(receiveErrors([]))
+
+)
 
 //export const signUp = (userForm)=>{
 export const signUp =(userForm)=>(dispatch)=>(
