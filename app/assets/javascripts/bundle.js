@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, clearSessionError, signUp, login, logout */
+/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, RECEIVE_ERRORS_CLEAR, clearSessionError, signUp, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION", function() { return RECEIVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SESSION", function() { return REMOVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ERRORS_CLEAR", function() { return RECEIVE_ERRORS_CLEAR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearSessionError", function() { return clearSessionError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signUp", function() { return signUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
@@ -107,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_SESSION = "RECEIVE_SESSION";
 var REMOVE_SESSION = "REMOVE_SESSION";
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+var RECEIVE_ERRORS_CLEAR = 'RECEIVE_ERRORS_CLEAR';
 
 var receive_session = function receive_session(currentUser) {
   return {
@@ -128,9 +130,15 @@ var receiveErrors = function receiveErrors(errors) {
   };
 };
 
+var removeErrors = function removeErrors() {
+  return {
+    type: RECEIVE_ERRORS_CLEAR
+  };
+};
+
 var clearSessionError = function clearSessionError() {
   return function (dispatch) {
-    return dispatch(receiveErrors([]));
+    dispatch(removeErrors());
   };
 }; //export const signUp = (userForm)=>{
 
@@ -481,6 +489,9 @@ function (_React$Component) {
   _createClass(LoginForm, [{
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
+      var newState = Object.assign({}, this.state);
+      newState.errors = [];
+      this.setState(newState);
       this.props.clearErr();
     }
   }, {
@@ -534,7 +545,6 @@ function (_React$Component) {
     value: function removeErr() {
       var prev = Object.assign({}, this.state);
       prev.errors = "";
-      console.log(prev, "this s p the new state");
       this.setState(prev);
     }
   }, {
@@ -545,7 +555,6 @@ function (_React$Component) {
       return function (e) {
         var prev = Object.assign({}, _this4.state);
         prev.user[field] = e.target.value;
-        console.log(prev);
         return _this4.setState(prev);
       };
     }
@@ -738,6 +747,9 @@ function (_React$Component) {
   _createClass(SessionForm, [{
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
+      var newState = Object.assign({}, this.state);
+      newState.errors = [];
+      this.setState(newState);
       this.props.clearErr();
     }
   }, {
@@ -795,7 +807,6 @@ function (_React$Component) {
     value: function removeErr() {
       var prev = Object.assign({}, this.state);
       prev.errors = "";
-      console.log(prev, "this s p the new state");
       this.setState(prev);
     }
   }, {
@@ -831,7 +842,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       var errDiv = this.state.errors.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--errors"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.errors.join(", "), "."), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1077,6 +1087,9 @@ __webpack_require__.r(__webpack_exports__);
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION"]:
+      return [];
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERRORS_CLEAR"]:
       return [];
 
     default:

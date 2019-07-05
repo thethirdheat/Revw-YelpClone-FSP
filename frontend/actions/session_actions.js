@@ -2,6 +2,7 @@ import * as APIutil from '../util/session_api_util'
 export const RECEIVE_SESSION = "RECEIVE_SESSION"
 export const REMOVE_SESSION = "REMOVE_SESSION"
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_ERRORS_CLEAR = 'RECEIVE_ERRORS_CLEAR'
 
 
   
@@ -18,10 +19,13 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const clearSessionError = () => dispatch=>(
-  dispatch(receiveErrors([]))
+const removeErrors = () => ({
+  type: RECEIVE_ERRORS_CLEAR,
+});
 
-)
+export const clearSessionError = () => dispatch=>{
+  dispatch(removeErrors()) 
+}
 
 //export const signUp = (userForm)=>{
 export const signUp =(userForm)=>(dispatch)=>(
