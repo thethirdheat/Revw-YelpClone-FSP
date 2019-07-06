@@ -6,10 +6,14 @@ class Api::BusinessesController < ApplicationController
     end
 
     def create
+        @biz = Business.new()
 
     end
 
     def show
 
+    end
+    def user_params
+        params.require(:business).permit(:description, :business_name, :email)
     end
 end

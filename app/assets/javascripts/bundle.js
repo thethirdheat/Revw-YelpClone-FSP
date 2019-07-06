@@ -184,7 +184,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _dummythick__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dummythick */ "./frontend/components/dummythick.jsx");
+/* harmony import */ var _dummy__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dummy */ "./frontend/components/dummy.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
@@ -212,7 +212,7 @@ var App = function App() {
     component: _session_form_signup_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["ProtectedRoute"], {
     path: "/",
-    component: _dummythick__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _dummy__WEBPACK_IMPORTED_MODULE_6__["default"]
   })));
 };
 
@@ -310,10 +310,10 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/dummythick.jsx":
-/*!********************************************!*\
-  !*** ./frontend/components/dummythick.jsx ***!
-  \********************************************/
+/***/ "./frontend/components/dummy.jsx":
+/*!***************************************!*\
+  !*** ./frontend/components/dummy.jsx ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -322,7 +322,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _components_business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/business/index */ "./frontend/components/business/index.jsx");
+/* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/index */ "./frontend/components/business/index.jsx");
 
 
 
@@ -330,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
 var Dummy = function Dummy() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "fuck"
-  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), "before index", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], null)), "rest of stuff");
+  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), "before index", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], null)), "rest of stuff");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);
@@ -30793,7 +30793,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -4,7 +4,7 @@ import SignUpContainer from './session_form/signup_container'
 import GreetingContainer from './greeting/greeting_container'
 import { Provider } from 'react-redux';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Dummy from './dummythick'
+import Dummy from './dummy'
 import {
   Route,
   Redirect,

@@ -1,6 +1,6 @@
 import React from 'react'
 import GreetingContainer from './greeting/greeting_container'
-import Index from '../components/business/index'
+import Index from './business/index'
 
 
 const Dummy=()=>{
