@@ -17,24 +17,12 @@ class LoginForm extends React.Component{
         this.demoLoginGoogle = this.demoLoginGoogle.bind(this)
         this.demoLoginFacebook = this.demoLoginFacebook.bind(this)
     } 
-    removeErr(){
-        let prev=Object.assign({},this.state)
-        prev.errors=""
-        this.setState(prev)
-    }
     componentWillUnmount(){
         let newState  = Object.assign({},this.state)
         newState.errors=[]
         this.setState(newState)
         this.props.clearErr() 
     }
-    componentWillMount(){
-        let newState  = Object.assign({},this.state)
-        newState.errors=[]
-        this.setState(newState)
-        this.props.clearErr() 
-    }
-
 
     demoLoginFacebook(e){
         e.preventDefault();
@@ -62,6 +50,11 @@ class LoginForm extends React.Component{
 
 
 
+    removeErr(){
+        let prev=Object.assign({},this.state)
+        prev.errors=""
+        this.setState(prev)
+    }
 
     update(field){
         return (e)=>{
@@ -91,7 +84,7 @@ class LoginForm extends React.Component{
 
             <nav className ="login--header">
                 <div className ="login--header__container">
-                    <div className="login--header__biz"  ><Link to ="/users/new">SignUp as Business</Link> </div>
+                    <div className="login--header__biz"  ><Link to ="/">SignUp as Business</Link> </div>
                     <br></br>
                     <div className="login--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
                 </div>

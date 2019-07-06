@@ -487,23 +487,8 @@ function (_React$Component) {
   }
 
   _createClass(LoginForm, [{
-    key: "removeErr",
-    value: function removeErr() {
-      var prev = Object.assign({}, this.state);
-      prev.errors = "";
-      this.setState(prev);
-    }
-  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      var newState = Object.assign({}, this.state);
-      newState.errors = [];
-      this.setState(newState);
-      this.props.clearErr();
-    }
-  }, {
-    key: "componentWillMount",
-    value: function componentWillMount() {
       var newState = Object.assign({}, this.state);
       newState.errors = [];
       this.setState(newState);
@@ -556,6 +541,13 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "removeErr",
+    value: function removeErr() {
+      var prev = Object.assign({}, this.state);
+      prev.errors = "";
+      this.setState(prev);
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this4 = this;
@@ -603,7 +595,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--header__biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/users/new"
+        to: "/"
       }, "SignUp as Business"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--header__logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -761,14 +753,6 @@ function (_React$Component) {
       this.props.clearErr();
     }
   }, {
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      var newState = Object.assign({}, this.state);
-      newState.errors = [];
-      this.setState(newState);
-      this.props.clearErr();
-    }
-  }, {
     key: "demoLoginFacebook",
     value: function demoLoginFacebook(e) {
       var _this2 = this;
@@ -873,7 +857,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--header__biz"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/users/new"
+        to: "/"
       }, "SignUp as Business"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--header__logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

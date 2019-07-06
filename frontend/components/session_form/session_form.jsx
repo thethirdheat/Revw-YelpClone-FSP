@@ -26,12 +26,6 @@ class SessionForm extends React.Component{
         this.setState(newState)
         this.props.clearErr() 
     }
-    componentWillMount(){
-        let newState  = Object.assign({},this.state)
-        newState.errors=[]
-        this.setState(newState)
-        this.props.clearErr() 
-    }
 
 
     demoLoginFacebook(e){
@@ -94,7 +88,7 @@ class SessionForm extends React.Component{
 
             <nav className ="login--header">
                 <div className ="login--header__container">
-                    <div className="login--header__biz"  ><Link to ="/users/new">SignUp as Business</Link> </div>
+                    <div className="login--header__biz"  ><Link to ="/">SignUp as Business</Link> </div>
                     <br></br>
                     <div className="login--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
                 </div>
