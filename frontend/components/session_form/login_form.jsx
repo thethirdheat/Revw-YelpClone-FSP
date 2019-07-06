@@ -18,9 +18,6 @@ class LoginForm extends React.Component{
         this.demoLoginFacebook = this.demoLoginFacebook.bind(this)
     } 
     componentWillUnmount(){
-        let newState  = Object.assign({},this.state)
-        newState.errors=[]
-        this.setState(newState)
         this.props.clearErr() 
     }
 
@@ -53,6 +50,7 @@ class LoginForm extends React.Component{
     removeErr(){
         let prev=Object.assign({},this.state)
         prev.errors=""
+        console.log(prev,"this s p the new state")
         this.setState(prev)
     }
 
@@ -60,6 +58,7 @@ class LoginForm extends React.Component{
         return (e)=>{
             let prev=Object.assign({},this.state)
             prev.user[field]= e.target.value
+            console.log(prev)
             return this.setState(prev) 
         }
 

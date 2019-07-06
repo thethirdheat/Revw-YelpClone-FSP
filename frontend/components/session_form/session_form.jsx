@@ -21,9 +21,6 @@ class SessionForm extends React.Component{
     } 
 
     componentWillUnmount(){
-        let newState  = Object.assign({},this.state)
-        newState.errors=[]
-        this.setState(newState)
         this.props.clearErr() 
     }
 
@@ -55,6 +52,7 @@ class SessionForm extends React.Component{
     removeErr(){
         let prev=Object.assign({},this.state)
         prev.errors=""
+        console.log(prev,"this s p the new state")
         this.setState(prev)
     }
     update(field){
@@ -79,6 +77,7 @@ class SessionForm extends React.Component{
     }
 
     render(){
+        console.log(this.state)
         const errDiv=this.state.errors.length ?<div className="login--errors">
 
         <p>{this.state.errors.join(", ")}.</p> <button onClick={this.removeErr} className="login--erors__cross">&times;</button>
