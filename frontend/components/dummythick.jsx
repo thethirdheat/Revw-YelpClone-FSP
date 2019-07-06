@@ -1,5 +1,6 @@
 import React from 'react'
 import GreetingContainer from './greeting/greeting_container'
+import Index from '../components/business/index'
 
 
 const Dummy=()=>{
@@ -9,6 +10,8 @@ const Dummy=()=>{
         <header>
             <div className="fuck">this is a div</div>
             <GreetingContainer />
+            before index
+            <Index/>
         </header>
         rest of stuff
         </div>
