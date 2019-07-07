@@ -14,7 +14,7 @@ export const requestAllBusinesses = ()=>(
 //               POST   /api/businesses(.:format)                    api/businesses#create {:format=>:json}
 
 export const createBusiness = (formBiz)=>(
-    $.ajax({method:'post', url:"/api/businesses", data:formBiz})
+    $.ajax({method:'post', url:"/api/businesses", data:formBiz, contentType:false, processData:false})
 )
 
 //  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}

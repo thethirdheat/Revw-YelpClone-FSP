@@ -18,22 +18,39 @@ class BusinessForm extends React.Component{
             address:"",
             phone_number:"",
             business_type: "Restaurants",
+            photoFile: null
         }
         this.handleSumbit = this.handleSumbit.bind(this)
         this.update=this.update.bind(this)
+        this.handleFile = this.handleFile.bind(this)
     }
     handleSumbit(e){
         e.preventDefault();
-        console.log(this.state)
-        //this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
-        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/`)//,()=>{
+        const formData = new FormData()
+        formData.append('business[photo]', this.state.photoFile) 
+        formData.append('business[business_name]',this.state.business_name)
+        formData.append('business[description]',this.state.description)
+        formData.append('business[address]',this.state.address)
+        formData.append('business[phone_number]',this.state.phone_number)
+        formData.append('business[business_type]',this.state.business_type)
+        console.log(formData)
+        this.props.createBusiness(formData).then(
+            ((res)=>this.props.history.push('/'))
+        )
+
+//        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+//        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/`)//,()=>{
 //            if(this.props.errors){
 //                let prev=Object.assign({},this.state)
 //                prev.errors= this.props.errors 
 //                this.setState(prev)
 //            }
 //            }
-        )
+//        )
+    }
+    handleFile(e){
+        this.setState({photoFile: e.currentTarget.files[0]})
+
     }
 
     update(field){
@@ -45,9 +62,10 @@ class BusinessForm extends React.Component{
     } 
 
     render(){
+        console.log(this.state)
         return(
         <div>
-            <BizForm change={this.update} send={this.handleSumbit} business={this.state}/>
+            <BizForm dealWithFile ={this.handleFile} change={this.update} send={this.handleSumbit} business={this.state}/>
         </div>)
     }
 

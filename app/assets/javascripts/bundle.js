@@ -398,6 +398,9 @@ var BizForm = function BizForm(props) {
   }, "Auto Service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Night Life"
   }, "Night Life")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.dealWithFile,
+    type: "file"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "submit",
     value: "submit"
   })));
@@ -463,10 +466,12 @@ function (_React$Component) {
       description: "",
       address: "",
       phone_number: "",
-      business_type: "Restaurants"
+      business_type: "Restaurants",
+      photoFile: null
     };
     _this.handleSumbit = _this.handleSumbit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -476,20 +481,32 @@ function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      console.log(this.state); //this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
-
-      this.props.createBusiness({
-        business: this.state
-      }).then(function (res) {
-        return _this2.props.history.push("/");
-      } //,()=>{
+      var formData = new FormData();
+      formData.append('business[photo]', this.state.photoFile);
+      formData.append('business[business_name]', this.state.business_name);
+      formData.append('business[description]', this.state.description);
+      formData.append('business[address]', this.state.address);
+      formData.append('business[phone_number]', this.state.phone_number);
+      formData.append('business[business_type]', this.state.business_type);
+      console.log(formData);
+      this.props.createBusiness(formData).then(function (res) {
+        return _this2.props.history.push('/');
+      }); //        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+      //        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/`)//,()=>{
       //            if(this.props.errors){
       //                let prev=Object.assign({},this.state)
       //                prev.errors= this.props.errors 
       //                this.setState(prev)
       //            }
       //            }
-      );
+      //        )
+    }
+  }, {
+    key: "handleFile",
+    value: function handleFile(e) {
+      this.setState({
+        photoFile: e.currentTarget.files[0]
+      });
     }
   }, {
     key: "update",
@@ -505,7 +522,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.state);
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        dealWithFile: this.handleFile,
         change: this.update,
         send: this.handleSumbit,
         business: this.state
@@ -1782,7 +1801,9 @@ var createBusiness = function createBusiness(formBiz) {
   return $.ajax({
     method: 'post',
     url: "/api/businesses",
-    data: formBiz
+    data: formBiz,
+    contentType: false,
+    processData: false
   });
 }; //  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}
 

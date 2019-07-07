@@ -30,6 +30,8 @@ const BizForm =(props)=>(
                 <option value="Night Life">Night Life</option>
             </select>
             <br/>
+            <input onChange={props.dealWithFile} type="file"/>
+            <br/>
 
 
             <input type="submit" value="submit"/>
