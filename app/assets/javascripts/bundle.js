@@ -482,7 +482,11 @@ function (_React$Component) {
 
       e.preventDefault();
       var formData = new FormData();
-      formData.append('business[photo]', this.state.photoFile);
+
+      if (this.state.photoFile) {
+        formData.append('business[photo]', this.state.photoFile);
+      }
+
       formData.append('business[business_name]', this.state.business_name);
       formData.append('business[description]', this.state.description);
       formData.append('business[address]', this.state.address);
