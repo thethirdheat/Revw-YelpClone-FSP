@@ -8,6 +8,10 @@ class Business < ApplicationRecord
 
     has_one_attached :photo
 
+    has_many :biz_photos,
+        foreign_key: :business_id,
+        class_name: :BizPhoto
+
     def ensure_photo
         unless self.photo.attached?
             errors[:photo]  << "must be attached"

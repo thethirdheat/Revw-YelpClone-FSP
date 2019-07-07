@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
 
     resources  :businesses, only: [:create, :index, :show, :update, :destroy]
+    resources :biz_photo, only: [:create, :destroy]
+
   end
 
 end

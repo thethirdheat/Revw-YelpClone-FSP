@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   #has_many :links
   #has_many :comments
+  has_many :biz_photos,
+      foreign_key: :user_id,
+      class_name: :BizPhoto
+
 
   after_initialize :ensure_session_token
 
