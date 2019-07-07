@@ -1,5 +1,6 @@
-
+import { withRouter } from 'react-router-dom';
 import React from 'react'
+import BizForm from './_business_from_component'
 //t.string "business_name", null: false
 //t.datetime "updated_at", null: false
 //t.string "description"
@@ -13,35 +14,41 @@ class BusinessForm extends React.Component{
         super(props)
         this.state={
             business_name:"",
-            updated_at:"",
             description:"",
             address:"",
             phone_number:"",
-            business_type: "",
+            business_type: "Restaurants",
         }
+        this.handleSumbit = this.handleSumbit.bind(this)
+        this.update=this.update.bind(this)
     }
     handleSumbit(e){
         e.preventDefault();
-        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
-            if(this.props.errors){
-                let prev=Object.assign({},this.state)
-                prev.errors= this.props.errors 
-                this.setState(prev)
-            }
-        })
+        console.log(this.state)
+//        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+//            if(this.props.errors){
+//                let prev=Object.assign({},this.state)
+//                prev.errors= this.props.errors 
+//                this.setState(prev)
+//            }
+//        })
     }
+
+    update(field){
+        return (e)=>{
+            let prev=Object.assign({},this.state)
+            prev[field]= e.target.value
+            return this.setState(prev) 
+        } 
+    } 
 
     render(){
         return(
         <div>
-            This is the form to make a buisness
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state}/>
-
-            </form>
+            <BizForm change={this.update} send={this.handleSumbit} business={this.state}/>
         </div>)
     }
 
 }
 
-export default BusinessForm
+export default withRouter(BusinessForm)

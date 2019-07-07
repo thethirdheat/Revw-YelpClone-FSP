@@ -5,7 +5,7 @@ import BusinessForm from './new_business_component'
 
 
 const mdtp = dispatch=>({
-    createBusindess: (business)=>dispatch(makeBusiness(business))
+    createBusiness: (business)=>dispatch(makeBusiness(business))
 
 })
 
