@@ -86,6 +86,116 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/business_actions.js":
+/*!**********************************************!*\
+  !*** ./frontend/actions/business_actions.js ***!
+  \**********************************************/
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_BUSINESSES", function() { return RECEIVE_ALL_BUSINESSES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SINGLE_BUSINESS", function() { return RECEIVE_SINGLE_BUSINESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_A_BUSINESS", function() { return REMOVE_A_BUSINESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUSINESS_ERROR", function() { return BUSINESS_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllBusinesses", function() { return fetchAllBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeBusiness", function() { return makeBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeBusiness", function() { return changeBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBusiness", function() { return deleteBusiness; });
+/* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_api_util */ "./frontend/util/business_api_util.js");
+
+var RECEIVE_ALL_BUSINESSES = "RECIEVE_ALL_BUSINESSES";
+var RECEIVE_SINGLE_BUSINESS = "RECEIVE_SINGLE_BUSINESS";
+var REMOVE_A_BUSINESS = "REMOVE_A_BUSINESS";
+var BUSINESS_ERROR = "BUSINESS_ERROR"; //requestAllBusinesses = ()=>({}) 
+//createBusiness = (formBiz)=>({}) 
+//showBusiness = (bizId)=>({})
+//updateBusiness = (formBiz)=>({})
+//destroyBusiness = (bizId)=>({})
+
+var receiveAllBusiness = function receiveAllBusiness(businesses) {
+  return {
+    type: RECEIVE_ALL_BUSINESSES,
+    businesses: businesses
+  };
+};
+
+var reciveSingleBusiness = function reciveSingleBusiness(business) {
+  return {
+    type: RECEIVE_SINGLE_BUSINESS,
+    business: business
+  };
+};
+
+var removeBusiness = function removeBusiness(business) {
+  return {
+    type: REMOVE_A_BUSINESS,
+    business: business
+  };
+};
+
+var receiveBusinessError = function receiveBusinessError(errors) {
+  return {
+    type: BUSINESS_ERROR,
+    errors: errors
+  };
+}; //requestAllBusinesses = ()=>({}) 
+
+
+var fetchAllBusinesses = function fetchAllBusinesses() {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["requestAllBusinesses"]().then(function (businesses) {
+      return dispatch(receiveAllBusiness(businesses));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err));
+    });
+  };
+}; //createBusiness = (formBiz)=>({}) 
+
+var makeBusiness = function makeBusiness(formBiz) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["createBusiness"](formBiz).then(function (business) {
+      return dispatch(reciveSingleBusiness(business));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err));
+    });
+  };
+}; //showBusiness = (bizId)=>({})
+
+var fetchBusiness = function fetchBusiness(bizId) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["showBusiness"](bizId).then(function (business) {
+      return dispatch(reciveSingleBusiness(business));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err));
+    });
+  };
+}; //updateBusiness = (formBiz)=>({})
+
+var changeBusiness = function changeBusiness(formBiz) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["updateBusiness"](formBiz).then(function (business) {
+      return dispatch(reciveSingleBusiness(business));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err));
+    });
+  };
+}; //destroyBusiness = (bizId)=>({})
+
+var deleteBusiness = function deleteBusiness(bizId) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyBusiness"](bizId).then(function (business) {
+      return dispatch(removeBusiness(business));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -1072,6 +1182,49 @@ var mdtp = function mdtp(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/reducers/business/businesses_reducer.js":
+/*!**********************************************************!*\
+  !*** ./frontend/reducers/business/businesses_reducer.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var businessesReducer = function businessesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_BUSINESSES"]:
+      return action.businesses;
+
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_BUSINESS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.businesses.id, action.businesses));
+
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_A_BUSINESS"]:
+      var newState = Object.assign({}, state);
+      delete newState[action.business.id];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (businessesReducer);
+
+/***/ }),
+
 /***/ "./frontend/reducers/entities_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/entities_reducer.js ***!
@@ -1083,9 +1236,12 @@ var mdtp = function mdtp(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _business_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/businesses_reducer */ "./frontend/reducers/business/businesses_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  businesses: _business_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   user: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
 
@@ -1146,6 +1302,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+ //export const BUSINESS_ERROR = "BUSINESS_ERROR"
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -1325,6 +1482,65 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/business_api_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/business_api_util.js ***!
+  \********************************************/
+/*! exports provided: requestAllBusinesses, createBusiness, showBusiness, updateBusiness, destroyBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllBusinesses", function() { return requestAllBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBusiness", function() { return createBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showBusiness", function() { return showBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBusiness", function() { return updateBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyBusiness", function() { return destroyBusiness; });
+//api_businesses GET    /api/businesses(.:format)                    api/businesses#index {:format=>:json}
+//               POST   /api/businesses(.:format)                    api/businesses#create {:format=>:json}
+//  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}
+//               PATCH  /api/businesses/:id(.:format)                api/businesses#update {:format=>:json}
+//               DELETE /api/businesses/:id(.:format)                api/businesses#destroy {:format=>:json}
+//api_businesses GET    /api/businesses(.:format)                    api/businesses#index {:format=>:json}
+var requestAllBusinesses = function requestAllBusinesses() {
+  return $.ajax({
+    method: 'get',
+    url: "/api/businesses"
+  });
+}; //               POST   /api/businesses(.:format)                    api/businesses#create {:format=>:json}
+
+var createBusiness = function createBusiness(formBiz) {
+  return $.ajax({
+    method: 'post',
+    url: "/api/businesses",
+    data: formBiz
+  });
+}; //  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}
+
+var showBusiness = function showBusiness(bizId) {
+  return $.ajax({
+    method: 'get',
+    url: "/api/businesses/".concat(bizId)
+  });
+}; //               PATCH  /api/businesses/:id(.:format)                api/businesses#update {:format=>:json}
+
+var updateBusiness = function updateBusiness(formBiz) {
+  return $.ajax({
+    method: 'patch',
+    url: "/api/businesses/".concat(formBiz.id),
+    data: formBiz
+  });
+}; //               DELETE /api/businesses/:id(.:format)                api/businesses#destroy {:format=>:json}
+
+var destroyBusiness = function destroyBusiness(bizId) {
+  return $.ajax({
+    method: 'delete',
+    url: "/api/businesses/".concat(bizId)
+  });
+};
 
 /***/ }),
 
@@ -30793,7 +31009,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

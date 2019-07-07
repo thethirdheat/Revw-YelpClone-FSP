@@ -3,6 +3,8 @@ import {
   RECEIVE_SESSION
 } from '../actions/session_actions';
 
+//export const BUSINESS_ERROR = "BUSINESS_ERROR"
+
 export default (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {

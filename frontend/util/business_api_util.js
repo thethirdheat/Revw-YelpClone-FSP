@@ -24,7 +24,7 @@ export const showBusiness = (bizId)=>(
 
 //               PATCH  /api/businesses/:id(.:format)                api/businesses#update {:format=>:json}
 export const updateBusiness = (formBiz)=>(
-    $.ajax({method:'patch', url:`/api/businesses/${bizId}`, data:formBiz})
+    $.ajax({method:'patch', url:`/api/businesses/${formBiz.id}`, data:formBiz})
 )
 
 
