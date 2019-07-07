@@ -4,6 +4,8 @@ export const RECEIVE_ALL_BUSINESSES ="RECIEVE_ALL_BUSINESSES"
 export const RECEIVE_SINGLE_BUSINESS ="RECEIVE_SINGLE_BUSINESS"
 export const REMOVE_A_BUSINESS ="REMOVE_A_BUSINESS" 
 export const BUSINESS_ERROR = "BUSINESS_ERROR"
+export const RECEIVE_PICTURE = "RECEIVE_PICTURE"
+export const REMOVE_PICTURE = "REMOVE_PICTURE"
 
 
 //requestAllBusinesses = ()=>({}) 
@@ -26,12 +28,16 @@ const reciveSingleBusiness =(business) =>({
 const removeBusiness =(business) =>({
     type: REMOVE_A_BUSINESS,
     business
-})
-
+}) 
 
 const receiveBusinessError = (errors)=>({
     type: BUSINESS_ERROR,
     errors
+})
+
+const receivePicture = ()=>({
+    type: RECEIVE_PICTURE,
+
 })
 
 
@@ -42,7 +48,7 @@ export const fetchAllBusinesses = () => dispatch =>(
         (businesses =>
             dispatch(receiveAllBusiness(businesses)))
         ,( err =>
-            dispatch(receiveBusinessError(err)))
+            dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
 
@@ -53,7 +59,7 @@ export const makeBusiness = (formBiz) => dispatch =>(
         (business =>
             dispatch(reciveSingleBusiness(business)))
         ,( err =>
-            dispatch(receiveBusinessError(err)))
+            dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
 
@@ -65,7 +71,7 @@ export const fetchBusiness = (bizId) => dispatch =>(
         (business =>
             dispatch(reciveSingleBusiness(business)))
         ,( err =>
-            dispatch(receiveBusinessError(err)))
+            dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
 //updateBusiness = (formBiz)=>({})
@@ -75,7 +81,7 @@ export const changeBusiness = (formBiz) => dispatch =>(
         (business =>
             dispatch(reciveSingleBusiness(business)))
         ,( err =>
-            dispatch(receiveBusinessError(err)))
+            dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
 //destroyBusiness = (bizId)=>({})
@@ -86,9 +92,21 @@ export const deleteBusiness = (bizId) => dispatch =>(
         (business =>
             dispatch(removeBusiness(business)))
         ,( err =>
-            dispatch(receiveBusinessError(err)))
+            dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
+
+export const createBizPicture =(bizPicture) => dispatch =>(
+    APIUtil.makeBizPicture(bizPicture)
+    .then(
+        (bizPic =>
+            dispatch(reciveSingleBusiness(bizPic)))
+        ,( err =>
+            dispatch(receiveBusinessError(err.responseJSON)))
+    ) 
+)
+   // receivePicture = ()=>({
+
 //fetchAllBusinesses
 //makeBusiness
 //fetchBusiness

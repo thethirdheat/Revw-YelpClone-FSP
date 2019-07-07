@@ -90,7 +90,7 @@
 /*!**********************************************!*\
   !*** ./frontend/actions/business_actions.js ***!
   \**********************************************/
-/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness */
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, RECEIVE_PICTURE, REMOVE_PICTURE, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness, createBizPicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,17 +99,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SINGLE_BUSINESS", function() { return RECEIVE_SINGLE_BUSINESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_A_BUSINESS", function() { return REMOVE_A_BUSINESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUSINESS_ERROR", function() { return BUSINESS_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PICTURE", function() { return RECEIVE_PICTURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_PICTURE", function() { return REMOVE_PICTURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllBusinesses", function() { return fetchAllBusinesses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeBusiness", function() { return makeBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeBusiness", function() { return changeBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBusiness", function() { return deleteBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBizPicture", function() { return createBizPicture; });
 /* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_api_util */ "./frontend/util/business_api_util.js");
 
 var RECEIVE_ALL_BUSINESSES = "RECIEVE_ALL_BUSINESSES";
 var RECEIVE_SINGLE_BUSINESS = "RECEIVE_SINGLE_BUSINESS";
 var REMOVE_A_BUSINESS = "REMOVE_A_BUSINESS";
-var BUSINESS_ERROR = "BUSINESS_ERROR"; //requestAllBusinesses = ()=>({}) 
+var BUSINESS_ERROR = "BUSINESS_ERROR";
+var RECEIVE_PICTURE = "RECEIVE_PICTURE";
+var REMOVE_PICTURE = "REMOVE_PICTURE"; //requestAllBusinesses = ()=>({}) 
 //createBusiness = (formBiz)=>({}) 
 //showBusiness = (bizId)=>({})
 //updateBusiness = (formBiz)=>({})
@@ -141,6 +146,12 @@ var receiveBusinessError = function receiveBusinessError(errors) {
     type: BUSINESS_ERROR,
     errors: errors
   };
+};
+
+var receivePicture = function receivePicture() {
+  return {
+    type: RECEIVE_PICTURE
+  };
 }; //requestAllBusinesses = ()=>({}) 
 
 
@@ -149,7 +160,7 @@ var fetchAllBusinesses = function fetchAllBusinesses() {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["requestAllBusinesses"]().then(function (businesses) {
       return dispatch(receiveAllBusiness(businesses));
     }, function (err) {
-      return dispatch(receiveBusinessError(err));
+      return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
 }; //createBusiness = (formBiz)=>({}) 
@@ -159,7 +170,7 @@ var makeBusiness = function makeBusiness(formBiz) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["createBusiness"](formBiz).then(function (business) {
       return dispatch(reciveSingleBusiness(business));
     }, function (err) {
-      return dispatch(receiveBusinessError(err));
+      return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
 }; //showBusiness = (bizId)=>({})
@@ -169,7 +180,7 @@ var fetchBusiness = function fetchBusiness(bizId) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["showBusiness"](bizId).then(function (business) {
       return dispatch(reciveSingleBusiness(business));
     }, function (err) {
-      return dispatch(receiveBusinessError(err));
+      return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
 }; //updateBusiness = (formBiz)=>({})
@@ -179,7 +190,7 @@ var changeBusiness = function changeBusiness(formBiz) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["updateBusiness"](formBiz).then(function (business) {
       return dispatch(reciveSingleBusiness(business));
     }, function (err) {
-      return dispatch(receiveBusinessError(err));
+      return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
 }; //destroyBusiness = (bizId)=>({})
@@ -189,10 +200,20 @@ var deleteBusiness = function deleteBusiness(bizId) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyBusiness"](bizId).then(function (business) {
       return dispatch(removeBusiness(business));
     }, function (err) {
-      return dispatch(receiveBusinessError(err));
+      return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
-}; //fetchAllBusinesses
+};
+var createBizPicture = function createBizPicture(bizPicture) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["makeBizPicture"](bizPicture).then(function (bizPic) {
+      return dispatch(reciveSingleBusiness(bizPic));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err.responseJSON));
+    });
+  };
+}; // receivePicture = ()=>({
+//fetchAllBusinesses
 //makeBusiness
 //fetchBusiness
 //changeBusiness
@@ -1791,6 +1812,14 @@ var businessesReducer = function businessesReducer() {
       delete newState[action.business.id];
       return newState;
 
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PICTURE"]:
+      debugger; //return merge({}, state, { [action.business.id]: action.business }); 
+      // WHAT is state??? is it the entire state? or is the buisiness peice???
+      //if its the busienss peiece i just need to key into the buisness id
+      //then push the new action info
+
+      return {};
+
     default:
       return state;
   }
@@ -2113,7 +2142,7 @@ var configureStore = function configureStore() {
 /*!********************************************!*\
   !*** ./frontend/util/business_api_util.js ***!
   \********************************************/
-/*! exports provided: requestAllBusinesses, createBusiness, showBusiness, updateBusiness, destroyBusiness */
+/*! exports provided: requestAllBusinesses, createBusiness, showBusiness, updateBusiness, destroyBusiness, makeBizPicture, destroyBizPicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2123,6 +2152,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showBusiness", function() { return showBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateBusiness", function() { return updateBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyBusiness", function() { return destroyBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeBizPicture", function() { return makeBizPicture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyBizPicture", function() { return destroyBizPicture; });
 //api_businesses GET    /api/businesses(.:format)                    api/businesses#index {:format=>:json}
 //               POST   /api/businesses(.:format)                    api/businesses#create {:format=>:json}
 //  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}
@@ -2165,6 +2196,28 @@ var destroyBusiness = function destroyBusiness(bizId) {
   return $.ajax({
     method: 'delete',
     url: "/api/businesses/".concat(bizId)
+  });
+}; ////// this is picutres ////////////////////
+//api_biz_photo_index POST   /api/biz_photo(.:format)              api/biz_photo#create {:format=>:json}
+//api_biz_photo DELETE /api/biz_photo/:id(.:format)               api/biz_photo#destroy {:format=>:json}
+//createBizPicture
+//destroyBizPicture
+//api_biz_photo_index POST   /api/biz_photo(.:format)              api/biz_photo#create {:format=>:json}
+
+var makeBizPicture = function makeBizPicture(formBiz) {
+  return $.ajax({
+    method: 'post',
+    url: "/api/biz_photo",
+    data: formBiz,
+    contentType: false,
+    processData: false
+  });
+}; //api_biz_photo DELETE /api/biz_photo/:id(.:format)               api/biz_photo#destroy {:format=>:json}
+
+var destroyBizPicture = function destroyBizPicture(bizId) {
+  return $.ajax({
+    method: 'delete',
+    url: "/api/biz_photo/".concat(bizId)
   });
 };
 

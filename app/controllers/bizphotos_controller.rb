@@ -2,7 +2,7 @@ class BizphotosController < ApplicationController
     def create
         @pic = BizPhoto.new(biz_photo_params)
         if @pic.save 
-            render '../views/api/businesses/show'
+            render '../views/api/bizphotos/show'
         else
             render json: @pic.errors.full_messages, status: 422 
         end

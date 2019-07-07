@@ -32,3 +32,31 @@ export const updateBusiness = (formBiz)=>(
 export const destroyBusiness = (bizId)=>(
     $.ajax({method:'delete', url:`/api/businesses/${bizId}`})
 )
+
+
+
+
+
+
+
+
+
+
+////// this is picutres ////////////////////
+
+//api_biz_photo_index POST   /api/biz_photo(.:format)              api/biz_photo#create {:format=>:json}
+//api_biz_photo DELETE /api/biz_photo/:id(.:format)               api/biz_photo#destroy {:format=>:json}
+
+
+//createBizPicture
+//destroyBizPicture
+
+//api_biz_photo_index POST   /api/biz_photo(.:format)              api/biz_photo#create {:format=>:json}
+export const makeBizPicture = (formBiz)=>(
+    $.ajax({method:'post', url:"/api/biz_photo", data:formBiz, contentType:false, processData:false})
+)
+
+//api_biz_photo DELETE /api/biz_photo/:id(.:format)               api/biz_photo#destroy {:format=>:json}
+export const destroyBizPicture = (bizId)=>(
+    $.ajax({method:'delete', url:`/api/biz_photo/${bizId}`})
+)

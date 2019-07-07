@@ -3,6 +3,7 @@ import {
     RECEIVE_ALL_BUSINESSES ,
     RECEIVE_SINGLE_BUSINESS,
     REMOVE_A_BUSINESS,
+    RECEIVE_PICTURE
 } from '../../actions/business_actions'
 
 const businessesReducer = (state={},action) =>{
@@ -18,7 +19,13 @@ const businessesReducer = (state={},action) =>{
             let newState = Object.assign({},state)
             delete newState[action.business.id]
             return newState 
-
+        case RECEIVE_PICTURE:
+            debugger
+            //return merge({}, state, { [action.business.id]: action.business }); 
+            // WHAT is state??? is it the entire state? or is the buisiness peice???
+            //if its the busienss peiece i just need to key into the buisness id
+            //then push the new action info
+            return {}
         default:
             return state 
     }
