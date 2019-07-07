@@ -36,8 +36,12 @@ class Api::BusinessesController < ApplicationController
         #@biz= User.find(current_user).business
         @biz = Business.find(params[:id])
         if @biz
+            p 'testing now'
+            
+            
             @biz.destroy
-            render  '../views/api/businesses/index'
+            #render json: ["this is destory route"]
+            render  '../views/api/businesses/show'
         else 
             render json: ["You must bet the ownder to delete it"], status: 404
         end

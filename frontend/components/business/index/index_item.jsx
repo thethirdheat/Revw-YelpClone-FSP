@@ -3,9 +3,10 @@ import React from 'react'
 const IndexItem =(props)=>{
     return (
     <div>
+        <br/>
         <p> Business Name:{props.business.business_name} </p>
         <p>Description: {props.business.description}</p> 
-        <br/> 
+        <button onClick={()=>props.remove(props.business.id)}>DElete</button>
     </div>)
 
 }

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
-import {fetchAllBusinesses} from '../../../actions/business_actions'
+import {fetchAllBusinesses, deleteBusiness} from '../../../actions/business_actions'
 import Index from './index_component'
+
 
 const mstp = (state, ownProp) =>({
     businesses: Object.keys(state.entities.businesses).map(idNum=>state.entities.businesses[idNum])
@@ -8,7 +9,9 @@ const mstp = (state, ownProp) =>({
 
 })
 const mdtp = dispatch =>({
-    getBusiness: ()=>dispatch(fetchAllBusinesses())
+    getBusiness: ()=>dispatch(fetchAllBusinesses()),
+    removeBusiness: (bizId)=>dispatch(deleteBusiness(bizId))
+
 })
 
 
