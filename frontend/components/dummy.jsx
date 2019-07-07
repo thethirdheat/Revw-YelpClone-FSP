@@ -1,6 +1,6 @@
 import React from 'react'
 import GreetingContainer from './greeting/greeting_container'
-import Index from './business/index/index_component'
+import IndexContainer from './business/index/index_container'
 import {Switch } from 'react-router-dom'; 
 import {  ProtectedRoute } from '../util/route_util';
 import CreateBusinessContainer from './business/create/new_business_container' 
@@ -17,7 +17,7 @@ const Dummy=()=>{
         </header>
         <Switch>
             <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
-            <ProtectedRoute  path ="/" component={Index}/>
+            <ProtectedRoute  path ="/" component={IndexContainer}/>
         </Switch>
         rest of stuff
     </div>

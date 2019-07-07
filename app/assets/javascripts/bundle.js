@@ -578,6 +578,7 @@ var mdtp = function mdtp(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_item */ "./frontend/components/business/index/index_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -598,6 +599,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Index =
 /*#__PURE__*/
 function (_React$Component) {
@@ -609,20 +611,48 @@ function (_React$Component) {
     _classCallCheck(this, Index);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Index).call(this, props));
-    _this.state = {};
+    _this.state = {
+      biz: _this.props.businesses
+    };
     return _this;
   }
 
   _createClass(Index, [{
     key: "componentDidMount",
-    value: function componentDidMount() {//$.ajax({method:"get",url:"/api/businesses"}).then((res)=>this.setState(res))
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      console.log('thi sis componend did mount');
+      console.log(this.props.businesses, 'thsi is props?');
+      this.props.getBusiness().then(function (res) {
+        return _this2.setState({
+          biz: _this2.props.businesses
+        });
+      });
+      console.log("after", this.props.businesses, 'thsi is props?');
+      this.setState({
+        wtf: this.props.businesses
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      //const ind=Object.values(this.state).map(el=>(<img src={el.photoUrl}/>))
-      var ind = "hi";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, ind, "this will be the index!!!");
+      console.log(this.props.businesses, 'thsi is props?, this is in render wtf!!!!!!!!!!!');
+      console.log(this.state, "this is state", "this is biz", this.state.biz);
+      var show;
+
+      if (this.state.biz.length > 0) {
+        show = this.state.biz.map(function (el) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            key: el.id,
+            business: el
+          });
+        });
+      } else {
+        show = "";
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show);
     }
   }]);
 
@@ -630,6 +660,63 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./frontend/components/business/index/index_container.js":
+/*!***************************************************************!*\
+  !*** ./frontend/components/business/index/index_container.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _index_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index_component */ "./frontend/components/business/index/index_component.jsx");
+
+
+
+
+var mstp = function mstp(state, ownProp) {
+  return {
+    businesses: Object.keys(state.entities.businesses).map(function (idNum) {
+      return state.entities.businesses[idNum];
+    })
+  };
+};
+
+var mdtp = function mdtp(dispatch) {
+  return {
+    getBusiness: function getBusiness() {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["fetchAllBusinesses"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_index_component__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/business/index/index_item.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/business/index/index_item.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var IndexItem = function IndexItem(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (IndexItem);
 
 /***/ }),
 
@@ -645,7 +732,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _business_index_index_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/index/index_component */ "./frontend/components/business/index/index_component.jsx");
+/* harmony import */ var _business_index_index_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/index/index_container */ "./frontend/components/business/index/index_container.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _business_create_new_business_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./business/create/new_business_container */ "./frontend/components/business/create/new_business_container.js");
@@ -665,7 +752,7 @@ var Dummy = function Dummy() {
     component: _business_create_new_business_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
     path: "/",
-    component: _business_index_index_component__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _business_index_index_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   })), "rest of stuff");
 };
 
