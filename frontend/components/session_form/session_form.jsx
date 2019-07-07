@@ -21,7 +21,10 @@ class SessionForm extends React.Component{
     } 
 
     componentWillUnmount(){
-        this.props.clearErr() 
+        this.removeErr() 
+    }
+    componentWillMount(){
+        this.removeErr() 
     }
 
 
@@ -82,7 +85,6 @@ class SessionForm extends React.Component{
 
         <p>{this.state.errors.join(", ")}.</p> <button onClick={this.removeErr} className="login--erors__cross">&times;</button>
         </div>:""
-
         return (<div className ="login">
 
             <nav className ="login--header">

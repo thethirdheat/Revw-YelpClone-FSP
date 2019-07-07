@@ -18,7 +18,10 @@ class LoginForm extends React.Component{
         this.demoLoginFacebook = this.demoLoginFacebook.bind(this)
     } 
     componentWillUnmount(){
-        this.props.clearErr() 
+        this.removeErr() 
+    }
+    componentWillMount(){
+        this.removeErr() 
     }
 
     demoLoginFacebook(e){

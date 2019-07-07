@@ -7,11 +7,11 @@ class Index extends React.Component {
 
     }
     componentDidMount(){
-        $.ajax({method:"get",url:"/api/businesses"}).then((res)=>this.setState(res))
+        //$.ajax({method:"get",url:"/api/businesses"}).then((res)=>this.setState(res))
     }
     render(){
-        console.log(this.state)
-        const ind=Object.values(this.state).map(el=>(<img src={el.photoUrl}/>))
+        //const ind=Object.values(this.state).map(el=>(<img src={el.photoUrl}/>))
+        const ind = "hi"
         return (
         <div>
             {ind}

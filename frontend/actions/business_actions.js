@@ -89,4 +89,8 @@ export const deleteBusiness = (bizId) => dispatch =>(
             dispatch(receiveBusinessError(err)))
     ) 
 )
-
+//fetchAllBusinesses
+//makeBusiness
+//fetchBusiness
+//changeBusiness
+//deleteBusiness

@@ -192,7 +192,11 @@ var deleteBusiness = function deleteBusiness(bizId) {
       return dispatch(receiveBusinessError(err));
     });
   };
-};
+}; //fetchAllBusinesses
+//makeBusiness
+//fetchBusiness
+//changeBusiness
+//deleteBusiness
 
 /***/ }),
 
@@ -200,7 +204,7 @@ var deleteBusiness = function deleteBusiness(bizId) {
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, clearSessionError, signUp, login, logout */
+/*! exports provided: RECEIVE_SESSION, REMOVE_SESSION, RECEIVE_SESSION_ERRORS, CLEAR_ERRORS, clearSessionError, signUp, login, logout */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -208,6 +212,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION", function() { return RECEIVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SESSION", function() { return REMOVE_SESSION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_ERRORS", function() { return CLEAR_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearSessionError", function() { return clearSessionError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signUp", function() { return signUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
@@ -217,6 +222,7 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_SESSION = "RECEIVE_SESSION";
 var REMOVE_SESSION = "REMOVE_SESSION";
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+var CLEAR_ERRORS = "CLEAR_ERRORS";
 
 var receive_session = function receive_session(currentUser) {
   return {
@@ -238,9 +244,15 @@ var receiveErrors = function receiveErrors(errors) {
   };
 };
 
+var clearErrors = function clearErrors() {
+  return {
+    type: CLEAR_ERRORS
+  };
+};
+
 var clearSessionError = function clearSessionError() {
   return function (dispatch) {
-    return dispatch(receiveErrors([]));
+    return dispatch(clearErrors());
   };
 }; //export const signUp = (userForm)=>{
 
@@ -390,25 +402,13 @@ function (_React$Component) {
 
   _createClass(Index, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      $.ajax({
-        method: "get",
-        url: "/api/businesses"
-      }).then(function (res) {
-        return _this2.setState(res);
-      });
+    value: function componentDidMount() {//$.ajax({method:"get",url:"/api/businesses"}).then((res)=>this.setState(res))
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
-      var ind = Object.values(this.state).map(function (el) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: el.photoUrl
-        });
-      });
+      //const ind=Object.values(this.state).map(el=>(<img src={el.photoUrl}/>))
+      var ind = "hi";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, ind, "this will be the index!!!");
     }
   }]);
@@ -671,7 +671,12 @@ function (_React$Component) {
   _createClass(LoginForm, [{
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.props.clearErr();
+      this.removeErr();
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.removeErr();
     }
   }, {
     key: "demoLoginFacebook",
@@ -928,7 +933,12 @@ function (_React$Component) {
   _createClass(SessionForm, [{
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.props.clearErr();
+      this.removeErr();
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.removeErr();
     }
   }, {
     key: "demoLoginFacebook",
@@ -1209,7 +1219,7 @@ var businessesReducer = function businessesReducer() {
       return action.businesses;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_BUSINESS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.businesses.id, action.businesses));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.business.id, action.business));
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_A_BUSINESS"]:
       var newState = Object.assign({}, state);
@@ -1315,6 +1325,10 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION"]:
       return [];
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR_ERRORS"]:
+      var newAr = [];
+      return newAr;
 
     default:
       return state;
@@ -1422,6 +1436,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/business_actions */ "./frontend/actions/business_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -1429,6 +1444,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+/* Four testin only*/
+
+
+window.fetchAllBusinesses = _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["fetchAllBusinesses"];
+window.makeBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["makeBusiness"];
+window.fetchBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["fetchBusiness"];
+window.changeBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["changeBusiness"];
+window.deleteBusiness = _actions_business_actions__WEBPACK_IMPORTED_MODULE_5__["deleteBusiness"];
+window.deleteBusiness = deleteBusiness
+/* Four testin only end*/
+= //newbiz ={business:{business_name: "oh mah mah my"}}
 document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('root');
   var store;
