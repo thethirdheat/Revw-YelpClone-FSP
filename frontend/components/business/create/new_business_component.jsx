@@ -25,13 +25,15 @@ class BusinessForm extends React.Component{
     handleSumbit(e){
         e.preventDefault();
         console.log(this.state)
-//        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+        //this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/`)//,()=>{
 //            if(this.props.errors){
 //                let prev=Object.assign({},this.state)
 //                prev.errors= this.props.errors 
 //                this.setState(prev)
 //            }
-//        })
+//            }
+        )
     }
 
     update(field){

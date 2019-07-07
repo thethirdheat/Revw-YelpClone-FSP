@@ -7,10 +7,10 @@ class Api::BusinessesController < ApplicationController
 
     def create
         @biz = Business.new(business_params)
-        if(@biz.save)
+        if @biz.save
             render '../views/api/businesses/show'
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: @biz.errors.full_messages, status: 422
         end 
     end
 

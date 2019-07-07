@@ -473,24 +473,33 @@ function (_React$Component) {
   _createClass(BusinessForm, [{
     key: "handleSumbit",
     value: function handleSumbit(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      console.log(this.state); //        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+      console.log(this.state); //this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
+
+      this.props.createBusiness({
+        business: this.state
+      }).then(function (res) {
+        return _this2.props.history.push("/");
+      } //,()=>{
       //            if(this.props.errors){
       //                let prev=Object.assign({},this.state)
       //                prev.errors= this.props.errors 
       //                this.setState(prev)
       //            }
-      //        })
+      //            }
+      );
     }
   }, {
     key: "update",
     value: function update(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        var prev = Object.assign({}, _this2.state);
+        var prev = Object.assign({}, _this3.state);
         prev[field] = e.target.value;
-        return _this2.setState(prev);
+        return _this3.setState(prev);
       };
     }
   }, {

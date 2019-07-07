@@ -1,6 +1,6 @@
 class Business < ApplicationRecord
     #validates :description, :business_name, phone_number, business_type,  presence: true
-    validates :username, uniqueness:true
+    #validates :username, uniqueness:true
 
     has_one_attached :photo
 
