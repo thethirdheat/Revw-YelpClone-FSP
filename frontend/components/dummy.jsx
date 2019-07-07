@@ -4,6 +4,7 @@ import IndexContainer from './business/index/index_container'
 import {Switch } from 'react-router-dom'; 
 import {  ProtectedRoute } from '../util/route_util';
 import CreateBusinessContainer from './business/create/new_business_container' 
+import SearchBox from './header/search/search_container'
 
 const Dummy=()=>{
     return(
@@ -12,6 +13,7 @@ const Dummy=()=>{
         header goes here?
         <header>
             <div className="fuck">this is a div</div>
+            <SearchBox />
             <GreetingContainer />
             before index
         </header>
