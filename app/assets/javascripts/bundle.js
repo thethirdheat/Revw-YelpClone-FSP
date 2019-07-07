@@ -354,10 +354,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./frontend/components/business/index.jsx":
-/*!************************************************!*\
-  !*** ./frontend/components/business/index.jsx ***!
-  \************************************************/
+/***/ "./frontend/components/business/index/index_component.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/business/index/index_component.jsx ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -432,7 +432,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var _business_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/index */ "./frontend/components/business/index.jsx");
+/* harmony import */ var _business_index_index_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/index/index_component */ "./frontend/components/business/index/index_component.jsx");
 
 
 
@@ -440,7 +440,7 @@ __webpack_require__.r(__webpack_exports__);
 var Dummy = function Dummy() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "fuck"
-  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), "before index", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index__WEBPACK_IMPORTED_MODULE_2__["default"], null)), "rest of stuff");
+  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), "before index", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_business_index_index_component__WEBPACK_IMPORTED_MODULE_2__["default"], null)), "rest of stuff");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);
@@ -1257,6 +1257,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./frontend/reducers/errors/business_form_errors.js":
+/*!**********************************************************!*\
+  !*** ./frontend/reducers/errors/business_form_errors.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+
+
+var businessFormErrors = function businessFormErrors() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__["BUSINESS_ERROR"]:
+      return action.errors;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (businessFormErrors);
+
+/***/ }),
+
 /***/ "./frontend/reducers/errors_reducer.js":
 /*!*********************************************!*\
   !*** ./frontend/reducers/errors_reducer.js ***!
@@ -1268,10 +1298,13 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_errors_reducer */ "./frontend/reducers/session_errors_reducer.js");
+/* harmony import */ var _errors_business_form_errors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors/business_form_errors */ "./frontend/reducers/errors/business_form_errors.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  businessForm: _errors_business_form_errors__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
