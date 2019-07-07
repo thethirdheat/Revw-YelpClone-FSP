@@ -385,6 +385,18 @@ var BizForm = function BizForm(props) {
     onChange: props.change('phone_number'),
     type: "text",
     value: props.business.phone_number
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Price", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.change('price'),
+    type: "text",
+    value: props.business.price
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Latitude", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.change('lat'),
+    type: "text",
+    value: props.business.lat
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Longitude", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: props.change('long'),
+    type: "text",
+    value: props.business["long"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     value: props.business_type,
     onChange: props.change('business_type')
@@ -467,7 +479,10 @@ function (_React$Component) {
       address: "",
       phone_number: "",
       business_type: "Restaurants",
-      photoFile: null
+      photoFile: null,
+      price: "",
+      "long": "",
+      lat: ''
     };
     _this.handleSumbit = _this.handleSumbit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
@@ -492,6 +507,9 @@ function (_React$Component) {
       formData.append('business[address]', this.state.address);
       formData.append('business[phone_number]', this.state.phone_number);
       formData.append('business[business_type]', this.state.business_type);
+      formData.append('business[price]', this.state.price);
+      formData.append('business[long]', this.state["long"]);
+      formData.append('business[lat]', this.state.lat);
       console.log(formData);
       this.props.createBusiness(formData).then(function (res) {
         return _this2.props.history.push('/');
@@ -728,7 +746,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var IndexItem = function IndexItem(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  console.log(props);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Address: ", props.business.address, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone Number: ", props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Price: ", props.business.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Long: ", props.business["long"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lat: ", props.business.lat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.business.photoUrl
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       return props.remove(props.business.id);
     }

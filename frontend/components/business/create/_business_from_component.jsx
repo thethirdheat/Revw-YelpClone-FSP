@@ -22,6 +22,19 @@ const BizForm =(props)=>(
             <label>Phone Number
                 <input onChange={props.change('phone_number')} type="text" value={props.business.phone_number}/> 
             </label>
+
+            <label> Price
+                <input onChange={props.change('price')} type="text" value={props.business.price}/> 
+            </label>
+
+            <label>Latitude
+                <input onChange={props.change('lat')} type="text" value={props.business.lat}/> 
+            </label>
+
+            <label>Longitude
+                <input onChange={props.change('long')} type="text" value={props.business.long}/> 
+            </label>
+
             <br/>
             <select value={props.business_type} onChange={props.change('business_type')}>
                 <option defaultValue value="Restaurants">Restaurants</option>

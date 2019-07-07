@@ -18,7 +18,11 @@ class BusinessForm extends React.Component{
             address:"",
             phone_number:"",
             business_type: "Restaurants",
-            photoFile: null
+            photoFile: null,
+            price:"",
+            long:"",
+            lat:''
+
         }
         this.handleSumbit = this.handleSumbit.bind(this)
         this.update=this.update.bind(this)
@@ -35,6 +39,9 @@ class BusinessForm extends React.Component{
         formData.append('business[address]',this.state.address)
         formData.append('business[phone_number]',this.state.phone_number)
         formData.append('business[business_type]',this.state.business_type)
+        formData.append('business[price]',this.state.price)
+        formData.append('business[long]',this.state.long)
+        formData.append('business[lat]',this.state.lat)
         console.log(formData)
         this.props.createBusiness(formData).then(
             ((res)=>this.props.history.push('/'))
