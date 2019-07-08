@@ -731,6 +731,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProp) {
+  console.log("look man this is map satew!!!!!!!!!!!!!!");
   return {
     businesses: Object.keys(state.entities.businesses).map(function (idNum) {
       return state.entities.businesses[idNum];
@@ -764,11 +765,17 @@ var mdtp = function mdtp(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 var IndexItem = function IndexItem(props) {
   console.log(props);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Address: ", props.business.address, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone Number: ", props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Price: ", props.business.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Long: ", props.business["long"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lat: ", props.business.lat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return props.history.push("/biz/".concat(props.business.id));
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Address: ", props.business.address, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone Number: ", props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Price: ", props.business.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Long: ", props.business["long"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lat: ", props.business.lat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: props.business.photoUrl
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
@@ -777,7 +784,7 @@ var IndexItem = function IndexItem(props) {
   }, "DElete"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (IndexItem);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(IndexItem));
 
 /***/ }),
 
@@ -824,16 +831,30 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DetailBusiness).call(this, props));
     _this.state = {};
-    console.log(props, 'this iin detail');
     return _this;
-  } //<img src={this.props.bussiness.photoUrl}/>
-
+  }
 
   _createClass(DetailBusiness, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchBusiness(this.props.match.params.bizId);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.match.params.bizId !== this.props.match.params.bizId) {
+        this.props.fetchBusiness(this.props.match.params.bizId);
+      }
+    } //business
+
+  }, {
     key: "render",
     value: function render() {
-      console.log(this.props, 'this is props');
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "THIISS IS THE SHOW Page");
+      var business = this.props.business;
+      if (!business) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: business.photoUrl
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "THIISS IS THE SHOW Page");
     }
   }]);
 
@@ -855,7 +876,9 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _biz_show_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./biz_show_component */ "./frontend/components/business/show/biz_show_component.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _biz_show_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./biz_show_component */ "./frontend/components/business/show/biz_show_component.jsx");
+
 
 
  //map state to props, from the params id get that slice of state
@@ -868,10 +891,14 @@ var mstp = function mstp(state, ownProps) {
 };
 
 var mdtp = function mdtp(dispatch) {
-  return {};
+  return {
+    fetchBusiness: function fetchBusiness(bizId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(bizId));
+    }
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_biz_show_component__WEBPACK_IMPORTED_MODULE_2__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_biz_show_component__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 

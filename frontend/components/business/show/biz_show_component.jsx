@@ -4,14 +4,25 @@ class DetailBusiness extends React.Component{
     constructor(props){
         super(props)
         this.state={}
-        console.log(props, 'this iin detail')
     }
 
-                //<img src={this.props.bussiness.photoUrl}/>
+    componentDidMount() {
+        this.props.fetchBusiness(this.props.match.params.bizId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.bizId !== this.props.match.params.bizId) {
+            this.props.fetchBusiness(this.props.match.params.bizId);
+        }
+    }
+    //business
     render(){
-        console.log(this.props,'this is props')
+        const { business } = this.props;
+        if (!business) return null;
         return(
             <div>
+                <img src={business.photoUrl}/>
+                <br/>
                 THIISS IS THE SHOW Page
             </div>
         )

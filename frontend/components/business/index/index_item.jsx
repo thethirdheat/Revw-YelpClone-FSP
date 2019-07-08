@@ -1,9 +1,10 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 const IndexItem =(props)=>{
     console.log(props)
     return (
-    <div>
+    <div onClick={()=>props.history.push(`/biz/${props.business.id}`)}>
         <br/>
         <p> Business Name:{props.business.business_name} </p>
         <p>Description: {props.business.description}</p> 
@@ -18,4 +19,4 @@ const IndexItem =(props)=>{
     </div>)
 
 }
-export default IndexItem 
+export default withRouter(IndexItem)
