@@ -5,8 +5,9 @@ class Api::BizPhotosController < ApplicationController
 
     def create
         @pic = BizPhoto.new(biz_photo_params)
+        @biz = Business.find(@pic.business_id)
         if @pic.save 
-            render '../views/api/bizphotos/show'
+            render '../views/api/businesses/show'
         else
             render json: @pic.errors.full_messages, status: 422 
         end

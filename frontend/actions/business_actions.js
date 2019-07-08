@@ -99,8 +99,8 @@ export const deleteBusiness = (bizId) => dispatch =>(
 export const createBizPicture =(bizPicture) => dispatch =>(
     APIUtil.makeBizPicture(bizPicture)
     .then(
-        (bizPic =>
-            /*dispatch(reciveSingleBusiness(bizPic))*/null)
+        (biz =>
+            dispatch(reciveSingleBusiness(biz)))
         ,( err =>
             dispatch(receiveBusinessError(err.responseJSON)))
     ) 

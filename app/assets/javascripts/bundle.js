@@ -206,11 +206,8 @@ var deleteBusiness = function deleteBusiness(bizId) {
 };
 var createBizPicture = function createBizPicture(bizPicture) {
   return function (dispatch) {
-    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["makeBizPicture"](bizPicture).then(function (bizPic) {
-      return (
-        /*dispatch(reciveSingleBusiness(bizPic))*/
-        null
-      );
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["makeBizPicture"](bizPicture).then(function (biz) {
+      return dispatch(reciveSingleBusiness(biz));
     }, function (err) {
       return dispatch(receiveBusinessError(err.responseJSON));
     });
@@ -942,6 +939,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -959,6 +957,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -989,15 +988,23 @@ function (_React$Component) {
         this.props.fetchBusiness(this.props.match.params.bizId);
       }
     } //business
+    //this.props.signIn({user: facebook}).then(()=>this.props.history.push('/'), ()=>{
 
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      console.log(this.props, "i'm tyring to fin dthe id");
       var business = this.props.business;
       if (!business) return null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: business.photoUrl
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "THIISS IS THE SHOW Page");
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: function onClick() {
+          return _this2.props.history.push("/biz/".concat(business.id, "/pic"));
+        }
+      }, "THIS IS A BUTTON!!"), "THIISS IS THE SHOW Page");
     }
   }]);
 
@@ -49075,7 +49082,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
