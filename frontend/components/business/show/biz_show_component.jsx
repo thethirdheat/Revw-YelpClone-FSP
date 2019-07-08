@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import ShowInfo from './info/show_info'
+import ShowMap from './directions/show_map'
 
 class DetailBusiness extends React.Component{
     constructor(props){
@@ -27,6 +29,8 @@ class DetailBusiness extends React.Component{
         const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
         return(
             <div>
+                <ShowInfo business={business}/>
+                <ShowMap business={business}/>
                 <img src={business.photoUrl}/>
                 <br/>
                 <div onClick={()=>this.props.history.push(`/biz/${business.id}/pic`)}>THIS IS A BUTTON!!</div>
