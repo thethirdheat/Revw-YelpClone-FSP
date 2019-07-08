@@ -1,11 +1,50 @@
 
+$yelpred: #d32323;
+$outer: 990px;
+
 .DummyMain{
     background: green;
 }
+.DummyMain--RSideBar{
+    background:  white;
+    grid-area: left;
+}
+.DummyMain--LSideBar{
+    background:  yellow;
+    grid-area: right;
+}
 .MainHeader{
+    z-index: 30;
+    grid-area: top;
     background: orange;
 }
 .Switching{
+    grid-area: main;
     background: red;
 
 }
+.DummyMain--Footer{
+    background: blue
+}
+
+.DummyMain--Footer{
+    height: 50px;
+    grid-area: bottom;
+}
+.DummyMain {
+  display:grid;
+  height:100vh;
+  grid-template-areas: "top top top"
+                        "left main right"
+                        "bottom bottom bottom" ;
+
+  grid-template-columns: 1fr $outer 1fr;
+  grid-template-rows: 90px 6fr;
+}
+
+.login--header{
+    background: $yelpred;
+    grid-area: top;
+    display: flex;
+    justify-content: center;
+} 
