@@ -1,7 +1,9 @@
-
+*{
+    border: .5px red solid;
+}
 $outer: 990px;
 .NavBar{
-    background: violet;
+    background: green;
     width: 100%;
     height: 100%;
     display: grid;
@@ -9,10 +11,9 @@ $outer: 990px;
                      "left main right"
                      "bottom bottom bottom";
 
-    grid-template-rows: 30px 6fr;
                         
 
-    grid-template-rows: 26px 64px;
+    grid-template-rows: 26px 65px 40px;
     grid-template-columns: 1fr $outer 1fr;
 }
 
@@ -32,6 +33,7 @@ $outer: 990px;
 
 }
 .NavMain{
+    height: 65px;
     background: blue;
     grid-area: main;
 
@@ -42,7 +44,8 @@ $outer: 990px;
 
 }
 .NavMain--bottom{
-    background: blue;
-    grid-area: main;
+    background: white;
+    z-index: 100;
+    grid-area: bottom;
 
 }

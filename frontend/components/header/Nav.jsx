@@ -7,13 +7,15 @@ import {Link} from 'react-router-dom'
 const Nav = () =>(
     <div className="NavBar">
         <div className="NavBarTop"  ><Link to ="/"><i className="fas fa-briefcase"></i> SignUp as Business</Link> </div>
-        <asid className="NavAside--left"></asid>
+        <aside className="NavAside--left"></aside>
         <div className="NavMain">
             <SearchBox/>
             <GreetingContainer />
-        <NavBar className="NavMain--bottom"/>
+            <div className="NavMain--bottom">
+                <NavBar/>
+            </div>>
         </div>
-        <asid className="NavAside--right"></asid>
+        <aside className="NavAside--right"></aside>
 
     </div>
 )

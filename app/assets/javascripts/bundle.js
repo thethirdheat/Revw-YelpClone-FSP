@@ -1332,9 +1332,9 @@ var Greeting = function Greeting(props) {
   };
 
   var withUser = function withUser() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "whatever"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "https://i.imgur.com/S5cgOk5.png"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: ""
     }, "Hi, ", props.currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "",
@@ -1431,13 +1431,13 @@ var Nav = function Nav() {
     to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-briefcase"
-  }), " SignUp as Business"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("asid", {
+  }), " SignUp as Business"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "NavAside--left"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavMain"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavMain--bottom"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("asid", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), ">"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "NavAside--right"
   }));
 };
