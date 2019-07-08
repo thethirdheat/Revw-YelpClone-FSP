@@ -15,6 +15,7 @@ class DetailBusiness extends React.Component{
             this.props.fetchBusiness(this.props.match.params.bizId);
         }
     }
+
     //business
     render(){
         const { business } = this.props;
