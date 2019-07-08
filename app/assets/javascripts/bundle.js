@@ -824,12 +824,15 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DetailBusiness).call(this, props));
     _this.state = {};
+    console.log(props, 'this iin detail');
     return _this;
-  }
+  } //<img src={this.props.bussiness.photoUrl}/>
+
 
   _createClass(DetailBusiness, [{
     key: "render",
     value: function render() {
+      console.log(this.props, 'this is props');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "THIISS IS THE SHOW Page");
     }
   }]);
@@ -856,9 +859,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
  //map state to props, from the params id get that slice of state
+//const pokemon = state.entities.pokemon[ownProps.match.params.pokemonId]
 
-var mstp = state,
-    ownProps = {};
+var mstp = function mstp(state, ownProps) {
+  return {
+    business: state.entities.businesses[ownProps.match.params.bizId]
+  };
+};
 
 var mdtp = function mdtp(dispatch) {
   return {};
