@@ -8,20 +8,24 @@ import DetailBusinessContainer from './business/show/biz_show_container'
 import UpLoadPictureContainer from './business/post_picture/post_picture_component'
 const Dummy=()=>{
     return(
-    <div>
+    <div className ="DummyMain">
         Look at Me!
         header goes here?
-        <header>
-            <div className="fuck">this is a div</div>
+        <header className ="MainHeader">
             <Nav />
             before index
         </header>
-        <Switch>
-            <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
-            <ProtectedRoute exact path="/biz/:bizId" component={DetailBusinessContainer} />
-            <ProtectedRoute exact path="/biz/:bizId/pic" component={UpLoadPictureContainer} />
-            <ProtectedRoute  path ="/" component={IndexContainer}/>
-        </Switch>
+        <aside className="DummyMain--LSideBar"></aside>
+        <div className="Switching">
+            <Switch>
+                <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
+                <ProtectedRoute exact path="/biz/:bizId" component={DetailBusinessContainer} />
+                <ProtectedRoute exact path="/biz/:bizId/pic" component={UpLoadPictureContainer} />
+                <ProtectedRoute  path ="/" component={IndexContainer}/>
+            </Switch>
+        </div>
+        <aside className="DummyMain--RSideBar"></aside>
+        <footer className="DummyMain--Footer"></footer>
         rest of stuff
     </div>
         )

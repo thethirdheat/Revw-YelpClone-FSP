@@ -9,9 +9,6 @@ return(
 <div>
     <div onClick={()=>props.history.push(`/biz/${business.id}/review`)}> <i className="fas fa-star"></i> Write a Review</div>
     <div onClick={()=>props.history.push(`/biz/${business.id}/pic`)}> <i className="fas fa-camera"></i> Add Photo</div>
-
-
-
 </div>)}
 
 export default withRouter(ShowLinks)

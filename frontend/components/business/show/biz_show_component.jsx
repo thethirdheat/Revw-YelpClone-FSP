@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import ShowInfo from './info/show_info'
 import ShowMap from './directions/show_map'
 import ShowLinks from './links/show_links'
+import ShowPictures from './pictures/show_pictures'
+
 
 class DetailBusiness extends React.Component{
     constructor(props){
@@ -26,17 +28,18 @@ class DetailBusiness extends React.Component{
         //console.log(this.props,"i'm tyring to fin dthe id")
         const { business } = this.props;
         if (!business || !business.pictures) return null;
-        //console.log(business,'this is biz')
-        const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
+        console.log(business,'this is biz')
+        //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
+        //console.log("this is biz",business)
+        //pictures = business.pictures.values
+        const pictures =Object.values(business.pictures)
         return(
             <div>
                 <ShowInfo business={business}/>
                 <ShowMap business={business}/>
                 <ShowLinks business={business}/>
-                <img src={business.photoUrl}/>
+                <ShowPictures pictures={pictures}/>
                 <br/>
-                <div onClick={()=>this.props.history.push(`/biz/${business.id}/pic`)}>THIS IS A BUTTON!!</div>
-                {pictures}
                 THIISS IS THE SHOW Page
             </div>
         )

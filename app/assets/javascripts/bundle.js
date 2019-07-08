@@ -956,6 +956,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _info_show_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./info/show_info */ "./frontend/components/business/show/info/show_info.jsx");
 /* harmony import */ var _directions_show_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directions/show_map */ "./frontend/components/business/show/directions/show_map.jsx");
 /* harmony import */ var _links_show_links__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./links/show_links */ "./frontend/components/business/show/links/show_links.jsx");
+/* harmony import */ var _pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pictures/show_pictures */ "./frontend/components/business/show/pictures/show_pictures.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -973,6 +974,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1011,36 +1013,23 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
-      if (!business || !business.pictures) return null; //console.log(business,'this is biz')
+      if (!business || !business.pictures) return null;
+      console.log(business, 'this is biz'); //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
+      //console.log("this is biz",business)
+      //pictures = business.pictures.values
 
-      var pictures = Object.values(business.pictures).map(function (pic) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: "".concat(pic.business_id).concat(pic.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: pic.pictureUrl
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this2.props.deleteBizPicture(pic.id);
-          }
-        }, "DELETE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
-      });
+      var pictures = Object.values(business.pictures);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_info_show_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_links_show_links__WEBPACK_IMPORTED_MODULE_4__["default"], {
         business: business
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: business.photoUrl
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        onClick: function onClick() {
-          return _this2.props.history.push("/biz/".concat(business.id, "/pic"));
-        }
-      }, "THIS IS A BUTTON!!"), pictures, "THIISS IS THE SHOW Page");
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        pictures: pictures
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "THIISS IS THE SHOW Page");
     }
   }]);
 
@@ -1186,6 +1175,78 @@ var ShowLinks = function ShowLinks(props) {
 
 /***/ }),
 
+/***/ "./frontend/components/business/show/pictures/picture_card.jsx":
+/*!*********************************************************************!*\
+  !*** ./frontend/components/business/show/pictures/picture_card.jsx ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PicCard = function PicCard(props) {
+  console.log(props);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.picture.pictureUrl
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.picture.caption));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PicCard); //
+
+/***/ }),
+
+/***/ "./frontend/components/business/show/pictures/show_pictures.jsx":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/business/show/pictures/show_pictures.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _picture_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./picture_card */ "./frontend/components/business/show/pictures/picture_card.jsx");
+
+
+
+var ShowPictures = function ShowPictures(props) {
+  var pictures = props.pictures;
+  console.log("------------------here", props, pictures); //<img src={ pictures[0].pictureUrl? pictures[1] : "https://i.imgur.com/kFUQft9.png"}/>
+
+  var blank = {
+    caption: "",
+    pictureUrl: "https://i.imgur.com/kFUQft9.png"
+  };
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    picture: pictures[1] ? pictures[1] : blank
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    picture: pictures[0] ? pictures[0] : blank
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    picture: pictures[2] ? pictures[2] : blank
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ShowPictures); //        <div>
+//            <img src={ pictures[0]? pictures[0].pictureUrl :"https://i.imgur.com/kFUQft9.png"}/>
+//        </div>
+//        <div>
+//            <img src={ pictures[2]? pictures[2].pictureUrl :"https://i.imgur.com/kFUQft9.png"}/>
+//        </div>
+//        <div>
+//            <img src={ picture? pictures[0].pictureUrl :"https://i.imgur.com/kFUQft9.png"}/>
+//        </div>
+//
+//        <div>
+//            <img src={ picture? pictures[2].pictureUrl :"https://i.imgur.com/kFUQft9.png"}/>
+//        </div>
+
+/***/ }),
+
 /***/ "./frontend/components/dummy.jsx":
 /*!***************************************!*\
   !*** ./frontend/components/dummy.jsx ***!
@@ -1214,9 +1275,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Dummy = function Dummy() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "fuck"
-  }, "this is a div"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], null), "before index"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "DummyMain"
+  }, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "MainHeader"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], null), "before index"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    className: "DummyMain--LSideBar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Switching"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/biz/new",
     component: _business_create_new_business_container__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -1231,7 +1298,11 @@ var Dummy = function Dummy() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     path: "/",
     component: _business_index_index_container__WEBPACK_IMPORTED_MODULE_1__["default"]
-  })), "rest of stuff");
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    className: "DummyMain--RSideBar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+    className: "DummyMain--Footer"
+  }), "rest of stuff");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);
