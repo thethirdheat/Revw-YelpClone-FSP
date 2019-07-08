@@ -2483,7 +2483,7 @@ var destroyBusiness = function destroyBusiness(bizId) {
 var makeBizPicture = function makeBizPicture(formBiz) {
   return $.ajax({
     method: 'post',
-    url: "/api/biz_photo",
+    url: "/api/biz_photos",
     data: formBiz,
     contentType: false,
     processData: false
@@ -49075,7 +49075,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

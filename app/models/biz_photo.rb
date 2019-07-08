@@ -4,7 +4,6 @@ class BizPhoto < ApplicationRecord
     validate :ensure_photo
 
     def ensure_photo
-        debugger
         unless self.picture.attached?
             errors[:picture]  << "must be attached"
         end

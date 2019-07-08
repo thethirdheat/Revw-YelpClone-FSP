@@ -1,15 +1,15 @@
-class BizphotosController < ApplicationController
+class Api::BizPhotosController < ApplicationController
 #    t.integer "user_id", null: false
 #    t.integer "business_id", null: false
 #    t.string "caption"
+
     def create
-        debugger
-#        @pic = BizPhoto.new(biz_photo_params)
-#        if @pic.save 
-#            render '../views/api/bizphotos/show'
-#        else
-#            render json: @pic.errors.full_messages, status: 422 
-#        end
+        @pic = BizPhoto.new(biz_photo_params)
+        if @pic.save 
+            render '../views/api/bizphotos/show'
+        else
+            render json: @pic.errors.full_messages, status: 422 
+        end
     end
 
     def destroy
