@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 class SearchBox extends React.Component{
     constructor(props){
@@ -21,23 +22,21 @@ class SearchBox extends React.Component{
     render(){
         return(
         <div>
-            <label> Type
-                <select value={this.state.business_type} onChange={this.update('business_type')}>
-                    <option defaultValue value="Restaurants">Restaurants</option>
-                    <option value="Home Service">Home Service</option>
-                    <option value="Auto Service">Auto Service</option>
-                    <option value="Night Life">Night Life</option>
-                </select>
+            <span>
+            <div className=""><Link to ="/">🆁🅴🆅🆆</Link></div>
+            <select value={this.state.business_type} onChange={this.update('business_type')}>
+                <option defaultValue value="Restaurants">Restaurants</option>
+                <option value="Home Service">Home Service</option>
+                <option value="Auto Service">Auto Service</option>
+                <option value="Night Life">Night Life</option>
+            </select>
 
-            </label>
-            <label> Type 
-                <input type="text" value={this.state.find} onChange={this.update('find')}/>
-            </label> 
+            <input type="text" value={this.state.find} onChange={this.update('find')}/>
 
             <button onClick={()=>console.log("this should submit the form ",this.state)}>
                 <i className="fas fa-search"></i> 
             </button>
-                
+            </span>
 
         </div>)
     }

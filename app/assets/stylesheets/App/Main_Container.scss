@@ -2,25 +2,26 @@
 $yelpred: #d32323;
 $outer: 990px;
 
+.MainHeader{
+    position: relative;
+    z-index: 30;
+    grid-area: top;
+    background: rgb(35, 156, 255);
+}
 .DummyMain{
     background: green;
 }
 .DummyMain--RSideBar{
-    background:  white;
+    background:  rgb(255, 254, 196);
     grid-area: left;
 }
 .DummyMain--LSideBar{
-    background:  yellow;
+    background:  rgb(215, 184, 255);
     grid-area: right;
-}
-.MainHeader{
-    z-index: 30;
-    grid-area: top;
-    background: orange;
 }
 .Switching{
     grid-area: main;
-    background: red;
+    background: rgb(103, 255, 255);
 
 }
 .DummyMain--Footer{
@@ -39,7 +40,7 @@ $outer: 990px;
                         "bottom bottom bottom" ;
 
   grid-template-columns: 1fr $outer 1fr;
-  grid-template-rows: 90px 6fr;
+  grid-template-rows: 130px 6fr;
 }
 
 .login--header{

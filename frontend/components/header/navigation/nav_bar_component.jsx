@@ -2,7 +2,6 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 const NavBar = (props)=>(
     <div>
-        <div className=""><Link to ="/">🆁🅴🆅🆆</Link></div>
         <div> <i className="fas fa-utensils"></i>Restaurants</div>
         <div> <i className="fas fa-home"></i>Home Services</div>
         <div><i className="fas fa-car-alt"></i>Auto Services</div> 
