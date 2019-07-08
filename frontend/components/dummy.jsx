@@ -5,7 +5,7 @@ import {  ProtectedRoute } from '../util/route_util';
 import CreateBusinessContainer from './business/create/new_business_container' 
 import Nav from './header/Nav'
 import DetailBusinessContainer from './business/show/biz_show_container'
-
+import UpLoadPictureContainer from './business/post_picture/post_picture_component'
 const Dummy=()=>{
     return(
     <div>
@@ -19,6 +19,7 @@ const Dummy=()=>{
         <Switch>
             <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
             <ProtectedRoute exact path="/biz/:bizId" component={DetailBusinessContainer} />
+            <ProtectedRoute exact path="/biz/:bizId/pic" component={UpLoadPictureContainer} />
             <ProtectedRoute  path ="/" component={IndexContainer}/>
         </Switch>
         rest of stuff

@@ -100,7 +100,7 @@ export const createBizPicture =(bizPicture) => dispatch =>(
     APIUtil.makeBizPicture(bizPicture)
     .then(
         (bizPic =>
-            dispatch(reciveSingleBusiness(bizPic)))
+            /*dispatch(reciveSingleBusiness(bizPic))*/null)
         ,( err =>
             dispatch(receiveBusinessError(err.responseJSON)))
     ) 
