@@ -955,6 +955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _info_show_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./info/show_info */ "./frontend/components/business/show/info/show_info.jsx");
 /* harmony import */ var _directions_show_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directions/show_map */ "./frontend/components/business/show/directions/show_map.jsx");
+/* harmony import */ var _links_show_links__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./links/show_links */ "./frontend/components/business/show/links/show_links.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -972,6 +973,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1029,6 +1031,8 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_info_show_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        business: business
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_links_show_links__WEBPACK_IMPORTED_MODULE_4__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: business.photoUrl
@@ -1104,9 +1108,17 @@ var ShowMap = function ShowMap(props) {
   var business = props.business;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://i.imgur.com/KDOjFXw.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-map-marker-alt"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.address)));
+  }), business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-directions"
+  }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "search"
+  }, "Get Directions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-phone-alt"
+  }), business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-external-link-alt"
+  }), " business.website.com")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowMap);
@@ -1133,6 +1145,44 @@ var ShowInfo = function ShowInfo(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowInfo);
+
+/***/ }),
+
+/***/ "./frontend/components/business/show/links/show_links.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/business/show/links/show_links.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+var ShowLinks = function ShowLinks(props) {
+  var business = props.business;
+  console.log(props, 'this is in showInnfo1');
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return props.history.push("/biz/".concat(business.id, "/review"));
+    }
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-star"
+  }), " Write a Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return props.history.push("/biz/".concat(business.id, "/pic"));
+    }
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-camera"
+  }), " Add Photo"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ShowLinks));
 
 /***/ }),
 

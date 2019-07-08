@@ -4,7 +4,14 @@ const ShowMap =(props)=>{
 return(
 <div>
     <img src="https://i.imgur.com/KDOjFXw.png"/>
-    <i className="fas fa-map-marker-alt"></i><div><p>{business.address}</p></div>
+    <div>
+        <p><i className="fas fa-map-marker-alt"></i>{business.address}</p> 
+        <p><i className="fas fa-directions"></i> <a href="search">Get Directions</a></p>
+        <p><i className="fas fa-phone-alt"></i>{business.phone_number}</p>
+        <p><i className="fas fa-external-link-alt"></i> business.website.com</p>
+
+
+    </div>
 
 
 </div>)}
