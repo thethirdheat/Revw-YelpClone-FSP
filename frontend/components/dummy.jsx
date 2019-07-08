@@ -4,6 +4,7 @@ import {Switch } from 'react-router-dom';
 import {  ProtectedRoute } from '../util/route_util';
 import CreateBusinessContainer from './business/create/new_business_container' 
 import Nav from './header/Nav'
+import DetailBusinessContainer from './business/show/biz_show_container'
 
 const Dummy=()=>{
     return(
@@ -17,6 +18,7 @@ const Dummy=()=>{
         </header>
         <Switch>
             <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
+            <ProtectedRoute exact path="/biz/:bizId" component={DetailBusinessContainer} />
             <ProtectedRoute  path ="/" component={IndexContainer}/>
         </Switch>
         rest of stuff

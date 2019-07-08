@@ -8,7 +8,7 @@ class Business < ApplicationRecord
 
     has_one_attached :photo
 
-    has_many :biz_photos,
+    has_many :pictures,
         foreign_key: :business_id,
         class_name: :BizPhoto
 

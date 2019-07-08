@@ -35,9 +35,7 @@ class Api::BusinessesController < ApplicationController
         # make sure its the current users restaurants and dedete it if it is check this first
         #@biz= User.find(current_user).business
         @biz = Business.find(params[:id])
-        if @biz
-            p 'testing now'
-            
+        if @biz 
             
             @biz.destroy
             #render json: ["this is destory route"]
