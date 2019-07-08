@@ -9,23 +9,19 @@ $outer: 990px;
     background: rgb(35, 156, 255);
 }
 .DummyMain{
-    background: green;
 }
 .DummyMain--RSideBar{
-    background:  rgb(255, 254, 196);
     grid-area: left;
 }
 .DummyMain--LSideBar{
-    background:  rgb(215, 184, 255);
     grid-area: right;
 }
 .Switching{
     grid-area: main;
-    background: rgb(103, 255, 255);
+    background: rgb(118, 228, 228);
 
 }
 .DummyMain--Footer{
-    background: blue
 }
 
 .DummyMain--Footer{

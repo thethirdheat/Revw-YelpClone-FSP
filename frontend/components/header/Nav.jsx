@@ -9,8 +9,14 @@ const Nav = () =>(
         <div className="NavBarTop"  ><Link to ="/"><i className="fas fa-briefcase"></i> SignUp as Business</Link> </div>
         <aside className="NavAside--left"></aside>
         <div className="NavMain">
-            <SearchBox/>
-            <GreetingContainer />
+            <div className="Nav--Searchbox">
+                <SearchBox/> 
+            </div>
+
+            <div className="Nav--Greeting">
+                <GreetingContainer />
+            </div>
+
             <div className="NavMain--bottom">
                 <NavBar/>
             </div>>

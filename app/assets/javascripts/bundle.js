@@ -1332,14 +1332,16 @@ var Greeting = function Greeting(props) {
   };
 
   var withUser = function withUser() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "greeting--container"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: "https://i.imgur.com/S5cgOk5.png"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: ""
+      className: "greeting_username"
     }, "Hi, ", props.currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "",
       onClick: onSend
-    }, "Log Out"));
+    }, "Log Out")));
   };
 
   var noUser = function noUser() {
@@ -1435,7 +1437,11 @@ var Nav = function Nav() {
     className: "NavAside--left"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavMain"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Nav--Searchbox"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Nav--Greeting"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavMain--bottom"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), ">"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "NavAside--right"
@@ -1570,7 +1576,9 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
@@ -1596,7 +1604,7 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      }))));
+      })))));
     }
   }]);
 

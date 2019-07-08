@@ -3,7 +3,7 @@
 }
 $outer: 990px;
 .NavBar{
-    background: green;
+    background: rgb(238, 204, 238);
     width: 100%;
     height: 100%;
     display: grid;
@@ -33,7 +33,7 @@ $outer: 990px;
 
 }
 .NavMain{
-    height: 65px;
+    height: 100%;
     background: blue;
     grid-area: main;
 
@@ -44,8 +44,29 @@ $outer: 990px;
 
 }
 .NavMain--bottom{
-    background: white;
-    z-index: 100;
+    background: orange;
     grid-area: bottom;
+
+}
+.Greeting{
+    z-index: 100;
+    background: purple;
+    height: 100%;
+    width: 30px;
+}
+
+
+.greeting--container{
+    width: 120px;
+    background: orange
+}
+.Nav--Searchbox{
+    width:50%;
+    background: purple;
+
+}
+.Nav--Greeting{
+    width: 50%;
+    background: red;
 
 }

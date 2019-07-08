@@ -9,9 +9,11 @@ const Greeting =(props)=>{
 
     const withUser =()=>(
         <div>
-            <img src="https://i.imgur.com/S5cgOk5.png"/>
-            <h2 className="">Hi, {props.currentUser.username}!</h2>
-            <button className="" onClick={onSend}>Log Out</button >
+            <div className="greeting--container"> 
+                <img src="https://i.imgur.com/S5cgOk5.png"/>
+                <h2 className="greeting_username">Hi, {props.currentUser.username}!</h2>
+                <button className="" onClick={onSend}>Log Out</button >
+            </div>
         </div> 
     )
 
