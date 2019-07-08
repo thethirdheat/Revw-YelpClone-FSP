@@ -15,7 +15,14 @@ class Api::BizPhotosController < ApplicationController
 
     def destroy
         @pic = BizPhoto.find(params[:id]) 
-        render '../views/api/businesses/show' 
+        @biz = Business.find(@pic.business_id)
+
+        if current_user.id != @pic.user_id
+            @pic.destroy
+            render '../views/api/businesses/show' 
+        else
+            render json: ["You may only remove your own picture"], status: 404
+        end
     end
 
 #    t.integer "user_id", null: false

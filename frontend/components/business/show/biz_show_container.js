@@ -1,7 +1,7 @@
 
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {fetchBusiness} from '../../../actions/business_actions'
+import {fetchBusiness, deleteBizPicture} from '../../../actions/business_actions'
 
 import DetailBusiness from './biz_show_component'
 
@@ -15,7 +15,8 @@ const  mstp = (state,ownProps)=>{
 }}
 
 const mdtp = dispatch =>({
-    fetchBusiness: (bizId)=> dispatch(fetchBusiness(bizId))
+    fetchBusiness: (bizId)=> dispatch(fetchBusiness(bizId)),
+    deleteBizPicture: (bizId)=> dispatch(deleteBizPicture(bizId))
 
 })
 

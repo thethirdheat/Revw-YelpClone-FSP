@@ -90,7 +90,7 @@
 /*!**********************************************!*\
   !*** ./frontend/actions/business_actions.js ***!
   \**********************************************/
-/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, RECEIVE_PICTURE, REMOVE_PICTURE, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness, createBizPicture */
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, RECEIVE_PICTURE, REMOVE_PICTURE, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness, createBizPicture, deleteBizPicture */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -107,6 +107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeBusiness", function() { return changeBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBusiness", function() { return deleteBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBizPicture", function() { return createBizPicture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBizPicture", function() { return deleteBizPicture; });
 /* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_api_util */ "./frontend/util/business_api_util.js");
 
 var RECEIVE_ALL_BUSINESSES = "RECIEVE_ALL_BUSINESSES";
@@ -207,8 +208,20 @@ var deleteBusiness = function deleteBusiness(bizId) {
 var createBizPicture = function createBizPicture(bizPicture) {
   return function (dispatch) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["makeBizPicture"](bizPicture).then(function (biz) {
+      //console.log(biz,"thi si sthe response from create4")
       return dispatch(reciveSingleBusiness(biz));
     }, function (err) {
+      return dispatch(receiveBusinessError(err.responseJSON));
+    });
+  };
+};
+var deleteBizPicture = function deleteBizPicture(picId) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyBizPicture"](picId).then(function (biz) {
+      console.log("this is res from dest", biz);
+      return dispatch(reciveSingleBusiness(biz));
+    }, function (err) {
+      console.log("this iss err!! from dest", err);
       return dispatch(receiveBusinessError(err.responseJSON));
     });
   };
@@ -980,14 +993,13 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchBusiness(this.props.match.params.bizId);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (prevProps.match.params.bizId !== this.props.match.params.bizId) {
-        this.props.fetchBusiness(this.props.match.params.bizId);
-      }
-    } //business
+    } //    componentDidUpdate(prevProps) {
+    //        if (prevProps.match.params.bizId !== this.props.match.params.bizId) {
+    //            this.props.fetchBusiness(this.props.match.params.bizId);
+    //        }
+    //    }
+    //deleteBizPicture
+    //business
     //this.props.signIn({user: facebook}).then(()=>this.props.history.push('/'), ()=>{
 
   }, {
@@ -995,16 +1007,28 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props, "i'm tyring to fin dthe id");
+      //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
-      if (!business) return null;
+      if (!business || !business.pictures) return null; //console.log(business,'this is biz')
+
+      var pictures = Object.values(business.pictures).map(function (pic) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: "".concat(pic.business_id).concat(pic.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: pic.pictureUrl
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.props.deleteBizPicture(pic.id);
+          }
+        }, "DELETE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: business.photoUrl
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: function onClick() {
           return _this2.props.history.push("/biz/".concat(business.id, "/pic"));
         }
-      }, "THIS IS A BUTTON!!"), "THIISS IS THE SHOW Page");
+      }, "THIS IS A BUTTON!!"), pictures, "THIISS IS THE SHOW Page");
     }
   }]);
 
@@ -1044,6 +1068,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     fetchBusiness: function fetchBusiness(bizId) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(bizId));
+    },
+    deleteBizPicture: function deleteBizPicture(bizId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["deleteBizPicture"])(bizId));
     }
   };
 };
@@ -2500,7 +2527,7 @@ var makeBizPicture = function makeBizPicture(formBiz) {
 var destroyBizPicture = function destroyBizPicture(bizId) {
   return $.ajax({
     method: 'delete',
-    url: "/api/biz_photo/".concat(bizId)
+    url: "/api/biz_photos/".concat(bizId)
   });
 };
 

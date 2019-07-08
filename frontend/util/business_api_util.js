@@ -58,5 +58,5 @@ export const makeBizPicture = (formBiz)=>(
 
 //api_biz_photo DELETE /api/biz_photo/:id(.:format)               api/biz_photo#destroy {:format=>:json}
 export const destroyBizPicture = (bizId)=>(
-    $.ajax({method:'delete', url:`/api/biz_photo/${bizId}`})
+    $.ajax({method:'delete', url:`/api/biz_photos/${bizId}`})
 )

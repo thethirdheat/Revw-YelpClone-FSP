@@ -100,11 +100,28 @@ export const createBizPicture =(bizPicture) => dispatch =>(
     APIUtil.makeBizPicture(bizPicture)
     .then(
         (biz =>
-            dispatch(reciveSingleBusiness(biz)))
+            { //console.log(biz,"thi si sthe response from create4")
+                return dispatch(reciveSingleBusiness(biz))})
         ,( err =>
             dispatch(receiveBusinessError(err.responseJSON)))
     ) 
 )
+
+export const deleteBizPicture = (picId) => dispatch =>(
+    APIUtil.destroyBizPicture(picId)
+    .then(
+        (biz =>
+            { console.log("this is res from dest", biz)
+                return dispatch(reciveSingleBusiness(biz))})
+        ,( err =>{
+            console.log("this iss err!! from dest", err) 
+            return dispatch(receiveBusinessError(err.responseJSON))})
+    ) 
+)
+
+
+
+
    // receivePicture = ()=>({
 
 //fetchAllBusinesses
