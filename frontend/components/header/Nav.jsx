@@ -5,24 +5,26 @@ import GreetingContainer from '../greeting/greeting_container'
 import {Link} from 'react-router-dom'
 
 const Nav = () =>(
-    <div className="NavBar">
-        <div className="NavBarTop"  ><Link to ="/"><i className="fas fa-briefcase"></i> SignUp as Business</Link> </div>
-        <aside className="NavAside--left"></aside>
-        <div className="NavMain">
-            <div className="Nav--Searchbox">
-                <SearchBox/> 
-            </div>
+    <div>
+        <div className="NavBar">
+            <div className="NavBarTop"  ><Link to ="/"><i className="fas fa-briefcase"></i> SignUp as Business</Link> </div>
+            <aside className="NavAside--left"></aside>
+            <div className="NavMain">
+                <div className="Nav--Searchbox">
+                    <SearchBox/> 
+                </div>
 
-            <div className="Nav--Greeting">
-                <GreetingContainer />
-            </div>
+                <div className="Nav--Greeting">
+                    <GreetingContainer />
+                </div>
 
+            </div>
+            <aside className="NavAside--right"></aside>
             <div className="NavMain--bottom">
                 <NavBar/>
             </div>>
-        </div>
-        <aside className="NavAside--right"></aside>
 
+        </div>
     </div>
 )
 export default Nav

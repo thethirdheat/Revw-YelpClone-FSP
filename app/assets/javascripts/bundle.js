@@ -1425,7 +1425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Nav = function Nav() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavBar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavBarTop"
@@ -1441,11 +1441,11 @@ var Nav = function Nav() {
     className: "Nav--Searchbox"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Nav--Greeting"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "NavMain--bottom"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), ">"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "NavAside--right"
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "NavMain--bottom"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), ">"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
@@ -1468,19 +1468,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NavBar = function NavBar(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "NavbarBottom"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    className: "Navbar--Bot__Left"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__Main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__Container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__button"
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-utensils"
-  }), "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__button"
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-home"
-  }), "Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-car-alt"
-  }), "Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), "Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__button"
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas  fa-glass-martini-alt "
-  }), "Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }), "Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Navbar--Bot__button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/biz/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-store"
-  }), " Create a Business"), " "));
+  }), " Create a Business"), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+    className: "Navbar--Bot__Rigth"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
@@ -1578,11 +1598,13 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search--container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Search--Logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
-      }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        clasName: "Search--Bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         value: this.state.business_type,
         onChange: this.update('business_type')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {

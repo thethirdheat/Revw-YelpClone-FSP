@@ -1,0 +1,36 @@
+
+
+$outer: 990px;
+.NavbarBottom{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: "left main right" ;
+    grid-template-columns: 1fr $outer 1fr; 
+
+}
+
+.Navbar--Bot__Main{
+    background: pink;
+    grid-area: main;
+
+}
+.Navbar--Bot__Left{
+    grid-area: left; 
+
+}
+.Navbar--Bot__Rigth{
+    grid-area: right; 
+
+}
+.Navbar--Bot__Container{
+    background: purple;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.Navbar--Bot__button{
+    float:left;
+    width: 100px;
+}
