@@ -1596,15 +1596,20 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Search"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search--Logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        clasName: "Search--Bar"
+        className: "Search--Bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Search--Bar__bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "Search--bar__select",
         value: this.state.business_type,
         onChange: this.update('business_type')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -1618,9 +1623,10 @@ function (_React$Component) {
         value: "Night Life"
       }, "Night Life")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        className: "Search--bar__input",
         value: this.state.find,
         onChange: this.update('find')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return console.log("this should submit the form ", _this3.state);
         }

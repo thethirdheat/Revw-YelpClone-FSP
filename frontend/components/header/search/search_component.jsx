@@ -21,20 +21,21 @@ class SearchBox extends React.Component{
 
     render(){
         return(
-        <div>
+        <div className="Search">
             <div className="search--container">
 
             
                 <div className="Search--Logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
-                <div clasName="Search--Bar">
-                    <select value={this.state.business_type} onChange={this.update('business_type')}>
-                        <option defaultValue value="Restaurants">Restaurants</option>
-                        <option value="Home Service">Home Service</option>
-                        <option value="Auto Service">Auto Service</option>
-                        <option value="Night Life">Night Life</option>
-                    </select>
-
-                    <input type="text" value={this.state.find} onChange={this.update('find')}/>
+                <div className="Search--Bar">
+                    <div className="Search--Bar__bar">
+                        <select className="Search--bar__select" value={this.state.business_type} onChange={this.update('business_type')}>
+                            <option defaultValue value="Restaurants">Restaurants</option>
+                            <option value="Home Service">Home Service</option>
+                            <option value="Auto Service">Auto Service</option>
+                            <option value="Night Life">Night Life</option>
+                        </select>
+                        <input type="text" className="Search--bar__input" value={this.state.find} onChange={this.update('find')}/>
+                    </div>
 
                     <button onClick={()=>console.log("this should submit the form ",this.state)}>
                         <i className="fas fa-search"></i> 

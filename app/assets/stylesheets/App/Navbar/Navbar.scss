@@ -1,7 +1,7 @@
 *{
     /*border: .5px red solid;*/
 }
-$outer: 990px;
+$outer: 960px;
 .NavBar{
     width: 100%;
     height: 100%;
@@ -36,7 +36,7 @@ $outer: 990px;
     background: blue;
     grid-area: main;
     display: flex;
-    align-content: center;
+    justify-content: space-between
 
 }
 .NavAside--right{
@@ -52,16 +52,23 @@ $outer: 990px;
 
 
 .greeting--container{
-    width: 120px;
+    height: 120px;
+    width: 200px;
     background: orange
 }
 .Nav--Searchbox{
-    width:20%;
-    background: green;;
+    width:100%;
+    background: black;
 
 }
 .Nav--Greeting{
-    width: 50%;
+    width: 165px;
     background: red;
+    float: left;
 
+}
+.Search{
+    height: 100%;
+    width: 100%;
+    background: purple
 }
