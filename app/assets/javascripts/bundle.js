@@ -1021,11 +1021,17 @@ function (_React$Component) {
       //pictures = business.pictures.values
 
       var pictures = Object.values(business.pictures);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_info_show_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        business: business
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ShowPage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ShowBackground"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Show--Top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_info_show_info__WEBPACK_IMPORTED_MODULE_2__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_links_show_links__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        business: business
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
         pictures: pictures
@@ -1095,7 +1101,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var ShowMap = function ShowMap(props) {
   var business = props.business;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://i.imgur.com/KDOjFXw.png"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-map-marker-alt"
@@ -1114,6 +1122,58 @@ var ShowMap = function ShowMap(props) {
 
 /***/ }),
 
+/***/ "./frontend/components/business/show/info/rating.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/business/show/info/rating.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var RatingStars = function RatingStars(props) {
+  console.log(props);
+  var count = props.stars;
+
+  var star = function star() {
+    if (count >= 1) {
+      count--;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Rating--background__red"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star Rating--star__red"
+      }));
+    } else if (count < 1 && count >= 0.5) {
+      count = 0;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Rating--background__half"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        clasName: "rating_half"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star Rating--star__half"
+      }));
+    } else {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Rating--bacground__white"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star  Rating--star__white"
+      }));
+    }
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "RatingStars"
+  }, "this hsoudl how", star(), star(), star(), star(), star());
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RatingStars);
+
+/***/ }),
+
 /***/ "./frontend/components/business/show/info/show_info.jsx":
 /*!**************************************************************!*\
   !*** ./frontend/components/business/show/info/show_info.jsx ***!
@@ -1125,12 +1185,18 @@ var ShowMap = function ShowMap(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./rating */ "./frontend/components/business/show/info/rating.jsx");
+
 
 
 var ShowInfo = function ShowInfo(props) {
   var business = props.business;
   console.log(props, 'this is in showInnfo1');
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is the rating!!!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is reveiwe count"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.price, " ", business.business_type));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowInfo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business.business_name), "it should be here!!!!!!!!!!!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    stars: 4
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is the rating!!!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is reveiwe count"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.price, " ", business.business_type));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowInfo);
@@ -1156,7 +1222,9 @@ __webpack_require__.r(__webpack_exports__);
 var ShowLinks = function ShowLinks(props) {
   var business = props.business;
   console.log(props, 'this is in showInnfo1');
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowLinks"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: function onClick() {
       return props.history.push("/biz/".concat(business.id, "/review"));
     }
@@ -1222,7 +1290,9 @@ var ShowPictures = function ShowPictures(props) {
     caption: "",
     pictureUrl: "https://i.imgur.com/kFUQft9.png"
   };
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowPictures"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     picture: pictures[1] ? pictures[1] : blank
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     picture: pictures[0] ? pictures[0] : blank

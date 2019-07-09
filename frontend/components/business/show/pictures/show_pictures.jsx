@@ -6,7 +6,7 @@ const ShowPictures = (props)=>{
             //<img src={ pictures[0].pictureUrl? pictures[1] : "https://i.imgur.com/kFUQft9.png"}/>
             const blank = {caption: "", pictureUrl:"https://i.imgur.com/kFUQft9.png" }
     return ( 
-    <div>
+    <div className="ShowPictures">
         <div>
             <PicCard picture = {pictures[1] ? pictures[1]: blank}/>
         </div>

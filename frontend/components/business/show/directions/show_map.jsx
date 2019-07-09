@@ -2,7 +2,7 @@ import React from 'react'
 const ShowMap =(props)=>{
     const {business}=props
 return(
-<div>
+<div className="ShowMap">
     <img src="https://i.imgur.com/KDOjFXw.png"/>
     <div>
         <p><i className="fas fa-map-marker-alt"></i>{business.address}</p> 

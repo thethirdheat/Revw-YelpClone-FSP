@@ -34,10 +34,13 @@ class DetailBusiness extends React.Component{
         //pictures = business.pictures.values
         const pictures =Object.values(business.pictures)
         return(
-            <div>
-                <ShowInfo business={business}/>
+            <div className = "ShowPage">
+                <div className="ShowBackground"></div>
+                <div className="Show--Top">
+                    <ShowInfo business={business}/>
+                    <ShowLinks business={business}/> 
+                </div>
                 <ShowMap business={business}/>
-                <ShowLinks business={business}/>
                 <ShowPictures pictures={pictures}/>
                 <br/>
                 THIISS IS THE SHOW Page

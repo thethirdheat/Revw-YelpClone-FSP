@@ -13,7 +13,7 @@ $outer: 960px;
 }
 
 .Navbar--Bot__Main{
-    background: pink;
+    /*background: pink;*/
     grid-area: main;
     height: 100%;
 
@@ -51,7 +51,7 @@ $outer: 960px;
     border-left: 0px;
     border-top: 0px;
     border-style: solid;
-    border-color:pink;
+    border-color:$BorderColor;
 
 }
 .Navbar--Bot__button{

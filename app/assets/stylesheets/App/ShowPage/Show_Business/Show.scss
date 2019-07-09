@@ -1,0 +1,71 @@
+$FixedHeight: 396px;
+$BorderColor: #E6E6E6;
+.ShowPage{
+    background: green;
+    height: $FixedHeight;
+
+}
+.ShowBackground{
+    left:0;
+    z-index: -3;
+    position: absolute;
+    float: left;
+    background: pink;
+    width: 100%;
+    height: $FixedHeight;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-bottom:3px;
+    border-color: $BorderColor;
+    border-style: solid;
+
+}
+.Show--Top{
+    background: lightblue;
+    display: flex;
+
+
+}
+.ShowInfo{
+    width: 50%;
+    background: violet;
+
+}
+.ShowLinks{
+    width: 50%;
+    background:red;
+    
+}
+.ShowMap{
+    background: blue;
+    
+}
+.ShowPictures{
+    background:yellow   ;
+    
+}
+.Rating--star__red{
+    color:white;
+
+}
+.Rating--star__half{
+    
+}
+.Rating--star__white{
+    color:white;
+}
+.Rating--background__red{
+    background: red;
+}
+.rating_half{
+    background: pink;
+}
+.Rating--background__half{
+
+
+}
+
+.Rating--bacground__white{
+    background:grey 
+}
