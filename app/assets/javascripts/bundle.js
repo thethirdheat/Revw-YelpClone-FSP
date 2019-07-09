@@ -1138,27 +1138,30 @@ __webpack_require__.r(__webpack_exports__);
 var RatingStars = function RatingStars(props) {
   console.log(props);
   var count = props.stars;
+  var amount = 3;
 
   var star = function star() {
     if (count >= 1) {
       count--;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Rating--background__red"
+        className: "RB Rating--background__red"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-star Rating--star__red"
       }));
     } else if (count < 1 && count >= 0.5) {
       count = 0;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Rating--background__half"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        clasName: "rating_half"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star Rating--star__half"
-      }));
+        className: "RB Rating--background__half"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "half_div"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "half_color"
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "z-index-up fas fa-star Rating--star__half"
+      })));
     } else {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Rating--bacground__white"
+        className: "RB Rating--bacground__white"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-star  Rating--star__white"
       }));
@@ -1167,7 +1170,9 @@ var RatingStars = function RatingStars(props) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "RatingStars"
-  }, "this hsoudl how", star(), star(), star(), star(), star());
+  }, star(), star(), star(), star(), star(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "Ratings--ReveiewAmount"
+  }, amount, " Reviews"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RatingStars);
@@ -1192,11 +1197,17 @@ __webpack_require__.r(__webpack_exports__);
 var ShowInfo = function ShowInfo(props) {
   var business = props.business;
   console.log(props, 'this is in showInnfo1');
+  var price = "";
+
+  for (var i = 0; i < business.price; i++) {
+    price += "$";
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ShowInfo"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business.business_name), "it should be here!!!!!!!!!!!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    stars: 4
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is the rating!!!"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is reveiwe count"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.price, " ", business.business_type));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business.business_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    stars: 2.5
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, price, " \xA0\u25CF \xA0", business.business_type));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowInfo);
@@ -1225,18 +1236,22 @@ var ShowLinks = function ShowLinks(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ShowLinks"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowLinks--Grid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowLinks--Review",
     onClick: function onClick() {
       return props.history.push("/biz/".concat(business.id, "/review"));
     }
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-star"
   }), " Write a Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowLinks--Picture",
     onClick: function onClick() {
       return props.history.push("/biz/".concat(business.id, "/pic"));
     }
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-camera"
-  }), " Add Photo"));
+  }), " Add Photo")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ShowLinks));
