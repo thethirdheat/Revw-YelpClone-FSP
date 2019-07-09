@@ -7,12 +7,17 @@ const Greeting =(props)=>{
         props.logout()//.then(res=>props.history.push('/wtfitsowrking??'))
     )
 
+                    /*<h2 className="greeting_username">Hi, {props.currentUser.username}!</h2> */
+/*className="Nav--Greeting"*/
     const withUser =()=>(
-        <div>
+        <div className="center">
             <div className="greeting--container"> 
-                <img src="https://i.imgur.com/S5cgOk5.png"/>
-                <h2 className="greeting_username">Hi, {props.currentUser.username}!</h2>
-                <button className="" onClick={onSend}>Log Out</button >
+
+
+                <div className="Greeting--NameContainer">
+                </div>
+                <div className="Greeting--Logout" onClick={onSend}>Log<br/>Out</div >
+                <img className="Greeting-Img" src="https://i.imgur.com/S5cgOk5.png"/>
             </div>
         </div> 
     )

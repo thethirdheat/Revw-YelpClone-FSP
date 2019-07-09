@@ -14,15 +14,13 @@ const Nav = () =>(
                     <SearchBox/> 
                 </div>
 
-                <div className="Nav--Greeting">
                     <GreetingContainer />
-                </div>
 
             </div>
             <aside className="NavAside--right"></aside>
             <div className="NavMain--bottom">
                 <NavBar/>
-            </div>>
+            </div>
 
         </div>
     </div>

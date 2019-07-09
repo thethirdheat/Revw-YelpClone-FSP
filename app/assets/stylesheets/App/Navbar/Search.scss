@@ -1,7 +1,9 @@
+$rounded: 5px;
 .search--container{
+    position: relative;
     width: 100%;
     height: 100%;
-    background: pink;;
+    /*background: pink;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,7 +11,6 @@
 .Search--Logo{
     color: #fff;
     font-size: 25px;
-    background: purple;
 
 }
 .Search--Bar{
@@ -17,10 +18,8 @@
     justify-content: center;
     align-items: center;
     width:695px;
-    height: 40px;
-    background: red;
+    height: 38px;
     input[type=text]{
-        height: 31px;
         font-size: 14px;
         border: none;
 
@@ -29,41 +28,67 @@
         padding-left: 15px;
     }
 
+
 }
 .Search--bar__select{ 
     border: none;
-    height: 31px;
-    width:45%;
+    height: 100%;
+    width:43%;
     background: #fff;
 }
 .Search--bar__input{
-    height: 100%;
-    width:50%;
+    height:100%;
+    width:48%;
+    
+    /*background: pink;*/
 
 }
+.Search--bar__input::before{
+    z-index: 30;
+}
+
 .Search--Bar__bar{
-    width:95%;
-    background: blue;
+    height: 100%;;
+    width:94%;
+    background: white;
+    border:none;
+    border-radius: $rounded 0px 0px $rounded;
 }
 select {
-   -webkit-appearance: none; 
-   -moz-appearance: none;
-   appearance: none;       /* remove default arrow */
-   background-image: url(...);   /* add custom arrow */
-    height: 31px;
-        font-size: 14px;
-        border-radius: 3px;
-        border: 1px solid #999;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;       /* remove default arrow */
+    background-image: url(...);   /* add custom arrow */
+    height: 100%;
+    font-size: 14px;
+    border: 1px solid #999;
         color:grey;
         margin-bottom: 10px;
-        padding-left: 15px;
-}
-.bold{
-    color:purple;
+        padding-left: 5px;
 }
 .Search--Button{
-    background: green;
-    width: 40px;
+    background: #BD2E1E;
+    width: 48px;
     height: 100%;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    border-radius: 0px $rounded $rounded  0px;
+    font-size: 1.3em;
+
+}
+.Search--Find{
+    /*color:black;*/
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.Search--line{
+    top: 20px;
+    right: 359px;
+    position: absolute;
+    border-left: 1px solid #CCCCCC;
+    height: 25px;
+    width: 3px;
 
 }

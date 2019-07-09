@@ -1330,18 +1330,25 @@ var Greeting = function Greeting(props) {
     return props.logout() //.then(res=>props.history.push('/wtfitsowrking??'))
     ;
   };
+  /*<h2 className="greeting_username">Hi, {props.currentUser.username}!</h2> */
+
+  /*className="Nav--Greeting"*/
+
 
   var withUser = function withUser() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "center"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "greeting--container"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      src: "https://i.imgur.com/S5cgOk5.png"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "greeting_username"
-    }, "Hi, ", props.currentUser.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "",
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Greeting--NameContainer"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Greeting--Logout",
       onClick: onSend
-    }, "Log Out")));
+    }, "Log", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "Greeting-Img",
+      src: "https://i.imgur.com/S5cgOk5.png"
+    })));
   };
 
   var noUser = function noUser() {
@@ -1439,13 +1446,11 @@ var Nav = function Nav() {
     className: "NavMain"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Nav--Searchbox"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Nav--Greeting"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "NavAside--right"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavMain--bottom"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)), ">"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navigation_nav_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
@@ -1479,23 +1484,23 @@ var NavBar = function NavBar(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__Container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar--Bot__button"
+    className: "Navbar--Bot__button Button--End"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-utensils"
   }), "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar--Bot__button"
+    className: "Navbar--Bot__button Button--Mid__Right"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-home"
   }), "Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar--Bot__button"
+    className: "Navbar--Bot__button Button--Mid__Left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-car-alt"
   }), "Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar--Bot__button"
+    className: "Navbar--Bot__button Button--End"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas  fa-glass-martini-alt "
   }), "Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "Navbar--Bot__button"
+    className: "Navbar--Bot__button NavBar--Bot__Link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/biz/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1603,6 +1608,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Search--line"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search--Logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
@@ -1610,7 +1617,9 @@ function (_React$Component) {
         className: "Search--Bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search--Bar__bar"
-      }, "Find", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "Search--Find"
+      }, "Find"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "Search--bar__select",
         value: this.state.business_type,
         onChange: this.update('business_type')
@@ -1625,6 +1634,7 @@ function (_React$Component) {
         value: "Night Life"
       }, "Night Life")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        placeholder: "Burgers",
         className: "Search--bar__input",
         value: this.state.find,
         onChange: this.update('find')
@@ -1634,7 +1644,7 @@ function (_React$Component) {
           return console.log("this should submit the form ", _this3.state);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-search"
+        className: "fas fa-search Search--Icon"
       })))));
     }
   }]);

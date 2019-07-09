@@ -1,0 +1,45 @@
+$borderRadius: 5px;
+$greeingHeight: 100%;
+$buttonColor: #BD2E1E;
+.Nav--Greeting{
+    height: 120px;
+    width: 200px;
+    display: grid;
+    place-items: center;
+
+
+}
+.Greeting-Img{
+    height: $greeingHeight;
+    border-radius: 0px $borderRadius $borderRadius 0px;
+
+}
+.Greeting--NameContainer{
+    width: 50px;
+
+}
+.greeting_username{
+    width: 5px;
+    background: orange;
+    font-size: 10px;
+    position: relative;
+}
+
+.Greeting--Logout{
+    color: #fff;
+    font-size: 15px;
+    width: 47px;
+    height: $greeingHeight;
+    /*background: pink;*/
+    background: $buttonColor;
+    display: grid;
+    place-items: center;
+    border-radius:  $borderRadius 0px  0px $borderRadius;
+    font-weight: bold;
+
+
+}
+.center{
+    display: grid;
+    place-items: center;
+}

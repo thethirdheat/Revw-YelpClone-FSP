@@ -33,7 +33,7 @@ $outer: 960px;
 }
 .NavMain{
     height: 100%;
-    background: blue;
+    /*background: blue;*/
     grid-area: main;
     display: flex;
     justify-content: space-between
@@ -45,30 +45,34 @@ $outer: 960px;
 
 }
 .NavMain--bottom{
-    background: orange;
+    /*background: orange;*/
     grid-area: bottom;
 }
 
 
 
 .greeting--container{
-    height: 120px;
-    width: 200px;
-    background: orange
+    height: 38px;
+    width: 157px;
+    /*background: blue;*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .Nav--Searchbox{
     width:100%;
-    background: black;
+    /*background: black;*/
 
 }
+/*
 .Nav--Greeting{
     width: 165px;
     background: red;
     float: left;
 
 }
+*/
 .Search{
     height: 100%;
     width: 100%;
-    background: purple
 }

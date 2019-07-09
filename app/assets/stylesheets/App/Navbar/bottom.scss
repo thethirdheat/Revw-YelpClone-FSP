@@ -1,4 +1,6 @@
-
+$SideCorlors: #FAFAFA;
+$BorderColor: #E6E6E6;
+$BorderWidth: 1px;
 
 $outer: 960px;
 .NavbarBottom{
@@ -18,10 +20,14 @@ $outer: 960px;
 }
 .Navbar--Bot__Left{
     grid-area: left; 
+    background: $SideCorlors;
+    border-bottom: 1px $BorderColor solid;
 
 }
 .Navbar--Bot__Rigth{
     grid-area: right; 
+    background: $SideCorlors;
+    border-bottom: 1px $BorderColor solid;
 
 }
 .Navbar--Bot__Container{
@@ -32,14 +38,41 @@ $outer: 960px;
     justify-content: space-between;
     
 }
+.Button--End{
+    border-left: $BorderWidth;
+    border-right: $BorderWidth;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: $BorderColor; 
+}
+.Button--Mid__Right{
+    border-right: $BorderWidth;
+    border-left: 0px;
+    border-top: 0px;
+    border-style: solid;
+    border-color:pink;
+
+}
 .Navbar--Bot__button{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     float:left;
-    width: 100px;
+    width: 100%;
+    background: $SideCorlors;
+    border-bottom: 1px $BorderColor solid;
 }
 .NavBar--OuterContainer{
     height: 100%;
+}
+
+.NavBar--Bot__Link{
+    border-style: solid;
+    border-color: $BorderColor;
+    border-width: $BorderWidth;
+    border-bottom: 0px;
+    border-top: 0px;
+    border-left: 0px; 
 }
