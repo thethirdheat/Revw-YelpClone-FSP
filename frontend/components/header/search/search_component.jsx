@@ -28,6 +28,7 @@ class SearchBox extends React.Component{
                 <div className="Search--Logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
                 <div className="Search--Bar">
                     <div className="Search--Bar__bar">
+                        Find
                         <select className="Search--bar__select" value={this.state.business_type} onChange={this.update('business_type')}>
                             <option defaultValue value="Restaurants">Restaurants</option>
                             <option value="Home Service">Home Service</option>
@@ -37,9 +38,9 @@ class SearchBox extends React.Component{
                         <input type="text" className="Search--bar__input" value={this.state.find} onChange={this.update('find')}/>
                     </div>
 
-                    <button onClick={()=>console.log("this should submit the form ",this.state)}>
+                    <div className="Search--Button" onClick={()=>console.log("this should submit the form ",this.state)}>
                         <i className="fas fa-search"></i> 
-                    </button>
+                    </div>
                 </div>
             </div>
 

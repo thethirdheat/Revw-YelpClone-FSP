@@ -1468,7 +1468,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NavBar = function NavBar(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "NavBar--OuterContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "NavbarBottom"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "Navbar--Bot__Left"
@@ -1608,7 +1610,7 @@ function (_React$Component) {
         className: "Search--Bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search--Bar__bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, "Find", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "Search--bar__select",
         value: this.state.business_type,
         onChange: this.update('business_type')
@@ -1626,7 +1628,8 @@ function (_React$Component) {
         className: "Search--bar__input",
         value: this.state.find,
         onChange: this.update('find')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Search--Button",
         onClick: function onClick() {
           return console.log("this should submit the form ", _this3.state);
         }

@@ -7,6 +7,7 @@
     align-items: center;
 }
 .Search--Logo{
+    color: #fff;
     font-size: 25px;
     background: purple;
 
@@ -21,8 +22,8 @@
     input[type=text]{
         height: 31px;
         font-size: 14px;
-        border-radius: 3px;
-        border: 1px solid #999;
+        border: none;
+
         color:grey;
         margin-bottom: 10px;
         padding-left: 15px;
@@ -30,8 +31,10 @@
 
 }
 .Search--bar__select{ 
+    border: none;
     height: 31px;
-    width:50%;
+    width:45%;
+    background: #fff;
 }
 .Search--bar__input{
     height: 100%;
@@ -54,4 +57,13 @@ select {
         color:grey;
         margin-bottom: 10px;
         padding-left: 15px;
+}
+.bold{
+    color:purple;
+}
+.Search--Button{
+    background: green;
+    width: 40px;
+    height: 100%;
+
 }

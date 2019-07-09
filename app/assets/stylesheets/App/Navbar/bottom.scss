@@ -13,6 +13,7 @@ $outer: 960px;
 .Navbar--Bot__Main{
     background: pink;
     grid-area: main;
+    height: 100%;
 
 }
 .Navbar--Bot__Left{
@@ -25,12 +26,20 @@ $outer: 960px;
 }
 .Navbar--Bot__Container{
     background: purple;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     
 }
 .Navbar--Bot__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     float:left;
     width: 100px;
+}
+.NavBar--OuterContainer{
+    height: 100%;
 }
