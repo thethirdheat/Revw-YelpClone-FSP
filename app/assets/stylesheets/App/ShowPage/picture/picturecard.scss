@@ -2,11 +2,29 @@
 .PictureCard{
     width: 225px;
     height: 225px;;
+    transition: transform .2s; /* Animation */
 
 
 }
 .PicCard__center{
-    border: green solid 5px;
-    width: 252px;
-    height:  252px;
+    /*border: green solid 5px;
+    /*transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+.hovered{
+    transform: scale(1.1);
+    transition: transform .2s; /* Animation */
+}
+
+.PictureCard:hover{
+/*  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.hove{
+    border: 32px solid black;
+}
+//.zoom {
+//  transition: transform .2s; /* Animation */
+//}
+//
+//.zoom:hover {
+//  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+//}

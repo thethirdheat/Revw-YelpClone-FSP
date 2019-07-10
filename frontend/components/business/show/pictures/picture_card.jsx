@@ -6,12 +6,15 @@ const mdtp=dispatch=>({
     deletePic: (id)=>dispatch(deleteBizPicture(id))
 })
 const PicCard = (props)=>{
+    let hover=false
+
+
     console.log(props, "this is pic card props")
     const picId = props.picture.id
     const center= props.center!=undefined? "PicCard__center" : ""
     const delPic = props.deletePic.bind(this)
     return (<div className={`PictureCard ${center}`}>
-    <img src={ props.picture.pictureUrl}/>
+    <img className={props.hover} src={ props.picture.pictureUrl}/>
     <div onClick={()=>props.deletePic(picId)}>{props.picture.caption}</div>
 </div>)}
 export default connect(null,mdtp)(PicCard)
