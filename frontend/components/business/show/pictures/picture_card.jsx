@@ -13,11 +13,18 @@ const PicCard = (props)=>{
     const picId = props.picture.id
     const center= props.center!=undefined? "PicCard__center" : ""
     const delPic = props.deletePic.bind(this)
+    let showCaption 
+    const deletePic = props.deletePic.bind(this)
+    if(props.hovered!=""){
+        showCaption= <div className="ShowPictures--Caption" onClick={()=>/*console.log("pic clickec")*/(delPic(picId))}>{props.picture.caption}</div>
+    }else{
+        showCaption=""
+    }
     return (<div className={`PictureCard ${center}`}>
         <div className="PictureCard--Overlay">
             <img className={` PictureCard--Fit`} src={ props.picture.pictureUrl}/> 
+            {showCaption}
         </div>
-    <div onClick={()=>props.deletePic(picId)}>{props.picture.caption}</div>
 </div>)}
 export default connect(null,mdtp)(PicCard)
 ///${props.hover}/

@@ -1312,6 +1312,23 @@ var PicCard = function PicCard(props) {
   var picId = props.picture.id;
   var center = props.center != undefined ? "PicCard__center" : "";
   var delPic = props.deletePic.bind(_this);
+  var showCaption;
+  var deletePic = props.deletePic.bind(_this);
+
+  if (props.hovered != "") {
+    showCaption = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "ShowPictures--Caption",
+      onClick: function onClick() {
+        return (
+          /*console.log("pic clickec")*/
+          delPic(picId)
+        );
+      }
+    }, props.picture.caption);
+  } else {
+    showCaption = "";
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard ".concat(center)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1319,11 +1336,7 @@ var PicCard = function PicCard(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: " PictureCard--Fit",
     src: props.picture.pictureUrl
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    onClick: function onClick() {
-      return props.deletePic(picId);
-    }
-  }, props.picture.caption));
+  }), showCaption));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard)); ///${props.hover}/
@@ -1417,7 +1430,7 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
         picture: pictures[1] ? pictures[1] : blank,
-        hover: this.state.first
+        hovered: this.state.first
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.second ? "hovered" : "",
         onMouseEnter: function onMouseEnter() {
@@ -1435,8 +1448,8 @@ function (_React$Component) {
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        picture: pictures[2] ? pictures[2] : blank,
-        hover: this.state.second
+        picture: pictures[0] ? pictures[0] : blank,
+        hovered: this.state.second
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.third ? "hovered" : "",
         onMouseEnter: function onMouseEnter() {
@@ -1454,8 +1467,8 @@ function (_React$Component) {
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        picture: pictures[0] ? pictures[0] : blank,
-        hover: this.state.third
+        picture: pictures[2] ? pictures[2] : blank,
+        hovered: this.state.third
       })));
     }
   }]);
@@ -1719,25 +1732,25 @@ var NavBar = function NavBar(props) {
     className: "Navbar--Bot__button Button--End"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-utensils"
-  }), "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0\xA0Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--Mid__Right"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-home"
-  }), "Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "\xA0 \xA0Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--Mid__Left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-car-alt"
-  }), "Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0 \xA0Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--End"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas  fa-glass-martini-alt "
-  }), "Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0 \xA0Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button NavBar--Bot__Link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/biz/new"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-store"
-  }), " Create a Business"), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+  }), " \xA0\xA0Create a Business"), " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "Navbar--Bot__Rigth"
   })));
 };

@@ -33,9 +33,7 @@
 .PictureCard:hover{
 /*  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
-.hove{
-    border: 32px solid black;
-}
+
 //.zoom {
 //  transition: transform .2s; /* Animation */
 //}
@@ -43,3 +41,14 @@
 //.zoom:hover {
 //  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 //}
+.ShowPictures--Caption{
+    opacity: .80;
+    bottom: 0px;
+    position: absolute;
+    width: 225px;
+    background:black;
+    color: white;
+    display: flex;
+
+
+}
