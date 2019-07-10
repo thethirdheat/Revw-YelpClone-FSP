@@ -4,8 +4,28 @@
     justify-content: flex-end;
 }
 .ShowLinks--Review{
+    height: 35px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 23px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+
+    background: #D93F3F;
 
 }
 .ShowLinks--Picture{
+    border: 1px grey solid;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:99px;
+    height: 32px;
 
 }

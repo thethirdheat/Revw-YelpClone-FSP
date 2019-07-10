@@ -37,17 +37,23 @@ $StarRadius: 3px;
 }
 .ShowLinks{
     width: 50%;
-    background:red;
+    background:purple;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     
 }
 .ShowMap{
-    background: blue;
+    padding: 5px;
+    border: 1px grey solid;
+    background: orange;
+    width: 285px;
     
 }
 .ShowPictures{
+    width:660px;
+    display: flex;
+
     background:yellow   ;
     
 }
@@ -117,4 +123,9 @@ $StarRadius: 3px;
     margin: 2px;
     border-radius: $StarRadius;
     padding: 3px;
+}
+.Show--Bottom{
+    padding-top: 35px;
+    display: flex;
+
 }

@@ -10,8 +10,8 @@ const ShowPictures = (props)=>{
         <div>
             <PicCard picture = {pictures[1] ? pictures[1]: blank}/>
         </div>
-        <div>
-            <PicCard picture = {pictures[0] ? pictures[0]: blank}/>
+        <div className="PicCard--Center">
+            <PicCard   picture = {pictures[0] ? pictures[0]: blank} />
         </div>
         <div>
             <PicCard picture = {pictures[2] ? pictures[2]: blank}/>

@@ -1031,11 +1031,13 @@ function (_React$Component) {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_links_show_links__WEBPACK_IMPORTED_MODULE_4__["default"], {
         business: business
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Show--Bottom"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
         pictures: pictures
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "THIISS IS THE SHOW Page");
+      })));
     }
   }]);
 
@@ -1103,11 +1105,14 @@ var ShowMap = function ShowMap(props) {
   var business = props.business;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ShowMap"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "ShowMap--Image",
     src: "https://i.imgur.com/KDOjFXw.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Address"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-map-marker-alt"
-  }), business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "San Francisco, CA 94110"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "b/t Dolores St & Oakwood St "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-directions"
   }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "search"
@@ -1115,7 +1120,7 @@ var ShowMap = function ShowMap(props) {
     className: "fas fa-phone-alt"
   }), business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-external-link-alt"
-  }), " business.website.com")));
+  }), " business.website.com"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowMap);
@@ -1244,14 +1249,14 @@ var ShowLinks = function ShowLinks(props) {
     }
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-star"
-  }), " Write a Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0\xA0Write a Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ShowLinks--Picture",
     onClick: function onClick() {
       return props.history.push("/biz/".concat(business.id, "/pic"));
     }
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-camera"
-  }), " Add Photo")));
+  }), "\xA0\xA0 Add Photo")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ShowLinks));
@@ -1269,16 +1274,39 @@ var ShowLinks = function ShowLinks(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var _this = undefined;
 
 
-var PicCard = function PicCard(props) {
-  console.log(props);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: props.picture.pictureUrl
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.picture.caption));
+
+ //export const deleteBizPicture = (picId) => dispatch =>(
+
+var mdtp = function mdtp(dispatch) {
+  return {
+    deletePic: function deletePic(id) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["deleteBizPicture"])(id));
+    }
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (PicCard); //
+var PicCard = function PicCard(props) {
+  console.log(props, "this is pic card props");
+  var picId = props.picture.id;
+  var center = props.center != undefined ? "PicCard__center" : "";
+  var delPic = props.deletePic.bind(_this);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "PictureCard ".concat(center)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.picture.pictureUrl
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return props.deletePic(picId);
+    }
+  }, props.picture.caption));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard)); //
 
 /***/ }),
 
@@ -1309,7 +1337,9 @@ var ShowPictures = function ShowPictures(props) {
     className: "ShowPictures"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     picture: pictures[1] ? pictures[1] : blank
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "PicCard--Center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     picture: pictures[0] ? pictures[0] : blank
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     picture: pictures[2] ? pictures[2] : blank

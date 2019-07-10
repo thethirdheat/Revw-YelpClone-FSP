@@ -40,10 +40,10 @@ class DetailBusiness extends React.Component{
                     <ShowInfo business={business}/>
                     <ShowLinks business={business}/> 
                 </div>
-                <ShowMap business={business}/>
-                <ShowPictures pictures={pictures}/>
-                <br/>
-                THIISS IS THE SHOW Page
+                <div className="Show--Bottom">
+                    <ShowMap business={business}/>
+                    <ShowPictures pictures={pictures}/>
+                </div>
             </div>
         )
     }
