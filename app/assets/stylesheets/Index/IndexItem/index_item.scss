@@ -4,22 +4,30 @@ $IdexInfoLength: 400px;
 $IndexItemWidth--Container: 631px;
 $IndexItemHeigth--Container: 250px;
 $PicDim: 210px;
+$LinkColor: #4474BB;
+$GreyText:#333333;
+$Background:#FFFFFF;
     /*
     width:631px;
     height:248;
     */
 
+    //padding-top: 70px;
+
+
 .IndexItemContainer{
+    /*background: blue;*/
+    background:$Background;
     display: flex;
     align-items: center;
-
     height: $OuterDivHeigth;
 
 
 }
 .IndexItem{
-    background: orange;
-    border: green solid .5px;
+    /*background: orange;*/
+    /*border: green solid .5px;*/
+    background:$Background;
     width: $IndexItemWidth--Container; 
 
     height: 210px;
@@ -27,11 +35,16 @@ $PicDim: 210px;
     grid-template-areas: "pic info";
 
     grid-template-columns: $PicDim 1fr;
+    a{
+        color:$LinkColor;
+
+    }
 }
 
 .IndexItem--Right{
     margin-left: 20px;
-    background: blue;
+    /*background: blue;*/
+    background: $Background;
     height: 210px;
     display:grid;
     grid-template-areas: "detail detail"
@@ -46,7 +59,8 @@ $PicDim: 210px;
     grid-area: pic;
 }
 .IndexItem--Info{
-    background: purple;
+    /*background: purple;*/
+    background: $Background;
     grid-area: detail;
     display: flex;
     justify-content: space-between;
@@ -64,7 +78,8 @@ $PicDim: 210px;
     left:-30px;
     position: relative;
     transform: scale(.75);
-    background: pink;
+    /*background: pink;*/
+    background: $Background;
     padding: 0px
 }
 /*
@@ -77,10 +92,22 @@ $PicDim: 210px;
 }
 .IndexItem--Info__Right{
     text-align: right;
-    background: green;
+    /*background: green;*/
+    background: $Background;
+    font-weight: lighter;
+    letter-spacing: 1.3px;
+    font-size: 14px;
+    color:#FFFFFF;
+
 
 }
 .IndexItem--Info__Left{
 
-    background:orange;
+    //background:orange;
+    background:$Background;
+}
+
+
+.Index--GreyText{
+    color: $GreyText
 }

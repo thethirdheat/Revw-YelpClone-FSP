@@ -31,7 +31,10 @@ class Index extends React.Component {
         
         return (
             <div className="IndexPage--MainContainer">
+                <div className="Index--Page__Top"><div className="IndexPage--Top__Sides"></div></div>
                 <div className="Index--Page__Left">
+                <div className="IndexPage--Top__Padding"> <div className="IndexPage--Top__Bar"></div></div>
+                <span className="Index--Page__TopText">All Results </span>
                     {show} 
                 </div>
             

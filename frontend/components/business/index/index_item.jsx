@@ -17,7 +17,7 @@ const IndexItem =(props)=>{
     <div className="IndexItemContainer" >
         <div className="IndexItem">
             <div className="IndexItem--Picture"> 
-                <img className="IndexItem--Image" src={props.business.photoUrl}/>
+                <Link to= {`./biz/${props.business.id}`}><img className="IndexItem--Image" src={props.business.photoUrl}/></Link>
             </div>
 
             <div className="IndexItem--Right">
@@ -26,18 +26,18 @@ const IndexItem =(props)=>{
                         <p> <span className="IndexBold">{props.index}.<Link to={`./biz/${props.business.id}`}> {props.business.business_name} </Link></span></p>
                         <RatingStars stars={3} scaled={true}/>
 
-                        <p>{ dollars.length? dollars: "$"} &nbsp;&#9679; &nbsp;{props.business.business_type}</p>
+                        <p className="Index--GreyText">{ dollars.length? dollars: "$"} &nbsp;&#9679; &nbsp;{props.business.business_type}</p>
 
                     </div>
 
                     <div className="IndexItem--Info__Right">
-                        <p>{props.business.phone_number}</p> 
-                        <p>{props.business.address} </p>
+                        <p className="Index--GreyText">{props.business.phone_number}</p> 
+                        <p className="Index--GreyText">{props.business.address} </p>
                     </div>
 
                 </div>
                 <div className="IndexItem--Description">
-                    <p>Description: {props.business.description}</p> 
+                    <p className="Index--GreyText">"{props.business.description}"</p> 
                     <button onClick={()=>props.remove(props.business.id)}>DElete</button>
                 </div>
 

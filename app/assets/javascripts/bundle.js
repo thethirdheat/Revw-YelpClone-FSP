@@ -720,8 +720,18 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "IndexPage--MainContainer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Sides"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Index--Page__Left"
-      }, show));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Padding"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Bar"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "Index--Page__TopText"
+      }, "All Results "), show));
     }
   }]);
 
@@ -806,10 +816,12 @@ var IndexItem = function IndexItem(props) {
       className: "IndexItem"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Picture"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "./biz/".concat(props.business.id)
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "IndexItem--Image",
       src: props.business.photoUrl
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Right"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Info"
@@ -822,11 +834,19 @@ var IndexItem = function IndexItem(props) {
     }, " ", props.business.business_name, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_info_rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
       stars: 3,
       scaled: true
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, dollars.length ? dollars : "$", " \xA0\u25CF \xA0", props.business.business_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "Index--GreyText"
+    }, dollars.length ? dollars : "$", " \xA0\u25CF \xA0", props.business.business_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Info__Right"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.business.address, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "Index--GreyText"
+    }, props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "Index--GreyText"
+    }, props.business.address, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Description"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "Index--GreyText"
+    }, "\"", props.business.description, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       onClick: function onClick() {
         return props.remove(props.business.id);
       }
