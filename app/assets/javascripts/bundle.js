@@ -1314,17 +1314,19 @@ var PicCard = function PicCard(props) {
   var delPic = props.deletePic.bind(_this);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard ".concat(center)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "PictureCard--Overlay"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: props.hover,
+    className: " PictureCard--Fit",
     src: props.picture.pictureUrl
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: function onClick() {
       return props.deletePic(picId);
     }
   }, props.picture.caption));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard)); //
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard)); ///${props.hover}/
 
 /***/ }),
 
@@ -1398,6 +1400,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPictures"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.first ? "hovered" : "",
         onMouseEnter: function onMouseEnter() {
           return _this2.setState({
             first: "hovered",
@@ -1416,11 +1419,26 @@ function (_React$Component) {
         picture: pictures[1] ? pictures[1] : blank,
         hover: this.state.first
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "PicCard--Center"
+        className: this.state.second ? "hovered" : "",
+        onMouseEnter: function onMouseEnter() {
+          return _this2.setState({
+            first: "",
+            second: "hovered",
+            third: ""
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this2.setState({
+            first: "",
+            second: "hovered",
+            third: ""
+          });
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        picture: pictures[0] ? pictures[0] : blank,
+        picture: pictures[2] ? pictures[2] : blank,
         hover: this.state.second
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: this.state.third ? "hovered" : "",
         onMouseEnter: function onMouseEnter() {
           return _this2.setState({
             first: "",
@@ -1436,7 +1454,7 @@ function (_React$Component) {
           });
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        picture: pictures[2] ? pictures[2] : blank,
+        picture: pictures[0] ? pictures[0] : blank,
         hover: this.state.third
       })));
     }

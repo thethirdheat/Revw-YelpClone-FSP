@@ -20,14 +20,14 @@ class ShowPictures extends React.Component{
     console.log(this.state,"this is the stat!!!")//this.setState({first:"hovered",second:"",third:""})
     return ( 
         <div className="ShowPictures">
-            <div onMouseEnter={()=>this.setState({first:"hovered",second:"",third:""})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
+            <div className={this.state.first? "hovered":""}  onMouseEnter={()=>this.setState({first:"hovered",second:"",third:""})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
                 <PicCard picture = {pictures[1] ? pictures[1]: blank} hover={this.state.first} />
             </div>
-            <div className="PicCard--Center">
-                <PicCard   picture = {pictures[0] ? pictures[0]: blank}  hover={this.state.second}/>
+            <div className={this.state.second? "hovered":""} onMouseEnter={()=>this.setState({first:"",second:"hovered",third:""})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
+                <PicCard picture = {pictures[2] ? pictures[2]: blank} hover={this.state.second}/>
             </div>
-            <div onMouseEnter={()=>this.setState({first:"",second:"",third:"hovered"})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
-                <PicCard picture = {pictures[2] ? pictures[2]: blank} hover={this.state.third}/>
+            <div className={this.state.third? "hovered":""} onMouseEnter={()=>this.setState({first:"",second:"",third:"hovered"})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
+                <PicCard   picture = {pictures[0] ? pictures[0]: blank}  hover={this.state.third}/>
             </div>
 
         </div> 

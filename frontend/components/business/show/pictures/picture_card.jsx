@@ -14,8 +14,10 @@ const PicCard = (props)=>{
     const center= props.center!=undefined? "PicCard__center" : ""
     const delPic = props.deletePic.bind(this)
     return (<div className={`PictureCard ${center}`}>
-    <img className={props.hover} src={ props.picture.pictureUrl}/>
+        <div className="PictureCard--Overlay">
+            <img className={` PictureCard--Fit`} src={ props.picture.pictureUrl}/> 
+        </div>
     <div onClick={()=>props.deletePic(picId)}>{props.picture.caption}</div>
 </div>)}
 export default connect(null,mdtp)(PicCard)
-//
+///${props.hover}/
