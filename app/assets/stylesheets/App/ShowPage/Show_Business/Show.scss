@@ -4,7 +4,7 @@ $NotPickedGrey: #CCCCCC;
 $StarRadius: 3px;
 $BorderColorMap: #E6E6E6;
 .ShowPage{
-    /*background: green;*/
+    background: green;
     height: $FixedHeight;
 
 }
@@ -25,8 +25,8 @@ $BorderColorMap: #E6E6E6;
 
 }
 .Show--Top{
-    padding-top: 25px;
-    /*background: lightblue;*/
+    padding-top: 22px;
+    background: lightblue;
     display: flex;
 
 
@@ -34,7 +34,7 @@ $BorderColorMap: #E6E6E6;
 .ShowInfo{
     width: 50%;
     
-   /* background: violet;*/
+    background: violet;
     h1{
         font-size:35px; 
     }
@@ -42,7 +42,7 @@ $BorderColorMap: #E6E6E6;
 }
 .ShowLinks{
     width: 50%;
-    /*background:purple;*/
+    background:purple;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -56,8 +56,9 @@ $BorderColorMap: #E6E6E6;
     
 }
 .ShowPictures{
-    width:660px;
+    width:675px;
     display: flex;
+    height: 100%;
 
     background:yellow   ;
     
@@ -132,5 +133,6 @@ $BorderColorMap: #E6E6E6;
 .Show--Bottom{
     padding-top: 35px;
     display: flex;
+    justify-content: space-between;
 
 }
