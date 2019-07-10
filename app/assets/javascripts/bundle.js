@@ -1015,12 +1015,26 @@ function (_React$Component) {
     value: function render() {
       //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
-      if (!business || !business.pictures) return null;
+      if (!business) return null;
       console.log(business, 'this is biz'); //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
       //console.log("this is biz",business)
       //pictures = business.pictures.values
 
-      var pictures = Object.values(business.pictures);
+      var pictureComponent;
+
+      if (business.pictures) {
+        var pictures = Object.values(business.pictures);
+        console.log("-------------------------------------------------------------------------------this is the shape of pictures", pictures);
+        pictureComponent = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          pictures: pictures
+        });
+      } else {
+        var emptyAr = [false, false, false];
+        pictureComponent = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          pictures: emptyAr
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1035,9 +1049,7 @@ function (_React$Component) {
         className: "Show--Bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        pictures: pictures
-      })));
+      }), pictureComponent));
     }
   }]);
 
@@ -1408,8 +1420,7 @@ function (_React$Component) {
         onMouseLeave*/
 
       };
-      console.log(this.state, "this is the stat!!!"); //this.setState({first:"hovered",second:"",third:""})
-
+      console.log(pictures, '------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPictures"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

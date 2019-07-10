@@ -27,12 +27,22 @@ class DetailBusiness extends React.Component{
     render(){
         //console.log(this.props,"i'm tyring to fin dthe id")
         const { business } = this.props;
-        if (!business || !business.pictures) return null;
+        if (!business ) return null;
         console.log(business,'this is biz')
         //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
         //console.log("this is biz",business)
         //pictures = business.pictures.values
-        const pictures =Object.values(business.pictures)
+        let pictureComponent
+         if (business.pictures){
+            const pictures =Object.values(business.pictures)
+            console.log("-------------------------------------------------------------------------------this is the shape of pictures",pictures)
+            pictureComponent=<ShowPictures pictures={pictures}/>
+        }else{
+            let emptyAr=[false,false,false]
+            pictureComponent=<ShowPictures  pictures={emptyAr}/>
+        } 
+
+
         return(
             <div className = "ShowPage">
                 <div className="ShowBackground"></div>
@@ -42,7 +52,7 @@ class DetailBusiness extends React.Component{
                 </div>
                 <div className="Show--Bottom">
                     <ShowMap business={business}/>
-                    <ShowPictures pictures={pictures}/>
+                    {pictureComponent}
                 </div>
             </div>
         )

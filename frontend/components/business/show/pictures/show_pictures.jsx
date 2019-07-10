@@ -14,10 +14,10 @@ class ShowPictures extends React.Component{
 
     render(){
     const pictures=this.props.pictures
-            const blank = {caption: "", pictureUrl:"https://i.imgur.com/kFUQft9.png" }
+    const blank = {caption: "", pictureUrl:"https://i.imgur.com/kFUQft9.png" }
             /*onMouseEnter={this.someHandler}
     onMouseLeave*/
-    console.log(this.state,"this is the stat!!!")//this.setState({first:"hovered",second:"",third:""})
+    console.log(pictures,'------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------')
     return ( 
         <div className="ShowPictures">
             <div className={this.state.first? "hovered":""}  onMouseEnter={()=>this.setState({first:"hovered",second:"",third:""})} onMouseLeave={()=>this.setState({first:"",second:"hovered",third:""})}>
