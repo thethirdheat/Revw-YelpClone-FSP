@@ -37,6 +37,9 @@ class Index extends React.Component {
                 <span className="Index--Page__TopText">All Results </span>
                     {show} 
                 </div>
+                <div className="Index--Page__Right">
+                    <img  className="Index--Page__Map"src="https://i.imgur.com/sFvQN22.png"></img> 
+                </div>
             
             </div>)
         }

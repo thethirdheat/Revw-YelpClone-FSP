@@ -731,7 +731,12 @@ function (_React$Component) {
         className: "IndexPage--Top__Bar"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "Index--Page__TopText"
-      }, "All Results "), show));
+      }, "All Results "), show), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "Index--Page__Map",
+        src: "https://i.imgur.com/sFvQN22.png"
+      })));
     }
   }]);
 

@@ -7,6 +7,7 @@ $PicDim: 210px;
 $LinkColor: #4474BB;
 $GreyText:#333333;
 $Background:#FFFFFF;
+$BorderColour: #E6E6E6;
     /*
     width:631px;
     height:248;
@@ -17,7 +18,10 @@ $Background:#FFFFFF;
 
 .IndexItemContainer{
     /*background: blue;*/
-    background:$Background;
+    width: 610px;
+    //background: orange;
+    //background:$Background;
+    border-bottom: 1.5px solid $BorderColour;
     display: flex;
     align-items: center;
     height: $OuterDivHeigth;
@@ -69,6 +73,7 @@ $Background:#FFFFFF;
     grid-area: desc;
 }
 .IndexItem--Image{
+    object-fit: cover;
     border-radius: 5px;
     width: $PicDim;
     height:  $PicDim;
