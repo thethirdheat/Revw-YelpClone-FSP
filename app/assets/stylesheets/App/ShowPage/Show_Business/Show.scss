@@ -1,10 +1,15 @@
 $FixedHeight: 420px;
+$TEXTcolor:#333333;
 $BorderColor: #E6E6E6;
 $NotPickedGrey: #CCCCCC;
 $StarRadius: 3px;
 $BorderColorMap: #E6E6E6;
+$StarColor: #E65A50;
+$tarGreyColor: #CCCCCC;
+$BackgroundGrey: #F5F5F5;
 .ShowPage{
-    background: green;
+    background: $BackgroundGrey;
+    /*background: green;*/
     height: $FixedHeight;
 
 }
@@ -13,13 +18,15 @@ $BorderColorMap: #E6E6E6;
     z-index: -3;
     position: absolute;
     float: left;
-    background: pink;
+    
+    background: $BackgroundGrey;
+    /*background: pink;*/
     width: 100%;
     height: $FixedHeight;
     border-top:0px;
     border-left:0px;
     border-right:0px;
-    border-bottom:3px;
+    border-bottom:1px;
     border-color: $BorderColor;
     border-style: solid;
 
@@ -27,23 +34,31 @@ $BorderColorMap: #E6E6E6;
 .Show--Top{
     height: 126px;
     padding-top: 22px;
-    background: lightblue;
+    /*background: lightblue;*/
+    background: $BackgroundGrey;
     display: flex;
 
 
 }
 .ShowInfo{
     width: 50%;
+    p{
+        padding-top: 10px;
+    }
     
-    background: violet;
+    /*background: violet;*/
+    background: $BackgroundGrey;
     h1{
+        color: $TEXTcolor; 
         font-size:35px; 
     }
 
 }
 .ShowLinks{
     width: 50%;
-    background:purple;
+
+    /*background:purple;*/
+    background:$BackgroundGrey;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -52,7 +67,8 @@ $BorderColorMap: #E6E6E6;
 .ShowMap{
     padding: 5px;
     border: 1px $BorderColorMap solid;
-    background: orange;
+    background:#FFFFFF;
+    /*background: orange;*/
     width: 285px;
     height: 280px;
     
@@ -62,10 +78,12 @@ $BorderColorMap: #E6E6E6;
     display: flex;
     height: 225px;
 
-    background:yellow   ;
+    background:$BackgroundGrey;
+    /*background:yellow   ;*/
     
 }
 .RatingStars{
+    padding-top: 8px;
     display: flex;
 }
 .Rating--star__red{
@@ -87,7 +105,7 @@ $BorderColorMap: #E6E6E6;
 
 }
 .Rating--background__red{
-    background: red;
+    background: $StarColor;
 }
 .half_div{ 
     position: relative;
@@ -97,7 +115,7 @@ $BorderColorMap: #E6E6E6;
 }
 .half_color{
     position:absolute;
-    background: red;
+    background:$StarColor;
     height: 25px;
     width: 12px;
     top:  -3px;
@@ -133,7 +151,7 @@ $BorderColorMap: #E6E6E6;
     padding: 3px;
 }
 .Show--Bottom{
-    height: 300px;
+    height: 360px;
     display: flex;
     justify-content: space-between;
     align-items: center;

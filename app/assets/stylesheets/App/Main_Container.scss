@@ -22,12 +22,10 @@ $outer: 960px;
     background: rgb(118, 228, 228);
 
 }
+
+
 .DummyMain--Footer{
     background: black;
-}
-
-
-.DummyMain--Footer{
     height: 50px;
     grid-area: bottom;
 }
@@ -39,7 +37,7 @@ $outer: 960px;
                         "bottom bottom bottom" ;
 
   grid-template-columns: 1fr $outer 1fr;
-  grid-template-rows: 130px 6fr;
+  grid-template-rows: 130px 6fr 1fr;
 }
 
 .login--header{

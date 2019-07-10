@@ -3,7 +3,12 @@ import React from 'react'
 const RatingStars = (props)=>{
     console.log(props)
     let count=props.stars
-    let amount= 3
+    let scaled=""
+    if(props.scaled==true){
+        scaled="RatingScaledDown" 
+    }
+    let amount =3 
+
 
     const star=()=>{
         if(count>=1){
@@ -17,13 +22,13 @@ const RatingStars = (props)=>{
                 </div>        }
     }
     return(
-    <div className="RatingStars">
+    <div className={`RatingStars ${scaled}`}>
         {star()}
         {star()}
         {star()}
         {star()}
         {star()} 
-        <span className="Ratings--ReveiewAmount">{amount} Reviews</span>
+        <span className="Ratings--ReveiewAmount">&nbsp; {amount}&nbsp; reviews</span>
     </div>
 )}
 

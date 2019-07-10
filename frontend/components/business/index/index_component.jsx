@@ -24,14 +24,16 @@ class Index extends React.Component {
 
 
         if(this.state.biz.length>0){
-            show = this.state.biz.map(el=><IndexItem key={el.id} remove={this.props.removeBusiness}  business={el}/>) 
+            show = this.state.biz.map((el,index)=><IndexItem index={index+1} key={el.id} remove={this.props.removeBusiness}  business={el}/>) 
         }else{
             show=""
         }
         
         return (
-            <div>
-                {show}
+            <div className="IndexPage--MainContainer">
+                <div className="Index--Page__Left">
+                    {show} 
+                </div>
             
             </div>)
         }

@@ -705,8 +705,9 @@ function (_React$Component) {
       var show;
 
       if (this.state.biz.length > 0) {
-        show = this.state.biz.map(function (el) {
+        show = this.state.biz.map(function (el, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            index: index + 1,
             key: el.id,
             remove: _this3.props.removeBusiness,
             business: el
@@ -716,7 +717,11 @@ function (_React$Component) {
         show = "";
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, show);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--MainContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Left"
+      }, show));
     }
   }]);
 
@@ -779,22 +784,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _show_info_rating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../show/info/rating */ "./frontend/components/business/show/info/rating.jsx");
+
+
 
 
 
 var IndexItem = function IndexItem(props) {
   console.log(props);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    onClick: function onClick() {
-      return props.history.push("/biz/".concat(props.business.id));
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Business Name:", props.business.business_name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Address: ", props.business.address, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Phone Number: ", props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Price: ", props.business.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Long: ", props.business["long"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lat: ", props.business.lat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: props.business.photoUrl
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      return props.remove(props.business.id);
-    }
-  }, "DElete"));
+  var dollars = "";
+
+  for (var i = 0; i < props.business.price; i++) {
+    dollars += "$";
+  }
+
+  console.log('-----------------------------------------dolarrs----------------------------------------------', dollars);
+  return (//onClick={()=>props.history.push(`/biz/${props.business.id}`)}
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItemContainer"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Picture"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "IndexItem--Image",
+      src: props.business.photoUrl
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Right"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Info"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Info__Left"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "IndexBold"
+    }, props.index, ".", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "./biz/".concat(props.business.id)
+    }, " ", props.business.business_name, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_info_rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      stars: 3,
+      scaled: true
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, dollars.length ? dollars : "$", " \xA0\u25CF \xA0", props.business.business_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Info__Right"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.business.address, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "IndexItem--Description"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description: ", props.business.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return props.remove(props.business.id);
+      }
+    }, "DElete")))))
+  );
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(IndexItem));
@@ -1171,6 +1208,12 @@ __webpack_require__.r(__webpack_exports__);
 var RatingStars = function RatingStars(props) {
   console.log(props);
   var count = props.stars;
+  var scaled = "";
+
+  if (props.scaled == true) {
+    scaled = "RatingScaledDown";
+  }
+
   var amount = 3;
 
   var star = function star() {
@@ -1202,10 +1245,10 @@ var RatingStars = function RatingStars(props) {
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "RatingStars"
+    className: "RatingStars ".concat(scaled)
   }, star(), star(), star(), star(), star(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "Ratings--ReveiewAmount"
-  }, amount, " Reviews"));
+  }, "\xA0 ", amount, "\xA0 reviews"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RatingStars);
