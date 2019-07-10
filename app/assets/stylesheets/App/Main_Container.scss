@@ -1,6 +1,7 @@
 
 $yelpred: #d32323;
 $outer: 960px;
+$BackgroundGrey: #F5F5F5;
 
 .MainHeader{
     position: relative;
@@ -25,7 +26,8 @@ $outer: 960px;
 
 
 .DummyMain--Footer{
-    background: black;
+    //background: black;
+    background: $BackgroundGrey;
     height: 50px;
     grid-area: bottom;
 }
@@ -46,3 +48,7 @@ $outer: 960px;
     display: flex;
     justify-content: center;
 } 
+
+.BusinessForm{
+    margin-top: 300px;
+}

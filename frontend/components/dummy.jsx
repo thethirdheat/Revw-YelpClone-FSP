@@ -9,11 +9,8 @@ import UpLoadPictureContainer from './business/post_picture/post_picture_compone
 const Dummy=()=>{
     return(
     <div className ="DummyMain">
-        Look at Me!
-        header goes here?
         <header className ="MainHeader">
             <Nav />
-            before index
         </header>
         <aside className="DummyMain--LSideBar"></aside>
         <div className="Switching">
@@ -26,7 +23,6 @@ const Dummy=()=>{
         </div>
         <aside className="DummyMain--RSideBar"></aside>
         <footer className="DummyMain--Footer"></footer>
-        rest of stuff
     </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BizForm =(props)=>(
-    <div>
+    <div className="BusinessForm">
         <form onSubmit={props.send}>
             <label>Business Name
                 <input onChange={props.change('business_name')} type="text" value={props.business.business_name}/> 

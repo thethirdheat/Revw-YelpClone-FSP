@@ -402,7 +402,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BizForm = function BizForm(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "BusinessForm"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: props.send
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Business Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('business_name'),
@@ -1601,9 +1603,9 @@ __webpack_require__.r(__webpack_exports__);
 var Dummy = function Dummy() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "DummyMain"
-  }, "Look at Me! header goes here?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "MainHeader"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], null), "before index"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Nav__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "DummyMain--LSideBar"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Switching"
@@ -1626,7 +1628,7 @@ var Dummy = function Dummy() {
     className: "DummyMain--RSideBar"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "DummyMain--Footer"
-  }), "rest of stuff");
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);
