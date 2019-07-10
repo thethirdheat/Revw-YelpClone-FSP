@@ -1,7 +1,67 @@
 
+$BorderColorMap: #E6E6E6;
 .ShowMap--Address{
     display: flex;
 }
 .ShowMap--Image{
     width:100%;
+    border: 1px solid $BorderColorMap;
+}
+
+
+.ShowMap--Grid{
+    height: 100%;
+    display: grid;
+    grid-template-areas: "r0c0 r0c1"
+                        "r1c0 r1c1"
+                        "r2c0 r2c1"
+                        "r3c0 r3c1" ;
+
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    margin: 3px;
+    color:#666666;
+
+
+
+}
+
+.ShowMap--Address__Left{
+    height: 100%;
+    grid-area: r0c0;
+    margin: 5px 0px;
+
+}
+.ShowMap--Address__Right{
+    font-weight: bold;
+    color: #333333;
+    height: 100%;
+    grid-area: r0c1
+
+}
+.ShowMap--Directions__Left{
+    height: 100%;
+    grid-area: r1c0
+
+}
+.ShowMap--Directions__Right{
+    height: 100%;
+    grid-area: r1c1
+    
+}
+.ShowMap--Phone__Left{
+    height: 100%;
+    grid-area: r2c0
+    
+}
+.ShowMap--Phone__Right{
+    grid-area: r2c1
+    
+}
+.ShowMap--Link__Left{
+    grid-area: r3c0
+}
+.ShowMap--Link__Right{
+    grid-area: r3c1
+    
 }

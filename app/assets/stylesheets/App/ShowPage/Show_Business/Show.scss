@@ -2,8 +2,9 @@ $FixedHeight: 420px;
 $BorderColor: #E6E6E6;
 $NotPickedGrey: #CCCCCC;
 $StarRadius: 3px;
+$BorderColorMap: #E6E6E6;
 .ShowPage{
-    background: green;
+    /*background: green;*/
     height: $FixedHeight;
 
 }
@@ -25,19 +26,23 @@ $StarRadius: 3px;
 }
 .Show--Top{
     padding-top: 25px;
-    background: lightblue;
+    /*background: lightblue;*/
     display: flex;
 
 
 }
 .ShowInfo{
     width: 50%;
-    background: violet;
+    
+   /* background: violet;*/
+    h1{
+        font-size:35px; 
+    }
 
 }
 .ShowLinks{
     width: 50%;
-    background:purple;
+    /*background:purple;*/
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -45,7 +50,7 @@ $StarRadius: 3px;
 }
 .ShowMap{
     padding: 5px;
-    border: 1px grey solid;
+    border: 1px $BorderColorMap solid;
     background: orange;
     width: 285px;
     

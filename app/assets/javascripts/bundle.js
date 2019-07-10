@@ -1108,19 +1108,35 @@ var ShowMap = function ShowMap(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "ShowMap--Image",
     src: "https://i.imgur.com/KDOjFXw.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ShowMap--Address"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Grid"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Address__Left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-map-marker-alt"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "San Francisco, CA 94110"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "b/t Dolores St & Oakwood St "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Address__Right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "San Francisco, CA 94110"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "b/t Dolores St & Oakwood St ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Directions__Left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-directions"
-  }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Directions__Right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "search"
-  }, "Get Directions")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, "Get Directions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Phone__Left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-phone-alt"
-  }), business.phone_number), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Phone__Right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, business.phone_number)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Link__Left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-external-link-alt"
-  }), " business.website.com"))));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ShowMap--Link__Right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "business.website.com")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ShowMap);
