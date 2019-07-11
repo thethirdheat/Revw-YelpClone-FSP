@@ -29,7 +29,7 @@ class DetailBusiness extends React.Component{
         //console.log(this.props,"i'm tyring to fin dthe id")
         const { business } = this.props;
         if (!business ) return null;
-        console.log(business,'this is biz')
+        /*console.log(business,'this is biz')*/
         //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
         //console.log("this is biz",business)
         //pictures = business.pictures.values
@@ -42,7 +42,6 @@ class DetailBusiness extends React.Component{
             pictureComponent=<ShowPictures  pictures={emptyAr}/>
         } 
 
-        console.log(this.props,"--------------------these are props-------------------")
 
         return(
             <div className = "ShowPage">
@@ -57,7 +56,7 @@ class DetailBusiness extends React.Component{
                 </div>
                 <button onClick={()=>console.log(this.props)}>This is for Show on buisness</button>
                 wtf?
-                <ReviewsListContainer reviews={this.props.reviews ||{}} blank={this.props.reviews? "no": "yes"} />
+                <ReviewsListContainer business={business} reviews={this.props.reviews }/>
             </div>
         )
     }

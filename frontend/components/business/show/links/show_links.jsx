@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 const ShowLinks =(props)=>{
     const {business}=props
-    console.log(props,'this is in showInnfo1')
+    /*console.log(props,'this is in showInnfo1')*/
 return(
 <div className="ShowLinks">
     <div className="ShowLinks--Grid">

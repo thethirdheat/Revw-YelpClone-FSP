@@ -10,12 +10,12 @@ class ReviewsList extends React.Component{
         //this.state=this.props.reviews? Object.values(this.props.reviews) : [{body:"Nne"}]
     }
     render(){
-        console.log(this.props,"t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------")
+        /*console.log(this.props,"t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------")*/
         let revs=""
-        if(this.props.reviews=="blank"){
+        if(this.props.reviews.length===undefined){
             return null
         }else{
-            console.log("this is what you are looking for ",this.props)
+            /*console.log("this is what you are looking for ")*/
             revs=this.props.reviews.map(rev=><ReviewItem review={rev} key={rev.id}/>) 
         }
 

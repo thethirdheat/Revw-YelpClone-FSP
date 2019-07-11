@@ -50,7 +50,7 @@ class UpLoadPicture extends React.Component{
 
         //console.log(formData)
         this.props.createBizPicture(formData).then(
-            ((res)=>this.props.history.push('/'))
+            ((res)=>this.props.history.push(`/biz/${this.state.business_id}`))
         )
     }
 

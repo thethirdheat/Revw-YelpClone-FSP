@@ -10,8 +10,7 @@ $BackgroundGrey: #F5F5F5;
     /*background: rgb(35, 156, 255);*/
     background: #D23421;
 }
-.DummyMain{
-}
+
 .DummyMain--RSideBar{
     grid-area: left;
 }
@@ -19,6 +18,7 @@ $BackgroundGrey: #F5F5F5;
     grid-area: right;
 }
 .Switching{
+    height: auto;
     grid-area: main;
     /*background: rgb(118, 228, 228);*/
 
@@ -33,13 +33,12 @@ $BackgroundGrey: #F5F5F5;
 }
 .DummyMain {
   display:grid;
-  height:100vh;
   grid-template-areas: "top top top"
                         "left main right"
                         "bottom bottom bottom" ;
 
   grid-template-columns: 1fr $outer 1fr;
-  grid-template-rows: 130px 6fr 1fr;
+  grid-template-rows: 130px auto auto;
 }
 
 .login--header{

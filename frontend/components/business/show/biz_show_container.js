@@ -29,7 +29,7 @@ const  mstp = (state,ownProps)=>{
     let reviews={}
     if(business){
       if(business.reviewIds!=undefined){
-        console.log(state,business,business.reviewIds,"this shoudl have reviess")
+        /*console.log(state,business,business.reviewIds,"this shoudl have reviess")*/
         let ids= business.reviewIds
         reviews=ids.map(id=>state.entities.reviews[id])
 

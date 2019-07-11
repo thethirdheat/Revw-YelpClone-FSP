@@ -77,7 +77,7 @@ class ReviewForm extends React.Component{
 
             <textarea onChange={ this.update("body")} value={this.state.body}></textarea>
 
-            <div onClick={()=>this.sendMakeReview(this.state)}>Post Review</div>
+            <div onClick={()=>this.sendMakeReview(this.state).then(()=>this.props.history.push(`/biz/${this.state.review.business_id}`))}>Post Review</div>
 
         </div>
         )

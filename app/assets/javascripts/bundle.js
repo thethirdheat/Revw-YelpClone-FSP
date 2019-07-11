@@ -1048,7 +1048,7 @@ function (_React$Component) {
       formData.append('biz_photo[caption]', this.state.caption); //console.log(formData)
 
       this.props.createBizPicture(formData).then(function (res) {
-        return _this3.props.history.push('/');
+        return _this3.props.history.push("/biz/".concat(_this3.state.business_id));
       });
     }
   }, {
@@ -1162,7 +1162,8 @@ function (_React$Component) {
       //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
       if (!business) return null;
-      console.log(business, 'this is biz'); //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
+      /*console.log(business,'this is biz')*/
+      //const pictures = Object.values(business.pictures).map((pic)=><div key={`${pic.business_id}${pic.id}`}><img  src={pic.pictureUrl}/><button onClick={()=>this.props.deleteBizPicture(pic.id)}>DELETE</button><br/></div>)
       //console.log("this is biz",business)
       //pictures = business.pictures.values
 
@@ -1180,7 +1181,6 @@ function (_React$Component) {
         });
       }
 
-      console.log(this.props, "--------------------these are props-------------------");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1200,8 +1200,8 @@ function (_React$Component) {
           return console.log(_this2.props);
         }
       }, "This is for Show on buisness"), "wtf?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        reviews: this.props.reviews || {},
-        blank: this.props.reviews ? "no" : "yes"
+        business: business,
+        reviews: this.props.reviews
       }));
     }
   }]);
@@ -1253,7 +1253,7 @@ var mstp = function mstp(state, ownProps) {
 
   if (business) {
     if (business.reviewIds != undefined) {
-      console.log(state, business, business.reviewIds, "this shoudl have reviess");
+      /*console.log(state,business,business.reviewIds,"this shoudl have reviess")*/
       var ids = business.reviewIds;
       reviews = ids.map(function (id) {
         return state.entities.reviews[id];
@@ -1457,7 +1457,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var ShowLinks = function ShowLinks(props) {
   var business = props.business;
-  console.log(props, 'this is in showInnfo1');
+  /*console.log(props,'this is in showInnfo1')*/
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ShowLinks"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2260,7 +2261,9 @@ function (_React$Component) {
         value: this.state.body
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: function onClick() {
-          return _this4.sendMakeReview(_this4.state);
+          return _this4.sendMakeReview(_this4.state).then(function () {
+            return _this4.props.history.push("/biz/".concat(_this4.state.review.business_id));
+          });
         }
       }, "Post Review"));
     }
@@ -2397,13 +2400,13 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props, "t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------");
+      /*console.log(this.props,"t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------")*/
       var revs = "";
 
-      if (this.props.reviews == "blank") {
+      if (this.props.reviews.length === undefined) {
         return null;
       } else {
-        console.log("this is what you are looking for ", this.props);
+        /*console.log("this is what you are looking for ")*/
         revs = this.props.reviews.map(function (rev) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_review_item_review_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
             review: rev,
@@ -3335,9 +3338,11 @@ __webpack_require__.r(__webpack_exports__);
 //  return bench.reviewIds.map(reviewId => reviews[reviewId]);
 //};
 var selectReviewsForBusiness = function selectReviewsForBusiness(_ref, business) {
+  /*console.log(business,"this is selector function---------------------------------------------------------")*/
+  //return business.reviewIds.map(reviewId=>reviews[reviewId]) || [""]
+
   var businesses = _ref.businesses,
       reviews = _ref.reviews;
-  console.log(business, "this is selector function---------------------------------------------------------"); //return business.reviewIds.map(reviewId=>reviews[reviewId]) || [""]
 };
 
 /***/ }),
