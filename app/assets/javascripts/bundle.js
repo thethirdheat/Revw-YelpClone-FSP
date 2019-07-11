@@ -410,10 +410,10 @@ var logout = function logout() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _session_form_login_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_form/login_container */ "./frontend/components/session_form/login_container.js");
-/* harmony import */ var _session_form_signup_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/signup_container */ "./frontend/components/session_form/signup_container.js");
-/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _session_form_login_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./session_form/login_container */ "./frontend/components/session_form/login_container.js");
+/* harmony import */ var _session_form_signup_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/signup_container */ "./frontend/components/session_form/signup_container.js");
+/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _dummy__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dummy */ "./frontend/components/dummy.jsx");
 /* harmony import */ var _review_create_form_review_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./review/create_form/review_form */ "./frontend/components/review/create_form/review_form.jsx");
@@ -438,11 +438,11 @@ var App = function App() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     exact: true,
     path: "/login",
-    component: _session_form_login_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+    component: _session_form_login_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     exact: true,
     path: "/users/new",
-    component: _session_form_signup_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _session_form_signup_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["ProtectedRoute"], {
     exact: true,
     path: "/biz/:bizId/review",
@@ -627,7 +627,6 @@ function (_React$Component) {
       formData.append('business[price]', this.state.price);
       formData.append('business[long]', this.state["long"]);
       formData.append('business[lat]', this.state.lat);
-      console.log(formData);
       this.props.createBusiness(formData).then(function (res) {
         return _this2.props.history.push('/');
       }); //        this.props.createBusiness({business: this.state}).then((res)=>this.props.history.push(`/biz/${res.id}`),()=>{
@@ -661,7 +660,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
         dealWithFile: this.handleFile,
         change: this.update,
@@ -764,12 +762,11 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      console.log(lodash__WEBPACK_IMPORTED_MODULE_2__["isEqual"]);
-
+      //console.log(isEqual)
       if (!Object(lodash__WEBPACK_IMPORTED_MODULE_2__["isEqual"])(this.state.biz, this.props.business)) {
         //if(this.state.biz!==this.props.business){
-        console.log('this is trigggering a AJAX  call???');
-        console.log(this.props.businesses, 'thsi is props?');
+        //console.log('this is trigggering a AJAX  call???')
+        //console.log(this.props.businesses,'thsi is props?')
         this.props.getBusiness().then(function (res) {
           return _this2.setState({
             biz: _this2.props.businesses
@@ -847,7 +844,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProp) {
-  console.log("look man this is map satew!!!!!!!!!!!!!!");
+  //console.log("look man this is map satew!!!!!!!!!!!!!!")
   return {
     businesses: Object.keys(state.entities.businesses).map(function (idNum) {
       return state.entities.businesses[idNum];
@@ -889,14 +886,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var IndexItem = function IndexItem(props) {
-  console.log(props);
+  //console.log(props)
   var dollars = "";
 
   for (var i = 0; i < props.business.price; i++) {
     dollars += "$";
-  }
+  } //console.log('-----------------------------------------dolarrs----------------------------------------------',dollars)
 
-  console.log('-----------------------------------------dolarrs----------------------------------------------', dollars);
+
   return (//onClick={()=>props.history.push(`/biz/${props.business.id}`)}
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItemContainer"
@@ -1038,8 +1035,8 @@ function (_React$Component) {
       var _this3 = this;
 
       //params.require(:biz_photo).permit(:user_id, :business_id, :caption)
-      e.preventDefault();
-      console.log(this.state);
+      e.preventDefault(); //console.log(this.state)
+
       var formData = new FormData();
 
       if (this.state.pictureFile) {
@@ -1048,8 +1045,8 @@ function (_React$Component) {
 
       formData.append('biz_photo[user_id]', this.state.currentUser);
       formData.append('biz_photo[business_id]', this.state.business_id);
-      formData.append('biz_photo[caption]', this.state.caption);
-      console.log(formData);
+      formData.append('biz_photo[caption]', this.state.caption); //console.log(formData)
+
       this.props.createBizPicture(formData).then(function (res) {
         return _this3.props.history.push('/');
       });
@@ -1102,6 +1099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _directions_show_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directions/show_map */ "./frontend/components/business/show/directions/show_map.jsx");
 /* harmony import */ var _links_show_links__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./links/show_links */ "./frontend/components/business/show/links/show_links.jsx");
 /* harmony import */ var _pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pictures/show_pictures */ "./frontend/components/business/show/pictures/show_pictures.jsx");
+/* harmony import */ var _review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../review/show/show_review_container */ "./frontend/components/review/show/show_review_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1119,6 +1117,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1169,7 +1168,6 @@ function (_React$Component) {
 
       if (business.pictures) {
         var pictures = Object.values(business.pictures);
-        console.log("-------------------------------------------------------------------------------this is the shape of pictures", pictures);
         pictureComponent = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pictures_show_pictures__WEBPACK_IMPORTED_MODULE_5__["default"], {
           pictures: pictures
         });
@@ -1180,6 +1178,7 @@ function (_React$Component) {
         });
       }
 
+      console.log(this.props, "--------------------these are props-------------------");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1194,7 +1193,9 @@ function (_React$Component) {
         className: "Show--Bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
-      }), pictureComponent));
+      }), pictureComponent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        reviews: this.props.reviews
+      }));
     }
   }]);
 
@@ -1217,16 +1218,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
-/* harmony import */ var _biz_show_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./biz_show_component */ "./frontend/components/business/show/biz_show_component.jsx");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../reducers/selectors */ "./frontend/reducers/selectors.js");
+/* harmony import */ var _biz_show_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./biz_show_component */ "./frontend/components/business/show/biz_show_component.jsx");
 
 
 
- //map state to props, from the params id get that slice of state
+
+ //const mapStateToProps = (state, { match }) => {
+//  const benchId = parseInt(match.params.benchId);
+//  const bench = selectBench(state.entities, benchId);
+//  const reviews = selectReviewsForBench(state.entities, bench);
+//  return {
+//    benchId,
+//    bench,
+//    reviews
+//  };
+//};
+//
+//map state to props, from the params id get that slice of state
 //const pokemon = state.entities.pokemon[ownProps.match.params.pokemonId]
 
 var mstp = function mstp(state, ownProps) {
+  var businessId = parseInt(ownProps.match.params.bizId); //const business = state.entities.business[businessId]
+
+  var business = state.entities.businesses[ownProps.match.params.bizId];
+  var reviews = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__["selectReviewsForBusiness"])(state.entities, business);
   return {
-    business: state.entities.businesses[ownProps.match.params.bizId]
+    business: business,
+    reviews: reviews
   };
 };
 
@@ -1241,7 +1260,7 @@ var mdtp = function mdtp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_biz_show_component__WEBPACK_IMPORTED_MODULE_3__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_biz_show_component__WEBPACK_IMPORTED_MODULE_4__["default"])));
 
 /***/ }),
 
@@ -1314,7 +1333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RatingStars = function RatingStars(props) {
-  console.log(props);
+  //console.log(props)
   var count = props.stars;
   var scaled = "";
 
@@ -1379,8 +1398,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ShowInfo = function ShowInfo(props) {
-  var business = props.business;
-  console.log(props, 'this is in showInnfo1');
+  var business = props.business; //console.log(props,'this is in showInnfo1')
+
   var price = "";
 
   for (var i = 0; i < business.price; i++) {
@@ -1470,8 +1489,8 @@ var mdtp = function mdtp(dispatch) {
 };
 
 var PicCard = function PicCard(props) {
-  var hover = false;
-  console.log(props, "this is pic card props");
+  var hover = false; //console.log(props, "this is pic card props")
+
   var picId = props.picture.id;
   var center = props.center != undefined ? "PicCard__center" : "";
   var delPic = props.deletePic.bind(_this);
@@ -1569,9 +1588,9 @@ function (_React$Component) {
         pictureUrl: "https://i.imgur.com/kFUQft9.png"
         /*onMouseEnter={this.someHandler}
         onMouseLeave*/
+        //console.log(pictures,'------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------')
 
       };
-      console.log(pictures, '------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------');
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowPictures"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2207,7 +2226,7 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log(this.props, 'this is props', this.state);
+      //console.log(this.props,'this is props',this.state)
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, " THIS SHOULD BE THE LOGO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this will be teh user profile pic")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "This will be the review form!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this will be the radiou buttsons for now its input", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2229,6 +2248,107 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mstp, mdtp)(ReviewForm)));
+
+/***/ }),
+
+/***/ "./frontend/components/review/show/show_review_component.jsx":
+/*!*******************************************************************!*\
+  !*** ./frontend/components/review/show/show_review_component.jsx ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var ReviewsList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ReviewsList, _React$Component);
+
+  function ReviewsList(props) {
+    var _this;
+
+    _classCallCheck(this, ReviewsList);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewsList).call(this, props));
+    _this.state = _this.props.reviews ? Object.values(_this.props.reviews) : [{
+      body: "Nne"
+    }];
+    return _this;
+  }
+
+  _createClass(ReviewsList, [{
+    key: "render",
+    value: function render() {
+      if (!this.props.reviews) return null;
+      console.log(this.props, "this is revies");
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "This should be showing up", this.state.map(function (rev) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, rev.body);
+      }));
+    }
+  }]);
+
+  return ReviewsList;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ReviewsList);
+
+/***/ }),
+
+/***/ "./frontend/components/review/show/show_review_container.js":
+/*!******************************************************************!*\
+  !*** ./frontend/components/review/show/show_review_container.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _show_review_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show_review_component */ "./frontend/components/review/show/show_review_component.jsx");
+
+
+
+var mstp = function mstp(state, ownPros) {
+  //const business= state.entities.businesses[ownProps.match.params.bizId]
+  //const reviews = selectReviewsForBusiness(state.entities, business)
+  return {//reviews
+  };
+};
+
+var mdtp = function mdtp(dispatch) {
+  return {//func : ()=>dispatch(someaAction())
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_show_review_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -2421,8 +2541,8 @@ function (_React$Component) {
     key: "removeErr",
     value: function removeErr() {
       var prev = Object.assign({}, this.state);
-      prev.errors = "";
-      console.log(prev, "this s p the new state");
+      prev.errors = ""; //console.log(prev,"this s p the new state")
+
       this.setState(prev);
     }
   }, {
@@ -2687,8 +2807,8 @@ function (_React$Component) {
     key: "removeErr",
     value: function removeErr() {
       var prev = Object.assign({}, this.state);
-      prev.errors = "";
-      console.log(prev, "this s p the new state");
+      prev.errors = ""; //console.log(prev,"this s p the new state")
+
       this.setState(prev);
     }
   }, {
@@ -3023,6 +3143,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/business_actions */ "./frontend/actions/business_actions.js");
+
 
 
 var reviewsReducer = function reviewsReducer() {
@@ -3039,6 +3161,10 @@ var reviewsReducer = function reviewsReducer() {
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_REVIEW"]:
       delete newState[action.id];
       return newState;
+
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_BUSINESS"]:
+      //console.log("this is in reveis reducer", action)
+      return Object.assign({}, state, action.business.reviews) || {};
 
     default:
       return state;
@@ -3072,6 +3198,27 @@ __webpack_require__.r(__webpack_exports__);
   //ui,
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/*! exports provided: selectReviewsForBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectReviewsForBusiness", function() { return selectReviewsForBusiness; });
+//export const selectReviewsForBench = ({ benches, reviews }, bench) => {
+//  return bench.reviewIds.map(reviewId => reviews[reviewId]);
+//};
+var selectReviewsForBusiness = function selectReviewsForBusiness(_ref, business) {
+  var businesses = _ref.businesses,
+      reviews = _ref.reviews;
+  console.log(business, "this is selector function---------------------------------------------------------"); //return business.reviewIds.map(reviewId=>reviews[reviewId]) || [""]
+};
 
 /***/ }),
 

@@ -42,7 +42,6 @@ class BusinessForm extends React.Component{
         formData.append('business[price]',this.state.price)
         formData.append('business[long]',this.state.long)
         formData.append('business[lat]',this.state.lat)
-        console.log(formData)
         this.props.createBusiness(formData).then(
             ((res)=>this.props.history.push('/'))
         )
@@ -71,7 +70,6 @@ class BusinessForm extends React.Component{
     } 
 
     render(){
-        console.log(this.state)
         return(
         <div>
             <BizForm dealWithFile ={this.handleFile} change={this.update} send={this.handleSumbit} business={this.state}/>

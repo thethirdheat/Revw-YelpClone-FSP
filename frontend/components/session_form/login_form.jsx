@@ -53,7 +53,7 @@ class LoginForm extends React.Component{
     removeErr(){
         let prev=Object.assign({},this.state)
         prev.errors=""
-        console.log(prev,"this s p the new state")
+        //console.log(prev,"this s p the new state")
         this.setState(prev)
     }
 

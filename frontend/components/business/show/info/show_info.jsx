@@ -2,7 +2,7 @@ import React from 'react'
 import RatingStars from './rating'
 const ShowInfo =(props)=>{
     const {business}=props
-    console.log(props,'this is in showInnfo1')
+    //console.log(props,'this is in showInnfo1')
     let price=""
     for(let i =0;i< business.price;i++){
         price+="$"

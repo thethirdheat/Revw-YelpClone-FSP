@@ -6,12 +6,12 @@ import {Link} from 'react-router-dom';
 import RatingStars from '../show/info/rating'
 const IndexItem =(props)=>{
 
-    console.log(props)
+    //console.log(props)
     let dollars=""
     for(let i=0;i<props.business.price;i++){
         dollars+="$" 
     }
-    console.log('-----------------------------------------dolarrs----------------------------------------------',dollars)
+    //console.log('-----------------------------------------dolarrs----------------------------------------------',dollars)
     return (
         //onClick={()=>props.history.push(`/biz/${props.business.id}`)}
     <div className="IndexItemContainer" >

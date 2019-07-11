@@ -38,7 +38,7 @@ class UpLoadPicture extends React.Component{
     handleSumbit(e){
         //params.require(:biz_photo).permit(:user_id, :business_id, :caption)
         e.preventDefault();
-        console.log(this.state)
+        //console.log(this.state)
         const formData = new FormData()
 
         if(this.state.pictureFile){
@@ -48,7 +48,7 @@ class UpLoadPicture extends React.Component{
         formData.append('biz_photo[business_id]',this.state.business_id)
         formData.append('biz_photo[caption]',this.state.caption)
 
-        console.log(formData)
+        //console.log(formData)
         this.props.createBizPicture(formData).then(
             ((res)=>this.props.history.push('/'))
         )

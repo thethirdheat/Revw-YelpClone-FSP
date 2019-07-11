@@ -9,7 +9,7 @@ const PicCard = (props)=>{
     let hover=false
 
 
-    console.log(props, "this is pic card props")
+    //console.log(props, "this is pic card props")
     const picId = props.picture.id
     const center= props.center!=undefined? "PicCard__center" : ""
     const delPic = props.deletePic.bind(this)

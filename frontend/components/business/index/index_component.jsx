@@ -8,11 +8,11 @@ class Index extends React.Component {
         this.state={ biz: this.props.businesses}
     }
     componentDidMount(){
-        console.log(isEqual)
+        //console.log(isEqual)
         if(!isEqual(this.state.biz,this.props.business)){
         //if(this.state.biz!==this.props.business){
-        console.log('this is trigggering a AJAX  call???')
-        console.log(this.props.businesses,'thsi is props?')
+        //console.log('this is trigggering a AJAX  call???')
+        //console.log(this.props.businesses,'thsi is props?')
             this.props.getBusiness().then((res)=>this.setState({biz:this.props.businesses}))
             this.setState({wtf:this.props.businesses})
 

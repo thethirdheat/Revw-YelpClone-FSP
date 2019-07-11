@@ -4,6 +4,7 @@ import ShowInfo from './info/show_info'
 import ShowMap from './directions/show_map'
 import ShowLinks from './links/show_links'
 import ShowPictures from './pictures/show_pictures'
+import ReviewsListContainer from '../../review/show/show_review_container'
 
 
 class DetailBusiness extends React.Component{
@@ -35,13 +36,13 @@ class DetailBusiness extends React.Component{
         let pictureComponent
          if (business.pictures){
             const pictures =Object.values(business.pictures)
-            console.log("-------------------------------------------------------------------------------this is the shape of pictures",pictures)
             pictureComponent=<ShowPictures pictures={pictures}/>
         }else{
             let emptyAr=[false,false,false]
             pictureComponent=<ShowPictures  pictures={emptyAr}/>
         } 
 
+        console.log(this.props,"--------------------these are props-------------------")
 
         return(
             <div className = "ShowPage">
@@ -54,6 +55,7 @@ class DetailBusiness extends React.Component{
                     <ShowMap business={business}/>
                     {pictureComponent}
                 </div>
+                <ReviewsListContainer reviews={this.props.reviews} />
             </div>
         )
     }

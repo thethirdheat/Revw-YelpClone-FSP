@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RatingStars = (props)=>{
-    console.log(props)
+    //console.log(props)
     let count=props.stars
     let scaled=""
     if(props.scaled==true){
