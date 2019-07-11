@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ReviewItem from '../review_item/review_item'
 import Hours from './hours'
+import MoreInfo from './More_info'
 
 class ReviewsList extends React.Component{
     constructor(props){
@@ -31,6 +32,7 @@ class ReviewsList extends React.Component{
             </div>
             <div className="ReviewList--Right">
                 <Hours/>
+                <MoreInfo/>
 
             </div>
 

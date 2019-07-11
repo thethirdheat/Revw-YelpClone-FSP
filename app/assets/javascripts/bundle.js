@@ -2386,6 +2386,29 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/review/show/More_info.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/review/show/More_info.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MoreInfo = function MoreInfo() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "MoreInfo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "More business info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takes Reservations ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Take-out ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Credit Cards ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Apple Pay ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Google Pay ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Lunch, Dinner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Parking ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Street")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bike Parking ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Kids Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Groups Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ambience ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Hipster, Casual, Trendy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Noise ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Level Average")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For Dancing ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Alcohol ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Beer & Wine Only")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Coat Check ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Outdoor Seating ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wi-Fi ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Free")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has TV ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dogs Allowed ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Waiter Service ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Drive-Thru ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Caters ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has Pool Table ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gender Neutral Restrooms ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes"), " "));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MoreInfo);
+
+/***/ }),
+
 /***/ "./frontend/components/review/show/hours.jsx":
 /*!***************************************************!*\
   !*** ./frontend/components/review/show/hours.jsx ***!
@@ -2400,7 +2423,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Hours = function Hours() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hours", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "HoursContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Hours"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Hours--Box"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "date"
@@ -2438,6 +2463,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _review_item_review_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../review_item/review_item */ "./frontend/components/review/review_item/review_item.jsx");
 /* harmony import */ var _hours__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hours */ "./frontend/components/review/show/hours.jsx");
+/* harmony import */ var _More_info__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./More_info */ "./frontend/components/review/show/More_info.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2455,6 +2481,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2506,7 +2533,7 @@ function (_React$Component) {
         className: "ReviewList--Left"
       }, revs), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "ReviewList--Right"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_hours__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_hours__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_More_info__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
     }
   }]);
 

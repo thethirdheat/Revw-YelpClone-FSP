@@ -27,8 +27,9 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 
 }
 .ReviewList--Right{
-    background: purple;
+    /*background: purple;*/
     grid-area: right;
+    padding-left: 50px;
 
 }
 .ReviewStars{

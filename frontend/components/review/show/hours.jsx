@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const Hours =()=>(
-    <div>Hours
+    <div className="HoursContainer"><h3>Hours</h3>
         <div className="Hours--Box">
         <table>
             <tbody>
