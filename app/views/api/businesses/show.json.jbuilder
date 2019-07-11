@@ -10,3 +10,11 @@ json.pictures do
     end
   end
 end
+
+json.reviews do 
+  @biz.reviews.each do |review|
+    json.set! review.id do 
+      json.extract! review, :user_id, :business_id, :body, :id
+    end
+  end
+end
