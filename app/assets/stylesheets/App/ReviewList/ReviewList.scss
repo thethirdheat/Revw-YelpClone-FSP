@@ -1,0 +1,32 @@
+
+$LeftSideBar: 640px;
+$BorderColor: #E6E6E6;
+$InBetweenSearchIndexGrey: #F5F5F5;
+.map{
+    width:300px;
+    height: 345px;
+}
+.ReviewList{
+  display:grid;
+  height:100%;
+  width:100%;
+  grid-template-areas: "top top"
+                        "left right";
+
+  grid-template-columns: $LeftSideBar 1fr;
+  grid-template-rows: 150px 6fr;
+}
+.ReviewList--Top{
+    grid-area: top;
+
+}
+.ReviewList--Left{
+    grid-area: left;
+
+
+}
+.ReviewList--Right{
+    background: purple;
+    grid-area: right;
+
+}

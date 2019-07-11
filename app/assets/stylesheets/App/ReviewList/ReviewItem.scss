@@ -1,0 +1,31 @@
+$LeftSidePicutreWidth:  245px;
+$ParagraphWidth: 360px;
+.RevItem{
+    width:630px;
+    background: pink;
+    display: grid;
+
+    grid-template-areas: "left right";
+    grid-template-columns: $LeftSidePicutreWidth 1fr;
+
+
+}
+.RevItem--RightSide{
+    grid-area: right;
+    background: orange;
+    width: $ParagraphWidth;
+
+
+
+}
+.RevItem--LeftSide{
+    background: green;
+    grid-area: left;
+
+}
+.Rev-Img{
+    width:60px;
+    height: 60px;
+
+
+}

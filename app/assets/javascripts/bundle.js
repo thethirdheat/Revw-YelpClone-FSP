@@ -1199,7 +1199,7 @@ function (_React$Component) {
         onClick: function onClick() {
           return console.log(_this2.props);
         }
-      }, "This is for Show on buisness"), "wtf?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }, "This is for Show on buisness"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
         business: business,
         reviews: this.props.reviews
       }));
@@ -2324,17 +2324,19 @@ function (_React$Component) {
       var _this$props = this.props,
           props = _this$props.props,
           review = _this$props.review;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevItem"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return console.log(props);
         }
       }, "this is  review item"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevItem--RightSide"
+        className: "RevItem--LeftSide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "Greeting-Img",
+        className: "Rev-Img",
         src: "https://i.imgur.com/S5cgOk5.png"
       }), review.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevItem--LeftSide"
+        className: "RevItem--RightSide"
       }, review.body));
     }
   }]);
@@ -2415,11 +2417,19 @@ function (_React$Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "This should be showing up", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "ReviewList"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: function onClick() {
           return console.log(_this.props);
         }
-      }, "Clic me for props"), revs);
+      }, "Clic me for props"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "ReviewList--Top"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "ReviewList--Left"
+      }, revs), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "ReviewList--Right"
+      }));
     }
   }]);
 

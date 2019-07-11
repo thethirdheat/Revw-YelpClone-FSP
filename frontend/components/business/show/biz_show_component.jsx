@@ -55,7 +55,6 @@ class DetailBusiness extends React.Component{
                     {pictureComponent}
                 </div>
                 <button onClick={()=>console.log(this.props)}>This is for Show on buisness</button>
-                wtf?
                 <ReviewsListContainer business={business} reviews={this.props.reviews }/>
             </div>
         )

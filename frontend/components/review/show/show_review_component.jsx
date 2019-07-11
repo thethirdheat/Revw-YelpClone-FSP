@@ -22,10 +22,13 @@ class ReviewsList extends React.Component{
 
 
         return(
-        <div>
-            This should be showing up
+        <div className="ReviewList">
             <button onClick={()=>console.log(this.props)}>Clic me for props</button>
-            {revs}
+            <div className="ReviewList--Top"></div>
+            <div className="ReviewList--Left">
+                {revs}
+            </div>
+            <div className="ReviewList--Right"></div>
 
         </div>)
     }
