@@ -1,31 +1,77 @@
 $LeftSidePicutreWidth:  245px;
 $ParagraphWidth: 360px;
+$ImageWidth: 60px;
+$LinkColor: #4474BB;
+$BorderColour:#E6E6E6;
 .RevItem{
     width:630px;
-    background: pink;
+    /*background: pinke*/
     display: grid;
 
     grid-template-areas: "left right";
     grid-template-columns: $LeftSidePicutreWidth 1fr;
+    border-style: solid; 
+    /*border-color: red;*/
+    border-color: $BorderColour;
+    border-bottom: .5px;
+    border-left: 0px;
+    border-right: 0px;
+
+    /*border-width: .5px;
+    border-top: .5px;
+    border-bottom: .5px;
+    border-left: 0px;
+    border-right: 0px;*/
+    padding: 30px 0px;
 
 
 }
 .RevItem--RightSide{
     grid-area: right;
-    background: orange;
+    /*background: orange;*/
     width: $ParagraphWidth;
+    position: relative;
 
 
 
 }
 .RevItem--LeftSide{
-    background: green;
+    /*background: green;*/
     grid-area: left;
 
 }
 .Rev-Img{
-    width:60px;
-    height: 60px;
+    width:$ImageWidth;
+    height: $ImageWidth;
 
+
+}
+.StarsPlain{
+    display: flex;
+
+}
+.ReviewStars{
+    position: relative;
+    background: white;
+    transform: scale(.78);
+    left:-25px;
+}
+.RevUser{
+    display: grid;
+    display:grid;
+    grid-template-areas: "left right";
+
+    grid-template-columns: $ImageWidth 1fr;
+
+
+}
+.RevUser--Left{
+    grid-area: left;
+
+}
+.RevUser--Right{
+    color: $LinkColor;
+    grid-area: right;
+    font-weight: bold;
 
 }

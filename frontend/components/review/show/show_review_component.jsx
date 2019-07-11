@@ -3,6 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ReviewItem from '../review_item/review_item'
+import Hours from './hours'
 
 class ReviewsList extends React.Component{
     constructor(props){
@@ -28,7 +29,10 @@ class ReviewsList extends React.Component{
             <div className="ReviewList--Left">
                 {revs}
             </div>
-            <div className="ReviewList--Right"></div>
+            <div className="ReviewList--Right">
+                <Hours/>
+
+            </div>
 
         </div>)
     }

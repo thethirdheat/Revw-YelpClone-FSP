@@ -1,13 +1,7 @@
 import React from 'react'
-
-const RatingStars = (props)=>{
-    //console.log(props)
-    let count=props.stars
-    let scaled=""
-    if(props.scaled==true){
-        scaled="RatingScaledDown" 
-    }
-    let amount =3 
+const Stars = (props)=>{
+    //let amount =props.amount 
+    let count = props.amount
 
 
     const star=()=>{
@@ -20,16 +14,19 @@ const RatingStars = (props)=>{
         }else{
             return <div className="RB Rating--bacground__white"> <i className="fas fa-star  Rating--star__white"></i> 
                 </div>        }
-    }
-    return(
-    <div className={`RatingStars ${scaled}`}>
+        }
+    const arStar=<div className="StarsPlain">
         {star()}
         {star()}
         {star()}
         {star()}
-        {star()} 
-        {props.rating?<span className={ `Ratings--ReveiewAmount`}>&nbsp; {amount}&nbsp; reviews</span> :""}
+        {star()}
+    </div>
+
+
+    return (<div>
+        {arStar}
+
     </div>
 )}
-
-export default RatingStars
+export default Stars

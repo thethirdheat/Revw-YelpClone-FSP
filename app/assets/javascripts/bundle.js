@@ -918,7 +918,8 @@ var IndexItem = function IndexItem(props) {
       to: "./biz/".concat(props.business.id)
     }, " ", props.business.business_name, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_show_info_rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
       stars: 3,
-      scaled: true
+      scaled: true,
+      rating: true
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
     }, dollars.length ? dollars : "$", " \xA0\u25CF \xA0", props.business.business_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1395,9 +1396,9 @@ var RatingStars = function RatingStars(props) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "RatingStars ".concat(scaled)
-  }, star(), star(), star(), star(), star(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, star(), star(), star(), star(), star(), props.rating ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "Ratings--ReveiewAmount"
-  }, "\xA0 ", amount, "\xA0 reviews"));
+  }, "\xA0 ", amount, "\xA0 reviews") : "");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RatingStars);
@@ -2287,6 +2288,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _stars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stars */ "./frontend/components/review/stars.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2307,37 +2309,73 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var ReviewItem =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(ReviewItem, _React$Component);
 
   function ReviewItem(props) {
+    var _this;
+
     _classCallCheck(this, ReviewItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ReviewItem).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewItem).call(this, props));
+    _this.state = {
+      date: ""
+    };
+    return _this;
   }
 
   _createClass(ReviewItem, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var date = this.props.review.updated_at.toString();
+      date = date.split("T")[0];
+      date = date.split('-');
+      var holder = date[0];
+      date[0] = date[2];
+      date[2] = holder;
+      date = date.join('/');
+      this.setState({
+        date: date
+      }); //this.setState({date: this.props.review.updated_at.toString().split('T')[0].reverse() })
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           props = _this$props.props,
-          review = _this$props.review;
+          review = _this$props.review; //const date= review.updated_at.toString().split('T')//[0].reverse()
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
-          return console.log(props);
+          return console.log(_this2.props);
         }
       }, "this is  review item"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--LeftSide"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevUser"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevUser--Left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "Rev-Img",
         src: "https://i.imgur.com/S5cgOk5.png"
-      }), review.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevUser--Right"
+      }, review.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--RightSide"
-      }, review.body));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ReviewStars"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_stars__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        amount: review.rating
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "ReviewDAate--Reverse"
+      }, " \xA0\xA0", this.state.date)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.body)));
     }
   }]);
 
@@ -2345,6 +2383,43 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewItem);
+
+/***/ }),
+
+/***/ "./frontend/components/review/show/hours.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/review/show/hours.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Hours = function Hours() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hours", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "Hours--Box"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Mon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Tue"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Wed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Thu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Fri"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Sat"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "date"
+  }, "Sun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "11:30am"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "\xA0-\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "9:00pm"))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Hours);
 
 /***/ }),
 
@@ -2362,6 +2437,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _review_item_review_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../review_item/review_item */ "./frontend/components/review/review_item/review_item.jsx");
+/* harmony import */ var _hours__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hours */ "./frontend/components/review/show/hours.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2379,6 +2455,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2429,7 +2506,7 @@ function (_React$Component) {
         className: "ReviewList--Left"
       }, revs), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "ReviewList--Right"
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_hours__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
   }]);
 
@@ -2482,6 +2559,61 @@ var mdtp = function mdtp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_show_review_component__WEBPACK_IMPORTED_MODULE_1__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/review/stars.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/components/review/stars.jsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Stars = function Stars(props) {
+  //let amount =props.amount 
+  var count = props.amount;
+
+  var star = function star() {
+    if (count >= 1) {
+      count--;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RB Rating--background__red"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star Rating--star__red"
+      }));
+    } else if (count < 1 && count >= 0.5) {
+      count = 0;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RB Rating--background__half"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "half_div"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "half_color"
+      }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "z-index-up fas fa-star Rating--star__half"
+      })));
+    } else {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RB Rating--bacground__white"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star  Rating--star__white"
+      }));
+    }
+  };
+
+  var arStar = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "StarsPlain"
+  }, star(), star(), star(), star(), star());
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, arStar);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Stars);
 
 /***/ }),
 

@@ -8,6 +8,7 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 }
 .ReviewList{
   display:grid;
+  background: #fff;
   height:100%;
   width:100%;
   grid-template-areas: "top top"
@@ -28,5 +29,13 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 .ReviewList--Right{
     background: purple;
     grid-area: right;
+
+}
+.ReviewStars{
+    position: relative;
+    left: -35px;
+
+    display: flex;
+    align-items: center;
 
 }

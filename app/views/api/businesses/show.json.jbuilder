@@ -15,7 +15,7 @@ end
 json.reviews do 
   @biz.reviews.each do |review|
     json.set! review.id do 
-      json.extract! review, :user_id, :business_id, :body, :id
+      json.extract! review, :user_id, :business_id, :body, :id ,:created_at, :updated_at, :rating
       json.username review.user.username
       json.business review.business.business_name
     end

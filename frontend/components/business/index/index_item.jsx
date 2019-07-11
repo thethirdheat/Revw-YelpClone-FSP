@@ -24,7 +24,7 @@ const IndexItem =(props)=>{
                 <div className="IndexItem--Info">
                     <div className="IndexItem--Info__Left">
                         <p> <span className="IndexBold">{props.index}.<Link to={`./biz/${props.business.id}`}> {props.business.business_name} </Link></span></p>
-                        <RatingStars stars={3} scaled={true}/>
+                        <RatingStars stars={3} scaled={true} rating={true}/>
 
                         <p className="Index--GreyText">{ dollars.length? dollars: "$"} &nbsp;&#9679; &nbsp;{props.business.business_type}</p>
 
