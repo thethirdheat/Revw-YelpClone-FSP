@@ -26,7 +26,19 @@ const  mstp = (state,ownProps)=>{
     const businessId = parseInt(ownProps.match.params.bizId)
     //const business = state.entities.business[businessId]
     const business= state.entities.businesses[ownProps.match.params.bizId]
-    const reviews = selectReviewsForBusiness(state.entities, business)
+    let reviews={}
+    if(business){
+      if(business.reviewIds!=undefined){
+        console.log(state,business,business.reviewIds,"this shoudl have reviess")
+        let ids= business.reviewIds
+        reviews=ids.map(id=>state.entities.reviews[id])
+
+      }
+    }
+    //const reviews = state.entities//selectReviewsForBusiness(state.entities, business) ||{}
+    //const reviews = stastate.entities.businesses[ownProps.match.params.bizId]//.reviewIds//selectReviewsForBusiness(state.entities, business) ||{}
+    // const reviews = business//[business.reviewIds]
+    //console.log(state, "this is is map!!!!!")
     return {
     business,
     reviews

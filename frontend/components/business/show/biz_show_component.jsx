@@ -55,7 +55,9 @@ class DetailBusiness extends React.Component{
                     <ShowMap business={business}/>
                     {pictureComponent}
                 </div>
-                <ReviewsListContainer reviews={this.props.reviews} />
+                <button onClick={()=>console.log(this.props)}>This is for Show on buisness</button>
+                wtf?
+                <ReviewsListContainer reviews={this.props.reviews ||{}} blank={this.props.reviews? "no": "yes"} />
             </div>
         )
     }

@@ -1157,6 +1157,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
       if (!business) return null;
@@ -1193,8 +1195,13 @@ function (_React$Component) {
         className: "Show--Bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
-      }), pictureComponent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        reviews: this.props.reviews
+      }), pictureComponent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return console.log(_this2.props);
+        }
+      }, "This is for Show on buisness"), "wtf?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        reviews: this.props.reviews || {},
+        blank: this.props.reviews ? "no" : "yes"
       }));
     }
   }]);
@@ -1242,7 +1249,22 @@ var mstp = function mstp(state, ownProps) {
   var businessId = parseInt(ownProps.match.params.bizId); //const business = state.entities.business[businessId]
 
   var business = state.entities.businesses[ownProps.match.params.bizId];
-  var reviews = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_3__["selectReviewsForBusiness"])(state.entities, business);
+  var reviews = {};
+
+  if (business) {
+    if (business.reviewIds != undefined) {
+      console.log(state, business, business.reviewIds, "this shoudl have reviess");
+      var ids = business.reviewIds;
+      reviews = ids.map(function (id) {
+        return state.entities.reviews[id];
+      });
+    }
+  } //const reviews = state.entities//selectReviewsForBusiness(state.entities, business) ||{}
+  //const reviews = stastate.entities.businesses[ownProps.match.params.bizId]//.reviewIds//selectReviewsForBusiness(state.entities, business) ||{}
+  // const reviews = business//[business.reviewIds]
+  //console.log(state, "this is is map!!!!!")
+
+
   return {
     business: business,
     reviews: reviews
@@ -2251,6 +2273,76 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/review/review_item/review_item.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/review/review_item/review_item.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var ReviewItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ReviewItem, _React$Component);
+
+  function ReviewItem(props) {
+    _classCallCheck(this, ReviewItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ReviewItem).call(this, props));
+  }
+
+  _createClass(ReviewItem, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          props = _this$props.props,
+          review = _this$props.review;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return console.log(props);
+        }
+      }, "this is  review item"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevItem--RightSide"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "Greeting-Img",
+        src: "https://i.imgur.com/S5cgOk5.png"
+      }), review.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevItem--LeftSide"
+      }, review.body));
+    }
+  }]);
+
+  return ReviewItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ReviewItem);
+
+/***/ }),
+
 /***/ "./frontend/components/review/show/show_review_component.jsx":
 /*!*******************************************************************!*\
   !*** ./frontend/components/review/show/show_review_component.jsx ***!
@@ -2264,6 +2356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _review_item_review_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../review_item/review_item */ "./frontend/components/review/review_item/review_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2287,38 +2380,50 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var ReviewsList =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(ReviewsList, _React$Component);
 
   function ReviewsList(props) {
-    var _this;
-
     _classCallCheck(this, ReviewsList);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewsList).call(this, props));
-    _this.state = _this.props.reviews ? Object.values(_this.props.reviews) : [{
-      body: "Nne"
-    }];
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(ReviewsList).call(this, props)); //this.state=this.props.reviews? Object.values(this.props.reviews) : [{body:"Nne"}]
   }
 
   _createClass(ReviewsList, [{
     key: "render",
     value: function render() {
-      if (!this.props.reviews) return null;
-      console.log(this.props, "this is revies");
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "This should be showing up", this.state.map(function (rev) {
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, rev.body);
-      }));
+      var _this = this;
+
+      console.log(this.props, "t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------");
+      var revs = "";
+
+      if (this.props.reviews == "blank") {
+        return null;
+      } else {
+        console.log("this is what you are looking for ", this.props);
+        revs = this.props.reviews.map(function (rev) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_review_item_review_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            review: rev,
+            key: rev.id
+          });
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "This should be showing up", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        onClick: function onClick() {
+          return console.log(_this.props);
+        }
+      }, "Clic me for props"), revs);
     }
   }]);
 
   return ReviewsList;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ReviewsList);
+/* harmony default export */ __webpack_exports__["default"] = (ReviewsList); //{this.state.map(rev=><p>{rev.body}</p>)}
 
 /***/ }),
 
@@ -2333,13 +2438,28 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _show_review_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show_review_component */ "./frontend/components/review/show/show_review_component.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
-var mstp = function mstp(state, ownPros) {
+
+var mstp = function mstp(state, ownProps) {
   //const business= state.entities.businesses[ownProps.match.params.bizId]
   //const reviews = selectReviewsForBusiness(state.entities, business)
-  return {//reviews
+
+  /*
+  const business= state.entities.businesses[ownProps.match.params.bizId]
+  let reviews={}
+  if(business.reviewIds!=undefined){
+    if(business.reviewIds.length){
+      console.log(state,business,business.reviewIds,"this shoudl have reviess")
+      let ids= business.reviewIds
+      reviews=ids.map(id=>state.entities.reviews[id])
+     }
+  }
+  */
+  return {
+    reviews: ownProps.reviews
   };
 };
 
@@ -2348,7 +2468,7 @@ var mdtp = function mdtp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_show_review_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_show_review_component__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
