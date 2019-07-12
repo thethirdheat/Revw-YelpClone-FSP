@@ -49,5 +49,13 @@ $BackgroundGrey: #F5F5F5;
 } 
 
 .BusinessForm{
-    margin-top: 300px;
+    width: 700px;
+    position: absolute;
+    margin-top: 100px;
+    textarea{
+        height: 250px;
+    }
+    *{
+        width: 100%;
+    }
 }

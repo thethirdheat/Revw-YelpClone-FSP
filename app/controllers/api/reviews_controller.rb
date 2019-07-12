@@ -20,6 +20,8 @@ class Api::ReviewsController < ApplicationController
         if @rev.user_id ==current_user.id 
             if @rev.update_attributes(review_params)
                 @biz=Business.find(@rev.business_id)
+                rate=Business.rating
+                @biz.update_attributes
                 #render '../views/api/businesses/show'
                 render '../views/api/reviews/show' 
             else

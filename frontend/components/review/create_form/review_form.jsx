@@ -40,6 +40,7 @@ class ReviewForm extends React.Component{
         return (e)=>{
             let prev=Object.assign({},this.state)
             prev.review[field]= e.target.value
+            //console.log(prev)
             return this.setState(prev) 
         }
 
@@ -61,26 +62,58 @@ class ReviewForm extends React.Component{
         //console.log(this.props,'this is props',this.state)
         return (
         <div>
+
+            <nav className ="login--header">
+                <div className ="login--header__container">
+                    <div className="login--header__biz"  ><Link to ="/">SignUp as Business</Link> </div>
+                    <br></br>
+                    <div className="login--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
+                </div>
+            </nav>
+            <aside className="login--left-addbar"></aside>
+
+            {/*
             <div>
                 <Link to="/"> THIS SHOULD BE THE LOGO</Link>
                 <div>this will be teh user profile pic</div>
             </div>
             <br/>
 
-            This will be the review form!
-            <div>
-                this will be the radiou buttsons for now its input
-                <input type="text" value={this.state.rating} onChange={this.update("rating")} />
+            This will be the review form!*/}
+
+
+
+
+            <div className="FormContainer BusnessForm">
+                    <div className="InnerForm">
+                    <label>
+                        Rating
+                    </label>
+                    <form>
+                        <input type="radio" value={1} onChange={this.update("rating")} />
+                        <input type="radio" value={2} onChange={this.update("rating")} />
+                        <input type="radio" value={3} onChange={this.update("rating")} />
+                        <input type="radio" value={4} onChange={this.update("rating")} />
+                        <input type="radio" value={5} onChange={this.update("rating")} />
+                    </form>
+
+
+
+                    <textarea onChange={ this.update("body")} value={this.state.body}></textarea>
+
+                    <div className="ShowLinks--Review" onClick={()=>this.sendMakeReview(this.state).then(()=>this.props.history.push(`/biz/${this.state.review.business_id}`))}>Post Review</div>
+                    </div>
+
             </div>
-            <div>***this should be stars ***</div>
-
-
-            <textarea onChange={ this.update("body")} value={this.state.body}></textarea>
-
-            <div onClick={()=>this.sendMakeReview(this.state).then(()=>this.props.history.push(`/biz/${this.state.review.business_id}`))}>Post Review</div>
 
         </div>
         )
+
+
+
+
+
+
     }
 }
 

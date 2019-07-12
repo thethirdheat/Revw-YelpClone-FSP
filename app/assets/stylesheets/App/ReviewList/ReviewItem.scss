@@ -12,8 +12,9 @@ $BorderColour:#E6E6E6;
     grid-template-columns: $LeftSidePicutreWidth 1fr;
     border-style: solid; 
     /*border-color: red;*/
-    border-color: $BorderColour;
-    border-bottom: .5px;
+    border-color: $BorderColour; 
+    border-top: 0px;
+    border-width: .03px;
     border-left: 0px;
     border-right: 0px;
 

@@ -487,34 +487,34 @@ var BizForm = function BizForm(props) {
     className: "BusinessForm"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: props.send
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Business Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Business Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('business_name'),
     type: "text",
     value: props.business.business_name
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     onChange: props.change('description'),
     value: props.business.description
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Address", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('address'),
     type: "text",
     value: props.business.address
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Phone Number", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Phone Number"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('phone_number'),
     type: "text",
     value: props.business.phone_number
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Price", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('price'),
     type: "text",
     value: props.business.price
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Latitude", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Latitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('lat'),
     type: "text",
     value: props.business.lat
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Longitude", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Longitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('long'),
     type: "text",
     value: props.business["long"]
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     value: props.business_type,
     onChange: props.change('business_type')
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -932,11 +932,7 @@ var IndexItem = function IndexItem(props) {
       className: "IndexItem--Description"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
-    }, "\"", props.business.description, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
-        return props.remove(props.business.id);
-      }
-    }, "DElete")))))
+    }, "\"", props.business.description, "\"")))))
   );
 };
 
@@ -1062,15 +1058,17 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this is a  form to submit pictures!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureSubmit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSumbit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        onChange: this.handleFile,
-        type: "file"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.update("caption"),
         value: this.state.caption
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.handleFile,
+        type: "file"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "submit"
       })));
@@ -1158,8 +1156,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
       if (!business) return null;
@@ -1196,11 +1192,7 @@ function (_React$Component) {
         className: "Show--Bottom"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_directions_show_map__WEBPACK_IMPORTED_MODULE_3__["default"], {
         business: business
-      }), pictureComponent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return console.log(_this2.props);
-        }
-      }, "This is for Show on buisness"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), pictureComponent), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_show_show_review_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
         business: business,
         reviews: this.props.reviews
       }));
@@ -2222,7 +2214,8 @@ function (_React$Component) {
 
       return function (e) {
         var prev = Object.assign({}, _this2.state);
-        prev.review[field] = e.target.value;
+        prev.review[field] = e.target.value; //console.log(prev)
+
         return _this2.setState(prev);
       };
     }
@@ -2251,22 +2244,55 @@ function (_React$Component) {
       var _this4 = this;
 
       //console.log(this.props,'this is props',this.state)
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "login--header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login--header__container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login--header__biz"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
-      }, " THIS SHOULD BE THE LOGO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this will be teh user profile pic")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "This will be the review form!", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "this will be the radiou buttsons for now its input", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.rating,
+      }, "SignUp as Business"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login--header__logo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+        className: "login--left-addbar"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "FormContainer BusnessForm"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "InnerForm"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: 1,
         onChange: this.update("rating")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "***this should be stars ***"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: 2,
+        onChange: this.update("rating")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: 3,
+        onChange: this.update("rating")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: 4,
+        onChange: this.update("rating")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "radio",
+        value: 5,
+        onChange: this.update("rating")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.update("body"),
         value: this.state.body
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ShowLinks--Review",
         onClick: function onClick() {
           return _this4.sendMakeReview(_this4.state).then(function () {
             return _this4.props.history.push("/biz/".concat(_this4.state.review.business_id));
           });
         }
-      }, "Post Review"));
+      }, "Post Review"))));
     }
   }]);
 
@@ -2344,19 +2370,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$props = this.props,
           props = _this$props.props,
           review = _this$props.review; //const date= review.updated_at.toString().split('T')//[0].reverse()
 
+      var button; //<button onClick={()=>console.log(this.props)}>this is  review item</button>
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return console.log(_this2.props);
-        }
-      }, "this is  review item"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--LeftSide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevUser"
@@ -2504,8 +2526,6 @@ function (_React$Component) {
   _createClass(ReviewsList, [{
     key: "render",
     value: function render() {
-      var _this = this;
-
       /*console.log(this.props,"t------------------------------------------------his is teh first render of  showwwwwwww review component-------------------------")*/
       var revs = "";
 
@@ -2519,15 +2539,12 @@ function (_React$Component) {
             key: rev.id
           });
         });
-      }
+      } //<button onClick={()=>console.log(this.props)}>Clic me for props</button>
+
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "ReviewList"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        onClick: function onClick() {
-          return console.log(_this.props);
-        }
-      }, "Clic me for props"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "ReviewList--Top"
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "ReviewList--Left"

@@ -23,9 +23,9 @@ class ReviewsList extends React.Component{
 
 
 
+            //<button onClick={()=>console.log(this.props)}>Clic me for props</button>
         return(
         <div className="ReviewList">
-            <button onClick={()=>console.log(this.props)}>Clic me for props</button>
             <div className="ReviewList--Top"></div>
             <div className="ReviewList--Left">
                 {revs}

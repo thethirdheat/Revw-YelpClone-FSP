@@ -24,11 +24,13 @@ class ReviewItem extends React.Component{
     render(){
         const {props,review}=this.props
         //const date= review.updated_at.toString().split('T')//[0].reverse()
+        let button
         
+                //<button onClick={()=>console.log(this.props)}>this is  review item</button>
 
         return(
             <div className="RevItem">
-                <button onClick={()=>console.log(this.props)}>this is  review item</button>
+                
                  <div className="RevItem--LeftSide">
                      <div className="RevUser">
                          <div className="RevUser--Left">

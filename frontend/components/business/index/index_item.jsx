@@ -38,7 +38,7 @@ const IndexItem =(props)=>{
                 </div>
                 <div className="IndexItem--Description">
                     <p className="Index--GreyText">"{props.business.description}"</p> 
-                    <button onClick={()=>props.remove(props.business.id)}>DElete</button>
+                    {/*<button onClick={()=>props.remove(props.business.id)}>DElete</button>*/}
                 </div>
 
 

@@ -61,16 +61,17 @@ class UpLoadPicture extends React.Component{
 
     render(){
         return (
-            <div>
-                this is a  form to submit pictures!
+            <div className="PictureSubmit">
                 <form onSubmit={this.handleSumbit}>
+                    <textarea onChange={this.update("caption")} value={this.state.caption}/>
+                    <br></br>
 
                     <label> 
                         <input onChange={this.handleFile} type="file"/>
                     </label>
 
-                    <textarea onChange={this.update("caption")} value={this.state.caption}/>
 
+                    <br></br>
                     <input type="submit" value="submit"/>
                 </form>
 
