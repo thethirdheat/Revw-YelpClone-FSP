@@ -35,7 +35,6 @@ class ReviewItem extends React.Component{
                          <div className="RevUser--Left">
 
                             <img className="Rev-Img" src="https://i.imgur.com/S5cgOk5.png"></img>
-                    <button onClick={()=>console.log(this.props)}>Remove Review</button>
                          </div>
                          <div className="RevUser--Right">
                             {review.username}
