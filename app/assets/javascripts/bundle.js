@@ -2370,12 +2370,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           props = _this$props.props,
           review = _this$props.review; //const date= review.updated_at.toString().split('T')//[0].reverse()
 
-      var button; //<button onClick={()=>console.log(this.props)}>this is  review item</button>
-
+      var button;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2387,7 +2388,11 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "Rev-Img",
         src: "https://i.imgur.com/S5cgOk5.png"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return console.log(_this2.props);
+        }
+      }, "Remove Review")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevUser--Right"
       }, review.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--RightSide"
