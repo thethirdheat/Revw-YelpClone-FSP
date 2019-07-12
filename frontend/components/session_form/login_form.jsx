@@ -127,7 +127,7 @@ class LoginForm extends React.Component{
                             </label>
                             <br></br> 
                             <label>
-                                <input type ="text" value ={this.state.password} placeholder="Password" onChange={this.update('password')}/> 
+                                <input type ="password" value ={this.state.password} placeholder="Password" onChange={this.update('password')}/> 
                             </label>
                             <br></br>
                             <button className="login--button" onClick={this.handleSumbit}>Log In</button>

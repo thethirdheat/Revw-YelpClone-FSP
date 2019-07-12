@@ -79,6 +79,16 @@ $TESTING_COLOR_DELETE: orchid;
         margin-bottom: 10px;
         padding-left: 15px;
     }
+    input[type=password]{
+        height: 31px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid #999;
+        width: 100%;
+        color:grey;
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
 }
 .login--form__bizSignUp{
     height: 85px; 

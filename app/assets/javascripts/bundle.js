@@ -936,7 +936,7 @@ var IndexItem = function IndexItem(props) {
       onClick: function onClick() {
         return props.remove(props.business.id);
       }
-    }, "DElete")))))
+    }, "Remove")))))
   );
 };
 
@@ -1512,7 +1512,7 @@ var PicCard = function PicCard(props) {
   var hover = false; //console.log(props, "this is pic card props")
 
   var picId = props.picture.id;
-  var center = props.center != undefined ? "PicCard__center" : "";
+  var center = props.center != undefined ? "PicCard__center" : "https://i.imgur.com/yPsQ4pY.png";
   var delPic = props.deletePic.bind(_this);
   var showCaption;
   var deletePic = props.deletePic.bind(_this);
@@ -1605,7 +1605,7 @@ function (_React$Component) {
       var pictures = this.props.pictures;
       var blank = {
         caption: "",
-        pictureUrl: "https://i.imgur.com/kFUQft9.png"
+        pictureUrl: "https://i.imgur.com/yPsQ4pY.png"
         /*onMouseEnter={this.someHandler}
         onMouseLeave*/
         //console.log(pictures,'------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------')
@@ -2965,7 +2965,7 @@ function (_React$Component) {
         placeholder: "Username",
         onChange: this.update('username')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        type: "password",
         value: this.state.password,
         placeholder: "Password",
         onChange: this.update('password')
@@ -3228,7 +3228,7 @@ function (_React$Component) {
         placeholder: "Email",
         onChange: this.update('email')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
+        type: "password",
         value: this.state.password,
         placeholder: "Password",
         onChange: this.update('password')

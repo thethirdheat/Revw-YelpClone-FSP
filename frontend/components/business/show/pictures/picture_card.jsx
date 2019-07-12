@@ -11,7 +11,7 @@ const PicCard = (props)=>{
 
     //console.log(props, "this is pic card props")
     const picId = props.picture.id
-    const center= props.center!=undefined? "PicCard__center" : ""
+    const center= props.center!=undefined? "PicCard__center" : "https://i.imgur.com/yPsQ4pY.png"
     const delPic = props.deletePic.bind(this)
     let showCaption 
     const deletePic = props.deletePic.bind(this)

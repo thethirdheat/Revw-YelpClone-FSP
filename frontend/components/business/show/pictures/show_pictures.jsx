@@ -14,7 +14,7 @@ class ShowPictures extends React.Component{
 
     render(){
     const pictures=this.props.pictures
-    const blank = {caption: "", pictureUrl:"https://i.imgur.com/kFUQft9.png" }
+    const blank = {caption: "", pictureUrl:"https://i.imgur.com/yPsQ4pY.png" }
             /*onMouseEnter={this.someHandler}
     onMouseLeave*/
     //console.log(pictures,'------------------------------thsis pic in show_picutres ----------------------------------------------------------------------------')
