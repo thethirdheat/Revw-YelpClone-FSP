@@ -932,7 +932,11 @@ var IndexItem = function IndexItem(props) {
       className: "IndexItem--Description"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
-    }, "\"", props.business.description, "\"")))))
+    }, "\"", props.business.description, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return props.remove(props.business.id);
+      }
+    }, "DElete")))))
   );
 };
 
