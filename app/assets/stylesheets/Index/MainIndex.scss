@@ -17,7 +17,7 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 }
 .Index--Page__Top{
     height: 100%;
-    width: 150%;
+    width: 100%;
     background: red;
     background: $InBetweenSearchIndexGrey;
     grid-area: top;
@@ -25,7 +25,7 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 
 .IndexPage--Top__Sides{
     height:  150px;
-    width: 152.4%;
+    width: 100%;
     //width: auto;
     border-bottom: 1px $BorderColor solid;
     border-top: 1px $BorderColor solid;
