@@ -17,20 +17,22 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 }
 .Index--Page__Top{
     height: 100%;
+    width: 150%;
     background: red;
+    background: $InBetweenSearchIndexGrey;
     grid-area: top;
 }
 
 .IndexPage--Top__Sides{
     height:  150px;
-    width: 2903px;
+    width: 152.4%;
     //width: auto;
     border-bottom: 1px $BorderColor solid;
     border-top: 1px $BorderColor solid;
     
     position: absolute;
     background: $InBetweenSearchIndexGrey;
-    left:-999px;
+    left:0;
     z-index: 90;
 
 }
