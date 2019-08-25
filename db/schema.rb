@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_233841) do
+ActiveRecord::Schema.define(version: 2019_08_25_004652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2019_07_11_233841) do
     t.string "average_rating"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "business_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_categories_on_business_id"
+    t.index ["tag_id"], name: "index_categories_on_tag_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "business_id", null: false
@@ -69,6 +78,12 @@ ActiveRecord::Schema.define(version: 2019_07_11_233841) do
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_reviews_on_business_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

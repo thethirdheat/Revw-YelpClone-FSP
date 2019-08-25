@@ -17,6 +17,10 @@ class Business < ApplicationRecord
         class_name: :Review
 
 
+    has_many :categories,
+        foreign_key: :business_id,
+        class_name: :Category
+
     def ensure_photo
         unless self.photo.attached?
             errors[:photo]  << "must be attached"
