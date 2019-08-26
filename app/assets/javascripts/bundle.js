@@ -519,8 +519,8 @@ var BizForm = function BizForm(props) {
     onChange: props.change('business_type')
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     defaultValue: true,
-    value: "Restaurants"
-  }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Restaurant"
+  }, "Restaurant"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Home Service"
   }, "Home Service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Auto Service"
@@ -595,7 +595,7 @@ function (_React$Component) {
       description: "",
       address: "",
       phone_number: "",
-      business_type: "Restaurants",
+      business_type: "Restaurant",
       photoFile: null,
       price: "",
       "long": "",
@@ -2028,7 +2028,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchBox).call(this, props));
     _this.state = {
       find: "",
-      business_type: "Restaurants"
+      business_type: "Restaurant"
     };
     return _this;
   }
@@ -2071,8 +2071,8 @@ function (_React$Component) {
         onChange: this.update('business_type')
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         defaultValue: true,
-        value: "Restaurants"
-      }, "Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Restaurant"
+      }, "Restaurant"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Home Service"
       }, "Home Service"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Auto Service"
@@ -3352,11 +3352,11 @@ var businessesReducer = function businessesReducer() {
       return newState;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PICTURE"]:
-      debugger; //return merge({}, state, { [action.business.id]: action.business }); 
+      //debugger
+      //return merge({}, state, { [action.business.id]: action.business }); 
       // WHAT is state??? is it the entire state? or is the buisiness peice???
       //if its the busienss peiece i just need to key into the buisness id
       //then push the new action info
-
       return {};
 
     default:

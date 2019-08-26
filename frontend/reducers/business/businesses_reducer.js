@@ -20,7 +20,7 @@ const businessesReducer = (state={},action) =>{
             delete newState[action.business.id]
             return newState 
         case RECEIVE_PICTURE:
-            debugger
+            //debugger
             //return merge({}, state, { [action.business.id]: action.business }); 
             // WHAT is state??? is it the entire state? or is the buisiness peice???
             //if its the busienss peiece i just need to key into the buisness id

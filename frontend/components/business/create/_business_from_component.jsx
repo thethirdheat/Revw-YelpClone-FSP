@@ -46,7 +46,7 @@ const BizForm =(props)=>(
             <input onChange={props.change('long')} type="text" value={props.business.long}/> 
             <br/>
             <select value={props.business_type} onChange={props.change('business_type')}>
-                <option defaultValue value="Restaurants">Restaurants</option>
+                <option defaultValue value="Restaurant">Restaurant</option>
                 <option value="Home Service">Home Service</option>
                 <option value="Auto Service">Auto Service</option>
                 <option value="Night Life">Night Life</option>

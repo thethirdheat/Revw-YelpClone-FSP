@@ -7,7 +7,17 @@ class Api::BusinessesController < ApplicationController
 
     def create
         @biz = Business.new(business_params)
+    #t.string "type", null: false
+    #t.integer "tag_id", null: false
+    #t.integer "business_id", null: false
+
         if @biz.save
+            tag=Tag.find_by(biz_type: @biz.business_type) || Tag.create({biz_type: @biz.business_type})
+            #p tag
+            #p @biz
+            newCat =Category.create({tag_id: tag.id, business_id: @biz.id})
+            p newCat
+
             render '../views/api/businesses/show'
         else
             render json: @biz.errors.full_messages, status: 422

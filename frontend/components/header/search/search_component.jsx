@@ -6,7 +6,7 @@ class SearchBox extends React.Component{
         super(props)
         this.state={
             find:"",
-            business_type: "Restaurants"
+            business_type: "Restaurant"
         }
 
     }
@@ -31,7 +31,7 @@ class SearchBox extends React.Component{
                     <div className="Search--Bar__bar">
                         <span className="Search--Find">Find</span>
                         <select className="Search--bar__select" value={this.state.business_type} onChange={this.update('business_type')}>
-                            <option defaultValue value="Restaurants">Restaurants</option>
+                            <option defaultValue value="Restaurant">Restaurant</option>
                             <option value="Home Service">Home Service</option>
                             <option value="Auto Service">Auto Service</option>
                             <option value="Night Life">Night Life</option>

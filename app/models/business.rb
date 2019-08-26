@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
     validates :description, :business_name, :phone_number, :business_type,  presence: true
     validates :business_name, uniqueness:true
-    TYPES = ['Restaurant', 'Restaurants', 'Home Service', 'Auto Service', 'Night Life'].sort.freeze
+    TYPES = ['Restaurant',  'Home Service', 'Auto Service', 'Night Life'].sort.freeze
     validates :business_type, inclusion: { in: TYPES }
 
     validate :ensure_photo

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
 
+    resources :search , only: [:index]
+
     resources  :businesses, only: [:create, :index, :show, :update, :destroy]
     resources :biz_photos, only: [:create, :destroy]
     resources  :reviews, only: [:create, :update, :destroy]

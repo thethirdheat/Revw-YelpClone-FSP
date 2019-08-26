@@ -17,7 +17,7 @@ class BusinessForm extends React.Component{
             description:"",
             address:"",
             phone_number:"",
-            business_type: "Restaurants",
+            business_type: "Restaurant",
             photoFile: null,
             price:"",
             long:"",
