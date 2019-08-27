@@ -1069,8 +1069,8 @@ var mstp = function mstp(state, ownProp) {
 var mdtp = function mdtp(dispatch) {
   return {
     //searchForBusiness
-    searchBusiness: function searchBusiness(query) {
-      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["searchForBusiness"])(query));
+    searchBusiness: function searchBusiness(query_type, query_find) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["searchForBusiness"])(query_type, query_find));
     },
     removeBusiness: function removeBusiness(bizId) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["deleteBusiness"])(bizId));
@@ -1093,9 +1093,14 @@ function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState, snapshot) {
       if (prevProps.location.search !== this.props.location.search) {
+        //            const params= new URLSearchParams(this.props.location.search)
+        //            const query=params.get('search_string')
         var params = new URLSearchParams(this.props.location.search);
         var query = params.get('search_string');
-        this.props.searchBusiness(query); //.then((res)=>this.setState({biz:this.props.businesses}))
+        var query_desc = params.get('find_desc');
+        console.log('--------------------------------------------------------------------------', query_desc, "---------------------");
+        this.props.searchBusiness(query, query_desc); //.then((res)=>this.setState({biz:this.props.businesses}))
+        //            this.props.searchBusiness(query)//.then((res)=>this.setState({biz:this.props.businesses}))
       }
     }
   }, {
@@ -1108,7 +1113,9 @@ function (_React$Component) {
       //console.log(this.props.businesses,'thsi is props?')
       var params = new URLSearchParams(this.props.location.search);
       var query = params.get('search_string');
-      this.props.searchBusiness(query); //.then((res)=>this.setState({biz:this.props.businesses}))
+      var query_desc = params.get('find_desc');
+      console.log('--------------------------------------------------------------------------', query_desc, "---------------------");
+      this.props.searchBusiness(query, query_desc); //.then((res)=>this.setState({biz:this.props.businesses}))
       //this.setState({wtf:this.props.businesses})
       //}
     }
@@ -2299,7 +2306,10 @@ function (_React$Component) {
     key: "handSubmit",
     value: function handSubmit() {
       //this should have the then.histoy.push
-      this.props.dispatchSearch(this.state.business_type, this.state.find);
+      // this.props.dispatchSearch(this.state.business_type,this.state.find).then(
+      //         ((res)=>this.props.history.push(`/search?search_string=${this.state.business_type}&find_desc=${this.state.find}`))
+      //     )
+      this.props.history.push("/search?search_string=".concat(this.state.business_type, "&find_desc=").concat(this.state.find));
     }
   }, {
     key: "render",
@@ -2367,6 +2377,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _search_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_component */ "./frontend/components/header/search/search_component.jsx");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -2383,7 +2395,7 @@ var mdtp = function mdtp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_search_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_search_component__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
@@ -4092,8 +4104,9 @@ var requestForBusiness = function requestForBusiness(searchString) {
   var searchBizTitle = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
   var urlString = "/api/search?search_string=".concat(searchString);
 
-  if (!searchBizTitle) {
+  if (searchBizTitle) {
     urlString = "/api/search?search_string=".concat(searchString, "&find_desc=").concat(searchBizTitle);
+    console.log(urlString, 'llllllllllllllllllllllllllllllllllllllllllllllllllllthis is url string lllllllllllllllllllllllllllllllllllllll');
   }
 
   return $.ajax({

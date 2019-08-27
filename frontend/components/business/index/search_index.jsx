@@ -75,7 +75,7 @@ const mstp = (state, ownProp) =>{
 }}
 const mdtp = dispatch =>({
 //searchForBusiness
-    searchBusiness: (query)=>dispatch(searchForBusiness(query)),
+    searchBusiness: (query_type,query_find)=>dispatch(searchForBusiness(query_type,query_find)),
     removeBusiness: (bizId)=>dispatch(deleteBusiness(bizId))
 
 })
@@ -87,9 +87,15 @@ class SearchIndex extends React.Component {
     }
     componentDidUpdate(prevProps, prevState, snapshot){
         if(prevProps.location.search!== this.props.location.search){
-            const params= new URLSearchParams(this.props.location.search)
-            const query=params.get('search_string')
-            this.props.searchBusiness(query)//.then((res)=>this.setState({biz:this.props.businesses}))
+//            const params= new URLSearchParams(this.props.location.search)
+//            const query=params.get('search_string')
+        const params= new URLSearchParams(this.props.location.search)
+        const query=params.get('search_string')
+        const query_desc=params.get('find_desc')
+        console.log('--------------------------------------------------------------------------',query_desc,"---------------------")
+
+            this.props.searchBusiness(query,query_desc)//.then((res)=>this.setState({biz:this.props.businesses}))
+//            this.props.searchBusiness(query)//.then((res)=>this.setState({biz:this.props.businesses}))
         }
 
 
@@ -102,8 +108,10 @@ class SearchIndex extends React.Component {
         //console.log(this.props.businesses,'thsi is props?')
         const params= new URLSearchParams(this.props.location.search)
         const query=params.get('search_string')
+        const query_desc= params.get('find_desc')
+        console.log('--------------------------------------------------------------------------',query_desc,"---------------------")
 
-            this.props.searchBusiness(query)//.then((res)=>this.setState({biz:this.props.businesses}))
+            this.props.searchBusiness(query,query_desc)//.then((res)=>this.setState({biz:this.props.businesses}))
             //this.setState({wtf:this.props.businesses})
 
         //}

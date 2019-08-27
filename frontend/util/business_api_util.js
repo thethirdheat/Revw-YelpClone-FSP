@@ -64,8 +64,9 @@ export const destroyBizPicture = (bizId)=>(
 
 export const requestForBusiness = (searchString, searchBizTitle="")=>{
     let urlString=`/api/search?search_string=${searchString}`
-    if(!searchBizTitle){
+    if(searchBizTitle){
         urlString=`/api/search?search_string=${searchString}&find_desc=${searchBizTitle}`
+        console.log(urlString,'llllllllllllllllllllllllllllllllllllllllllllllllllllthis is url string lllllllllllllllllllllllllllllllllllllll')
     }
 
 

@@ -20,8 +20,10 @@ class SearchBox extends React.Component{
     } 
     handSubmit(){
         //this should have the then.histoy.push
-        this.props.dispatchSearch(this.state.business_type,this.state.find)
-
+       // this.props.dispatchSearch(this.state.business_type,this.state.find).then(
+       //         ((res)=>this.props.history.push(`/search?search_string=${this.state.business_type}&find_desc=${this.state.find}`))
+       //     )
+       this.props.history.push(`/search?search_string=${this.state.business_type}&find_desc=${this.state.find}`)
     }
 
 
