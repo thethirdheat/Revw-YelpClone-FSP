@@ -8,6 +8,7 @@ class SearchBox extends React.Component{
             find:"",
             business_type: "Restaurant"
         }
+        this.handSubmit=this.handSubmit.bind(this)
 
     }
     update(field){
@@ -17,6 +18,11 @@ class SearchBox extends React.Component{
             return this.setState(prev) 
         } 
     } 
+    handSubmit(){
+        //this should have the then.histoy.push
+        this.props.dispatchSearch(this.state.business_type,this.state.find)
+
+    }
 
 
     render(){
@@ -39,7 +45,7 @@ class SearchBox extends React.Component{
                         <input type="text" placeholder="Burgers" className="Search--bar__input" value={this.state.find} onChange={this.update('find')}/>
                     </div>
 
-                    <div className="Search--Button"  onClick={()=>console.log("this should submit the form ",this.state)}>
+                    <div className="Search--Button"  onClick={this.handSubmit}>
                         <i className="fas fa-search Search--Icon"></i> 
                     </div>
                 </div>

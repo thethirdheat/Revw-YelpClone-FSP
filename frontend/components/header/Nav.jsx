@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBox from './search/search_container'
+import SearchBoxContainer from './search/search_container'
 import NavBar from './navigation/nav_bar_container'
 import GreetingContainer from '../greeting/greeting_container'
 import {Link} from 'react-router-dom'
@@ -11,7 +11,7 @@ const Nav = () =>(
             <aside className="NavAside--left"></aside>
             <div className="NavMain">
                 <div className="Nav--Searchbox">
-                    <SearchBox/> 
+                    <SearchBoxContainer/> 
                 </div>
 
                     <GreetingContainer />

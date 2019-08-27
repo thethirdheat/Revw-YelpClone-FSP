@@ -90,7 +90,7 @@
 /*!**********************************************!*\
   !*** ./frontend/actions/business_actions.js ***!
   \**********************************************/
-/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, RECEIVE_PICTURE, REMOVE_PICTURE, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness, createBizPicture, deleteBizPicture */
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_SINGLE_BUSINESS, REMOVE_A_BUSINESS, BUSINESS_ERROR, RECEIVE_PICTURE, REMOVE_PICTURE, fetchAllBusinesses, makeBusiness, fetchBusiness, changeBusiness, deleteBusiness, createBizPicture, deleteBizPicture, searchForBusiness */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBusiness", function() { return deleteBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBizPicture", function() { return createBizPicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBizPicture", function() { return deleteBizPicture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchForBusiness", function() { return searchForBusiness; });
 /* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/business_api_util */ "./frontend/util/business_api_util.js");
 
 var RECEIVE_ALL_BUSINESSES = "RECIEVE_ALL_BUSINESSES";
@@ -220,6 +221,17 @@ var deleteBizPicture = function deleteBizPicture(picId) {
     return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["destroyBizPicture"](picId).then(function (biz) {
       console.log("this is res from dest", biz);
       return dispatch(reciveSingleBusiness(biz));
+    }, function (err) {
+      console.log("this iss err!! from dest", err);
+      return dispatch(receiveBusinessError(err.responseJSON));
+    });
+  };
+};
+var searchForBusiness = function searchForBusiness(query_type, query_desc) {
+  return function (dispatch) {
+    return _util_business_api_util__WEBPACK_IMPORTED_MODULE_0__["requestForBusiness"](query_type, query_desc).then(function (biz) {
+      console.log("this is res from dest", biz);
+      return dispatch(receiveAllBusiness(biz));
     }, function (err) {
       console.log("this iss err!! from dest", err);
       return dispatch(receiveBusinessError(err.responseJSON));
@@ -941,6 +953,224 @@ var IndexItem = function IndexItem(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(IndexItem));
+
+/***/ }),
+
+/***/ "./frontend/components/business/index/search_index.jsx":
+/*!*************************************************************!*\
+  !*** ./frontend/components/business/index/search_index.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index_item */ "./frontend/components/business/index/index_item.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _index_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index_component */ "./frontend/components/business/index/index_component.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+//import React from 'react'
+//import IndexItem from './index_item'
+//import {isEqual} from 'lodash'
+//
+//import {connect} from 'react-redux'
+//import {fetchAllBusinesses, deleteBusiness} from '../../../actions/business_actions'
+//import Index from './index_component'
+//
+//
+//const mstp = (state, ownProp) =>{
+//    console.log("look man this is map satew!!!!!!!!!!!!!!",state.entities.businesses)
+//    return{
+//    businesses: Object.keys(state.entities.businesses).map(idNum=>state.entities.businesses[idNum])||undefined
+//
+//
+//}}
+//const mdtp = dispatch =>({
+//    getBusiness: ()=>dispatch(fetchAllBusinesses()),
+//    removeBusiness: (bizId)=>dispatch(deleteBusiness(bizId))
+//
+//})
+//
+//
+//
+//
+//
+//const SearchIndex =(props)=> {
+//
+//        let show
+//        console.log(props)
+//        if(typeof props==='undefined'){
+//            return 
+//        }
+//        if(props['businesses']===undefined){
+//            return
+//        }
+//
+//
+//        if(props.businesses.length>0){
+//            show = props.businesses.map((el,index)=><IndexItem index={index+1} key={el.id} remove={props.removeBusiness}  business={el}/>) 
+//        }else{
+//            show=""
+//        }
+//        
+//        return (
+//            <div className="IndexPage--MainContainer">
+//                <div className="Index--Page__Top"><div className="IndexPage--Top__Sides"></div></div>
+//                <div className="Index--Page__Left">
+//                <div className="IndexPage--Top__Padding"> <div className="IndexPage--Top__Bar"></div></div>
+//                <span className="Index--Page__TopText">All Results </span>
+//                    {show} 
+//                </div>
+//                <div className="Index--Page__Right">
+//                    <img  className="Index--Page__Map"src="https://i.imgur.com/sFvQN22.png"></img> 
+//                </div>
+//            
+//            </div>)
+//}
+//export default connect(mstp,mdtp)(SearchIndex)
+
+
+
+
+
+
+
+var mstp = function mstp(state, ownProp) {
+  console.log("look man this is map satew!!!!!!!!!!!!!!", state.entities.businesses);
+  return {
+    businesses: Object.keys(state.entities.businesses).map(function (idNum) {
+      return state.entities.businesses[idNum];
+    }) || undefined
+  };
+};
+
+var mdtp = function mdtp(dispatch) {
+  return {
+    //searchForBusiness
+    searchBusiness: function searchBusiness(query) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["searchForBusiness"])(query));
+    },
+    removeBusiness: function removeBusiness(bizId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_4__["deleteBusiness"])(bizId));
+    }
+  };
+};
+
+var SearchIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SearchIndex, _React$Component);
+
+  function SearchIndex(props) {
+    _classCallCheck(this, SearchIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SearchIndex).call(this, props)); //this.state={ biz: this.props.businesses}
+  }
+
+  _createClass(SearchIndex, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevProps.location.search !== this.props.location.search) {
+        var params = new URLSearchParams(this.props.location.search);
+        var query = params.get('search_string');
+        this.props.searchBusiness(query); //.then((res)=>this.setState({biz:this.props.businesses}))
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      //console.log(isEqual)
+      //if(!isEqual(this.state.biz,this.props.business)){
+      //if(this.state.biz!==this.props.business){
+      //console.log('this is trigggering a AJAX  call???')
+      //console.log(this.props.businesses,'thsi is props?')
+      var params = new URLSearchParams(this.props.location.search);
+      var query = params.get('search_string');
+      this.props.searchBusiness(query); //.then((res)=>this.setState({biz:this.props.businesses}))
+      //this.setState({wtf:this.props.businesses})
+      //}
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      if (!this.props.businesses.length) {
+        return "";
+      }
+
+      console.log('this is props????', this.props);
+      var show;
+      console.log(this.props.location.search, '-------------mi music----------------');
+      var params = new URLSearchParams(this.props.location.search);
+      var query = params.get('search_string');
+      console.log(query);
+
+      if (this.props.businesses.length > 0) {
+        console.log(this.props.businesses); //debugger
+
+        show = "";
+        show = this.props.businesses.map(function (el, index) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            index: index + 1,
+            key: el.id,
+            remove: _this.props.removeBusiness,
+            business: el
+          });
+        });
+      } else {
+        show = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "wtf??");
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--MainContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Top"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Sides"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Padding"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "IndexPage--Top__Bar"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "Index--Page__TopText"
+      }, "All Results "), show), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Index--Page__Right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "Index--Page__Map",
+        src: "https://i.imgur.com/sFvQN22.png"
+      })));
+    }
+  }]);
+
+  return SearchIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mstp, mdtp)(SearchIndex));
 
 /***/ }),
 
@@ -1711,6 +1941,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_Nav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./header/Nav */ "./frontend/components/header/Nav.jsx");
 /* harmony import */ var _business_show_biz_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business/show/biz_show_container */ "./frontend/components/business/show/biz_show_container.js");
 /* harmony import */ var _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./business/post_picture/post_picture_component */ "./frontend/components/business/post_picture/post_picture_component.jsx");
+/* harmony import */ var _business_index_search_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./business/index/search_index */ "./frontend/components/business/index/search_index.jsx");
+
 
 
 
@@ -1734,6 +1966,9 @@ var Dummy = function Dummy() {
     path: "/biz/new",
     component: _business_create_new_business_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+    path: "/search",
+    component: _business_index_search_index__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/biz/:bizId",
     component: _business_show_biz_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -1742,6 +1977,7 @@ var Dummy = function Dummy() {
     path: "/biz/:bizId/pic",
     component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+    exact: true,
     path: "/",
     component: _business_index_index_container__WEBPACK_IMPORTED_MODULE_1__["default"]
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
@@ -1931,21 +2167,29 @@ var NavBar = function NavBar(props) {
     className: "Navbar--Bot__Container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--End"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/search?search_string=Restaurant"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-utensils"
-  }), " \xA0\xA0Restaurants"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0\xA0Restaurants")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--Mid__Right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/search?search_string=Home%20Service"
   }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-home"
-  }), "\xA0 \xA0Home Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), "\xA0 \xA0Home Services")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--Mid__Left"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/search?search_string=Auto%20Service"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-car-alt"
-  }), " \xA0 \xA0Auto Services"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0 \xA0Auto Services")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button Button--End"
-  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/search?search_string=Night%20Life"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas  fa-glass-martini-alt "
-  }), " \xA0 \xA0Night Life"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), " \xA0 \xA0Night Life")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Navbar--Bot__button NavBar--Bot__Link"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/biz/new"
@@ -1971,11 +2215,17 @@ var NavBar = function NavBar(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _nav_bar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nav_bar_component */ "./frontend/components/header/navigation/nav_bar_component.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+
 
 
 
 var mdtp = function mdtp(dipsatch) {
-  return {};
+  return {
+    searchNav: function searchNav(query) {
+      return dipsatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["searchForBusiness"])(query));
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mdtp)(_nav_bar_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -2004,9 +2254,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2030,6 +2280,7 @@ function (_React$Component) {
       find: "",
       business_type: "Restaurant"
     };
+    _this.handSubmit = _this.handSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2045,10 +2296,14 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "handSubmit",
+    value: function handSubmit() {
+      //this should have the then.histoy.push
+      this.props.dispatchSearch(this.state.business_type, this.state.find);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2086,9 +2341,7 @@ function (_React$Component) {
         onChange: this.update('find')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Search--Button",
-        onClick: function onClick() {
-          return console.log("this should submit the form ", _this3.state);
-        }
+        onClick: this.handSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search Search--Icon"
       })))));
@@ -2113,6 +2366,8 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _search_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_component */ "./frontend/components/header/search/search_component.jsx");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
+
 
 
 
@@ -2121,7 +2376,11 @@ var mstp = function mstp(state, ownProps) {
 };
 
 var mdtp = function mdtp(dispatch) {
-  return {};
+  return {
+    dispatchSearch: function dispatchSearch(queryType, query_desc) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["searchForBusiness"])(queryType, query_desc));
+    }
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_search_component__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -3341,6 +3600,7 @@ var businessesReducer = function businessesReducer() {
 
   switch (action.type) {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_BUSINESSES"]:
+      console.log('wer recieve new businesses???');
       return action.businesses;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_BUSINESS"]:
@@ -3749,7 +4009,7 @@ var configureStore = function configureStore() {
 /*!********************************************!*\
   !*** ./frontend/util/business_api_util.js ***!
   \********************************************/
-/*! exports provided: requestAllBusinesses, createBusiness, showBusiness, updateBusiness, destroyBusiness, makeBizPicture, destroyBizPicture */
+/*! exports provided: requestAllBusinesses, createBusiness, showBusiness, updateBusiness, destroyBusiness, makeBizPicture, destroyBizPicture, requestForBusiness */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3761,6 +4021,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyBusiness", function() { return destroyBusiness; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeBizPicture", function() { return makeBizPicture; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyBizPicture", function() { return destroyBizPicture; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestForBusiness", function() { return requestForBusiness; });
 //api_businesses GET    /api/businesses(.:format)                    api/businesses#index {:format=>:json}
 //               POST   /api/businesses(.:format)                    api/businesses#create {:format=>:json}
 //  api_business GET    /api/businesses/:id(.:format)                api/businesses#show {:format=>:json}
@@ -3825,6 +4086,19 @@ var destroyBizPicture = function destroyBizPicture(bizId) {
   return $.ajax({
     method: 'delete',
     url: "/api/biz_photos/".concat(bizId)
+  });
+};
+var requestForBusiness = function requestForBusiness(searchString) {
+  var searchBizTitle = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  var urlString = "/api/search?search_string=".concat(searchString);
+
+  if (!searchBizTitle) {
+    urlString = "/api/search?search_string=".concat(searchString, "&find_desc=").concat(searchBizTitle);
+  }
+
+  return $.ajax({
+    method: 'get',
+    url: urlString
   });
 };
 
@@ -50448,7 +50722,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -60,3 +60,15 @@ export const makeBizPicture = (formBiz)=>(
 export const destroyBizPicture = (bizId)=>(
     $.ajax({method:'delete', url:`/api/biz_photos/${bizId}`})
 )
+
+
+export const requestForBusiness = (searchString, searchBizTitle="")=>{
+    let urlString=`/api/search?search_string=${searchString}`
+    if(!searchBizTitle){
+        urlString=`/api/search?search_string=${searchString}&find_desc=${searchBizTitle}`
+    }
+
+
+    return (
+    $.ajax({method:'get', url:urlString})
+)}

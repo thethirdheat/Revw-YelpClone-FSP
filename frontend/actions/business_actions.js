@@ -121,6 +121,17 @@ export const deleteBizPicture = (picId) => dispatch =>(
 
 
 
+export const searchForBusiness = (query_type,query_desc) => dispatch =>(
+    APIUtil.requestForBusiness(query_type,query_desc)
+    .then(
+        (biz =>
+            { console.log("this is res from dest", biz)
+                return dispatch(receiveAllBusiness(biz))})
+        ,( err =>{
+            console.log("this iss err!! from dest", err) 
+            return dispatch(receiveBusinessError(err.responseJSON))})
+    ) 
+)
 
    // receivePicture = ()=>({
 
