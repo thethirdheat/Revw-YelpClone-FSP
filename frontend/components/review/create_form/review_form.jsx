@@ -30,17 +30,31 @@ const mdtp = dispatch =>{
 class ReviewForm extends React.Component{
     constructor(props){
         super(props)
-        this.state={ review:this.props.form}
+        this.state={ review:this.props.form,
+            hoverRating:0
+        }
 
 
         this.sendMakeReview = this.props.makeReview.bind(this)
+        this.updateRating=this.updateRating.bind(this)
     }
 
-    update(field){
+    update(field,val){
         return (e)=>{
             let prev=Object.assign({},this.state)
-            prev.review[field]= e.target.value
+            prev.review[field]=e.target.value
             //console.log(prev)
+            console.log(this.state.review.rating)
+            return this.setState(prev) 
+        }
+
+    }
+    updateRating(field,val){
+        return (e)=>{
+            let prev=Object.assign({},this.state)
+            prev.review[field]=val
+            //console.log(prev)
+            console.log(this.state.review.rating)
             return this.setState(prev) 
         }
 
@@ -85,17 +99,15 @@ class ReviewForm extends React.Component{
 
 
             <div className="FormContainer BusnessForm">
-                    <div className="InnerForm">
+                    <div className="InnerForm" >
                     <label>
                         Rating
                     </label>
-                    <form>
-                        <input type="radio" value={1} onChange={this.update("rating")} />
-                        <input type="radio" value={2} onChange={this.update("rating")} />
-                        <input type="radio" value={3} onChange={this.update("rating")} />
-                        <input type="radio" value={4} onChange={this.update("rating")} />
-                        <input type="radio" value={5} onChange={this.update("rating")} />
-                    </form>
+                    <div onClick={this.updateRating("rating",1)} onMouseEnter={()=>this.setState({hoverRating:1})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=1?"red":"notred"}>[1]</div>
+                    <div onClick={this.updateRating("rating",2)} onMouseEnter={()=>this.setState({hoverRating:2})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=2? "red":"notred"}>[2]</div>
+                    <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=3? "red":"notred"}>[3]</div>
+                    <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=4? "red":"notred"}>[4]</div>
+                    <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=5? "red":"notred"}>[5]</div>
 
 
 
@@ -118,3 +130,11 @@ class ReviewForm extends React.Component{
 }
 
 export default withRouter(connect(mstp,mdtp)(ReviewForm))
+
+//                    <form >
+//                        {/* <input type="radio" value={1} onChange={this.update("rating")} onMouseEnter={this.updateRating} className={this.state.hoverRating>=1 ? "fas fa-star Rating--star__red":"fas fa-star Rating--star__white"}/> */}
+//                        <input type="radio" value={2} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={3} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={4} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={5} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                    </form>

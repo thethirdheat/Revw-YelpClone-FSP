@@ -2476,47 +2476,63 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ReviewForm).call(this, props));
     _this.state = {
-      review: _this.props.form
+      review: _this.props.form,
+      hoverRating: 0
     };
     _this.sendMakeReview = _this.props.makeReview.bind(_assertThisInitialized(_this));
+    _this.updateRating = _this.updateRating.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ReviewForm, [{
     key: "update",
-    value: function update(field) {
+    value: function update(field, val) {
       var _this2 = this;
 
       return function (e) {
         var prev = Object.assign({}, _this2.state);
         prev.review[field] = e.target.value; //console.log(prev)
 
+        console.log(_this2.state.review.rating);
         return _this2.setState(prev);
+      };
+    }
+  }, {
+    key: "updateRating",
+    value: function updateRating(field, val) {
+      var _this3 = this;
+
+      return function (e) {
+        var prev = Object.assign({}, _this3.state);
+        prev.review[field] = val; //console.log(prev)
+
+        console.log(_this3.state.review.rating);
+        return _this3.setState(prev);
       };
     }
   }, {
     key: "handleSumbit",
     value: function handleSumbit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       e.preventDefault();
       this.props.processSignUp({
         user: this.state.user
       }).then(function () {
-        return _this3.props.history.push('/');
+        return _this4.props.history.push('/');
       }, function () {
-        if (_this3.props.errors) {
-          var prev = Object.assign({}, _this3.state);
-          prev.errors = _this3.props.errors;
+        if (_this4.props.errors) {
+          var prev = Object.assign({}, _this4.state);
+          prev.errors = _this4.props.errors;
 
-          _this3.setState(prev);
+          _this4.setState(prev);
         }
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       //console.log(this.props,'this is props',this.state)
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -2537,34 +2553,79 @@ function (_React$Component) {
         className: "FormContainer BusnessForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "InnerForm"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: 1,
-        onChange: this.update("rating")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: 2,
-        onChange: this.update("rating")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: 3,
-        onChange: this.update("rating")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: 4,
-        onChange: this.update("rating")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "radio",
-        value: 5,
-        onChange: this.update("rating")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateRating("rating", 1),
+        onMouseEnter: function onMouseEnter() {
+          return _this5.setState({
+            hoverRating: 1
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this5.setState({
+            hoverRating: _this5.state.review.rating
+          });
+        },
+        className: this.state.hoverRating >= 1 ? "red" : "notred"
+      }, "[1]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateRating("rating", 2),
+        onMouseEnter: function onMouseEnter() {
+          return _this5.setState({
+            hoverRating: 2
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this5.setState({
+            hoverRating: _this5.state.review.rating
+          });
+        },
+        className: this.state.hoverRating >= 2 ? "red" : "notred"
+      }, "[2]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateRating("rating", 3),
+        onMouseEnter: function onMouseEnter() {
+          return _this5.setState({
+            hoverRating: 3
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this5.setState({
+            hoverRating: _this5.state.review.rating
+          });
+        },
+        className: this.state.hoverRating >= 3 ? "red" : "notred"
+      }, "[3]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateRating("rating", 4),
+        onMouseEnter: function onMouseEnter() {
+          return _this5.setState({
+            hoverRating: 4
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this5.setState({
+            hoverRating: _this5.state.review.rating
+          });
+        },
+        className: this.state.hoverRating >= 4 ? "red" : "notred"
+      }, "[4]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onClick: this.updateRating("rating", 5),
+        onMouseEnter: function onMouseEnter() {
+          return _this5.setState({
+            hoverRating: 5
+          });
+        },
+        onMouseLeave: function onMouseLeave() {
+          return _this5.setState({
+            hoverRating: _this5.state.review.rating
+          });
+        },
+        className: this.state.hoverRating >= 5 ? "red" : "notred"
+      }, "[5]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.update("body"),
         value: this.state.body
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ShowLinks--Review",
         onClick: function onClick() {
-          return _this4.sendMakeReview(_this4.state).then(function () {
-            return _this4.props.history.push("/biz/".concat(_this4.state.review.business_id));
+          return _this5.sendMakeReview(_this5.state).then(function () {
+            return _this5.props.history.push("/biz/".concat(_this5.state.review.business_id));
           });
         }
       }, "Post Review"))));
@@ -2574,7 +2635,13 @@ function (_React$Component) {
   return ReviewForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mstp, mdtp)(ReviewForm)));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mstp, mdtp)(ReviewForm))); //                    <form >
+//                        {/* <input type="radio" value={1} onChange={this.update("rating")} onMouseEnter={this.updateRating} className={this.state.hoverRating>=1 ? "fas fa-star Rating--star__red":"fas fa-star Rating--star__white"}/> */}
+//                        <input type="radio" value={2} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={3} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={4} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                        <input type="radio" value={5} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
+//                    </form>
 
 /***/ }),
 

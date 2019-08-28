@@ -10,7 +10,7 @@ class Api::SearchController < ApplicationController
 #
         p out
         #render plain: out
-        @bizs=Tag.find_by({biz_type: out}).businesses
+        @bizs=Tag.find_by({biz_type: out}).businesses.where("business_name ILIKE ?","%#{desc}%")
 
         render  '../views/api/businesses/index' 
     end
