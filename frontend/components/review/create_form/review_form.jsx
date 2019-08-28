@@ -7,7 +7,7 @@ import {createReview} from '../../../actions/review_actions'
 const mstp = (state, ownProps) =>{
     const user_id=state.session.id
     const business_id = ownProps.match.params.bizId
-    const rating=1
+    const rating=0
     const body=""
 
     return {
@@ -74,6 +74,7 @@ class ReviewForm extends React.Component{
     
     render(){
         //console.log(this.props,'this is props',this.state)
+        console.log(this.state.hoverRating,this.state.review.rating)
         return (
         <div>
 
@@ -100,14 +101,12 @@ class ReviewForm extends React.Component{
 
             <div className="FormContainer BusnessForm">
                     <div className="InnerForm" >
-                    <label>
-                        Rating
-                    </label>
-                    <div onClick={this.updateRating("rating",1)} onMouseEnter={()=>this.setState({hoverRating:1})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=1?"red":"notred"}>[1]</div>
-                    <div onClick={this.updateRating("rating",2)} onMouseEnter={()=>this.setState({hoverRating:2})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=2? "red":"notred"}>[2]</div>
-                    <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=3? "red":"notred"}>[3]</div>
-                    <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=4? "red":"notred"}>[4]</div>
-                    <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={this.state.hoverRating>=5? "red":"notred"}>[5]</div>
+
+                    <div onClick={this.updateRating("rating",1)} onMouseEnter={()=>this.setState({hoverRating:1})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} ><i className={`fas fa-star reviewPageStar ${this.state.hoverRating>0?"red":""}`} aria-hidden="true"></i> </div>
+                    <div onClick={this.updateRating("rating",2)} onMouseEnter={()=>this.setState({hoverRating:2})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} ><i className={`fas fa-star ${this.state.hoverRating>=2?"red":""}`} aria-hidden="true"></i> </div>
+                    <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} ><i className={`fas fa-star ${this.state.hoverRating>=3?"red":""}`} aria-hidden="true"></i> </div>
+                    <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} ><i className={`fas fa-star ${this.state.hoverRating>=4?"red":""}`} aria-hidden="true"></i> </div>
+                    <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} ><i className={`fas fa-star ${this.state.hoverRating>=5?"red":""}`} aria-hidden="true"></i> </div>
 
 
 
@@ -138,3 +137,9 @@ export default withRouter(connect(mstp,mdtp)(ReviewForm))
 //                        <input type="radio" value={4} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
 //                        <input type="radio" value={5} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
 //                    </form>
+
+
+
+//                    <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=3? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>
+//                    <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=4? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>
+//                    <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=5? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>

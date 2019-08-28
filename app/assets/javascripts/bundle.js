@@ -2440,7 +2440,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var mstp = function mstp(state, ownProps) {
   var user_id = state.session.id;
   var business_id = ownProps.match.params.bizId;
-  var rating = 1;
+  var rating = 0;
   var body = "";
   return {
     form: {
@@ -2535,6 +2535,7 @@ function (_React$Component) {
       var _this5 = this;
 
       //console.log(this.props,'this is props',this.state)
+      console.log(this.state.hoverRating, this.state.review.rating);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "login--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2553,7 +2554,7 @@ function (_React$Component) {
         className: "FormContainer BusnessForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "InnerForm"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Rating"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 1),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2564,9 +2565,11 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        },
-        className: this.state.hoverRating >= 1 ? "red" : "notred"
-      }, "[1]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star reviewPageStar ".concat(this.state.hoverRating > 0 ? "red" : ""),
+        "aria-hidden": "true"
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 2),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2577,9 +2580,11 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        },
-        className: this.state.hoverRating >= 2 ? "red" : "notred"
-      }, "[2]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star ".concat(this.state.hoverRating >= 2 ? "red" : ""),
+        "aria-hidden": "true"
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 3),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2590,9 +2595,11 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        },
-        className: this.state.hoverRating >= 3 ? "red" : "notred"
-      }, "[3]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star ".concat(this.state.hoverRating >= 3 ? "red" : ""),
+        "aria-hidden": "true"
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 4),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2603,9 +2610,11 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        },
-        className: this.state.hoverRating >= 4 ? "red" : "notred"
-      }, "[4]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star ".concat(this.state.hoverRating >= 4 ? "red" : ""),
+        "aria-hidden": "true"
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 5),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2616,9 +2625,11 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        },
-        className: this.state.hoverRating >= 5 ? "red" : "notred"
-      }, "[5]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star ".concat(this.state.hoverRating >= 5 ? "red" : ""),
+        "aria-hidden": "true"
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.update("body"),
         value: this.state.body
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2642,6 +2653,9 @@ function (_React$Component) {
 //                        <input type="radio" value={4} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
 //                        <input type="radio" value={5} onChange={this.update("rating")} onMouseEnter={this.updateRating}/>
 //                    </form>
+//                    <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=3? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>
+//                    <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=4? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>
+//                    <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`${this.state.hoverRating>=5? "red":"notred"}`}><i className="fas fa-star" aria-hidden="true"></i></div>
 
 /***/ }),
 
