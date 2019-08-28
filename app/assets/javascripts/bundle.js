@@ -2535,6 +2535,24 @@ function (_React$Component) {
       var _this5 = this;
 
       //console.log(this.props,'this is props',this.state)
+      var ratingText;
+      console.log(this.state.hoverRating, '----------------thisis hover ratint----------------------');
+      var hover = this.state.hoverRating;
+
+      if (hover === 0) {
+        ratingText = "Select your rating";
+      } else if (hover === 1) {
+        ratingText = "Eek! Methinks not.";
+      } else if (hover === 2) {
+        ratingText = "Meh. I've experienced better.";
+      } else if (hover === 3) {
+        ratingText = "A-OK.";
+      } else if (hover === 4) {
+        ratingText = "Yay! I'm a fan.";
+      } else if (hover === 5) {
+        ratingText = "Woohoo! As good as it gets!";
+      }
+
       console.log(this.state.hoverRating, this.state.review.rating);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "login--header"
@@ -2555,6 +2573,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "InnerForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reviewPageStars"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 1),
         onMouseEnter: function onMouseEnter() {
           return _this5.setState({
@@ -2565,9 +2585,10 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        }
+        },
+        className: "reviewPageStars--Background__".concat(this.state.hoverRating >= 1 ? this.state.hoverRating : 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star reviewPageStar ".concat(this.state.hoverRating > 0 ? "red" : ""),
+        className: "fas fa-star reviewPageStar--Star ",
         "aria-hidden": "true"
       }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 2),
@@ -2580,9 +2601,10 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        }
+        },
+        className: "reviewPageStars--Background__".concat(this.state.hoverRating >= 2 ? this.state.hoverRating : 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star ".concat(this.state.hoverRating >= 2 ? "red" : ""),
+        className: "fas fa-star reviewPageStar--Star ",
         "aria-hidden": "true"
       }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 3),
@@ -2595,9 +2617,10 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        }
+        },
+        className: "reviewPageStars--Background__".concat(this.state.hoverRating >= 3 ? this.state.hoverRating : 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star ".concat(this.state.hoverRating >= 3 ? "red" : ""),
+        className: "fas fa-star reviewPageStar--Star ",
         "aria-hidden": "true"
       }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 4),
@@ -2610,9 +2633,10 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        }
+        },
+        className: "reviewPageStars--Background__".concat(this.state.hoverRating >= 4 ? this.state.hoverRating : 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star ".concat(this.state.hoverRating >= 4 ? "red" : ""),
+        className: "fas fa-star reviewPageStar--Star ",
         "aria-hidden": "true"
       }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.updateRating("rating", 5),
@@ -2625,11 +2649,12 @@ function (_React$Component) {
           return _this5.setState({
             hoverRating: _this5.state.review.rating
           });
-        }
+        },
+        className: "reviewPageStars--Background__".concat(this.state.hoverRating >= 5 ? this.state.hoverRating : 0)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-star ".concat(this.state.hoverRating >= 5 ? "red" : ""),
+        className: "fas fa-star reviewPageStar--Star ",
         "aria-hidden": "true"
-      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA0\xA0", ratingText)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         onChange: this.update("body"),
         value: this.state.body
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

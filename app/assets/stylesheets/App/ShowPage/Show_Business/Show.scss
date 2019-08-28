@@ -157,10 +157,83 @@ $BackgroundGrey: #F5F5F5;
     align-items: center;
 
 }
-.reviewPageStar{
-    background: green;
+.reviewPageStars{
+    display: flex;
+    align-items: center;
 }
-.red{
-    color: red
+.reviewPageStar--Star{
+    color: white;
+    padding: 3px;
+    font-size: 20px;
+    position: relative;
+    bottom: -2px;
+}
+.reviewPageStars--Background__0{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+
+    background: #CCCCCC;
+}
+.reviewPageStars--Background__1{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+    background: #F1BD79;
+}
+.reviewPageStars--Background__2{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+    background: #F1BF14;
+}
+.reviewPageStars--Background__3{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+    background: #EB9042;
+}
+.reviewPageStars--Background__4{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+    background: #E65A4F;
+
+}
+.reviewPageStars--Background__5{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2px;
+    border-radius: $StarRadius;
+    background: #D42E23
 
 }
