@@ -105,7 +105,7 @@ class UpLoadPicture extends React.Component{
                                             <div className="DragArea--Text">Drag and drop your photos here</div>
                                             <br></br>
                                             <div className="DragArea--ORcontainer">
-                                                <div className="ReviewPage--HrLine"><hr></hr></div><span>&nbsp;OR&nbsp;</span><div className="ReviewPage--HrLine"><hr></hr></div>
+                                                <div className="ReviewPage--HrLine"><hr></hr></div><span className="DragArea--OR">&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;</span><div className="ReviewPage--HrLine"><hr></hr></div>
                                             </div>
                                             <br></br>
                                             <input
@@ -116,7 +116,7 @@ class UpLoadPicture extends React.Component{
                                                 multiple
                                                 onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
                                             />
-                                            <label className="fileInputButton" htmlFor="file">Browse Files</label>
+                                            <div className="DragArea--Submit"><label className="fileInputButton" htmlFor="file">Browse Files</label></div>
                                         </div>
                                     </div>
                                 <input {...getInputProps()} />

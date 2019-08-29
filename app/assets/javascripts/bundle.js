@@ -1381,7 +1381,9 @@ function (_React$Component) {
           className: "DragArea--ORcontainer"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ReviewPage--HrLine"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA0OR\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "DragArea--OR"
+        }, "\xA0\xA0\xA0OR\xA0\xA0\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ReviewPage--HrLine"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           ref: _this5.fileInputRef,
@@ -1394,10 +1396,12 @@ function (_React$Component) {
               pictureFile: file.target.files[0]
             });
           }
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "DragArea--Submit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "fileInputButton",
           htmlFor: "file"
-        }, "Browse Files"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
+        }, "Browse Files")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "submit"

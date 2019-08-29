@@ -22,11 +22,25 @@
 	position: absolute;
 	z-index: -1;
 }
-.fileInputButton{
-    background: green;
+.DragArea--Submit{
     display: flex;
     align-content: center;
     justify-content: center;
+
+}
+.fileInputButton{
+
+    color:#FDFFFF;
+    font-weight:bold;
+    font-size:15px;
+    padding-top: 9px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: #D42E23;
+    width: 124px;
+    height: 36px;
+    border-radius: 3px;
 
 }
 
@@ -34,11 +48,16 @@
     font-size: 1em;
     padding: 0 15px;
     margin: 0 auto;
-    color: #666;
 
 }
 .ReviewPage--HrLine{
-    width:50px;
+    width:310px;
+    hr{
+        border: .5px solid #CCCCCC;
+        margin-top: 7px;
+    }
+
+
 
 }
 .DragArea--Desc{
@@ -46,18 +65,17 @@
 //    display: flex;
 //    align-content: center;
 //    justify-content: center;
-    background: yellow;
 
 }
 .DragArea--Text{
-    background: purple;
+    font-size: 30px;
+    font-weight: bold;
     display: flex;
     align-content: center;
     justify-content: center;
 
 }
 .DragArea--ORcontainer{
-    background: rgb(189, 185, 179);
     display: flex;
     align-content: center;
     justify-content: center;
@@ -94,5 +112,11 @@
 .DragAreaContainer{
     display: flex;
     justify-content: center;
+
+}
+.DragArea--OR{
+    color:#666666;
+    font-size: 13px;
+    font-weight: lighter;
 
 }
