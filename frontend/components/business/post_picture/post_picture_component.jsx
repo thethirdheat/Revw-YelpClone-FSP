@@ -19,6 +19,7 @@ const openDialog = () => {
 
 const mstp = (state,ownProps) =>{
     //business: state.entities.businesses[ownProps.match.params.bizId]
+    const business_id = ownProps.match.params.bizId
     let bizName=""
     if(state.entities.businesses[business_id]){
         bizName=state.entities.businesses[business_id].business_name
@@ -31,7 +32,8 @@ const mstp = (state,ownProps) =>{
     }
 }
 const mdtp = dispatch =>({
-    createBizPicture: (formData)=>dispatch(createBizPicture(formData))
+    createBizPicture: (formData)=>dispatch(createBizPicture(formData)),
+    fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId)),
 })
 
 
@@ -88,36 +90,43 @@ class UpLoadPicture extends React.Component{
         return (
             <div className="PictureSubmit">
                 <div className="PictureSubmit--Header">
-                    <h1 className="PictureSubmit--BizName">{this.props.bizName}  this is bizname</h1>
-                    <Link to="#">View all photos</Link>
+                    <h1 className="PictureSubmit--BizName"><Link to={`/biz/${this.props.match.params.bizId}`} >{this.props.bizName}</Link>:<span className="PictureSubmit--Title">&nbsp;Add Photos</span>  </h1>
+                    <Link to="#"><span className="PictureSubmit--AllPics" >View all photos</span></Link>
                 </div>
-                <form onSubmit={this.handleSumbit}>
-                    <Dropzone  noClick={true} onDrop={acceptedFiles => this.setState({pictureFile:acceptedFiles[0]})}>
-                        {({getRootProps, getInputProps}) => (
-                            <div>
+                <div className="DragAreaContainer">
 
-                                <div className ="DragArea"{...getRootProps()}>
-                                    <p>Drag and drop your photos here</p>
-                                    <div className="ReviewPage--ORcontainer">
-                                        <div className="ReviewPage--HrLine"><hr></hr></div><span>&nbsp;OR&nbsp;</span><div className="ReviewPage--HrLine"><hr></hr></div>
+                    <form   onSubmit={this.handleSumbit}>
+                        <Dropzone  noClick={true} onDrop={acceptedFiles => this.setState({pictureFile:acceptedFiles[0]})}>
+                            {({getRootProps, getInputProps}) => (
+                                <div>
+
+                                    <div className ="DragArea"{...getRootProps()}>
+                                        <div className="DragArea--Desc">
+                                            <div className="DragArea--Text">Drag and drop your photos here</div>
+                                            <br></br>
+                                            <div className="DragArea--ORcontainer">
+                                                <div className="ReviewPage--HrLine"><hr></hr></div><span>&nbsp;OR&nbsp;</span><div className="ReviewPage--HrLine"><hr></hr></div>
+                                            </div>
+                                            <br></br>
+                                            <input
+                                                ref={this.fileInputRef}
+                                                className="fileInput"
+                                                id="file"
+                                                type="file"
+                                                multiple
+                                                onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
+                                            />
+                                            <label className="fileInputButton" htmlFor="file">Browse Files</label>
+                                        </div>
                                     </div>
-                                    <input
-                                        ref={this.fileInputRef}
-                                        className="fileInput"
-                                        id="file"
-                                        type="file"
-                                        multiple
-                                        onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
-                                    />
-                                    <label className="fileInputButton" htmlFor="file">Browse Files</label>
+                                <input {...getInputProps()} />
                                 </div>
-                            <input {...getInputProps()} />
-                            </div>
 
-                        )}
-                    </Dropzone>
-                    <input type="submit" value="submit"/>
-                </form>
+                            )}
+                        </Dropzone>
+                        <input type="submit" value="submit"/>
+                    </form>
+                </div>
 
             </div>
         )

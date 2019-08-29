@@ -1240,6 +1240,7 @@ var openDialog = function openDialog() {
 
 var mstp = function mstp(state, ownProps) {
   //business: state.entities.businesses[ownProps.match.params.bizId]
+  var business_id = ownProps.match.params.bizId;
   var bizName = "";
 
   if (state.entities.businesses[business_id]) {
@@ -1261,6 +1262,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     createBizPicture: function createBizPicture(formData) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["createBizPicture"])(formData));
+    },
+    fetchBiz: function fetchBiz(bizId) {
+      return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(bizId));
     }
   };
 };
@@ -1345,9 +1349,17 @@ function (_React$Component) {
         className: "PictureSubmit--Header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "PictureSubmit--BizName"
-      }, this.props.bizName, "  this is bizname"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/biz/".concat(this.props.match.params.bizId)
+      }, this.props.bizName), ":", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "PictureSubmit--Title"
+      }, "\xA0Add Photos"), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "#"
-      }, "View all photos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "PictureSubmit--AllPics"
+      }, "View all photos"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "DragAreaContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSumbit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dropzone__WEBPACK_IMPORTED_MODULE_4__["default"], {
         noClick: true,
@@ -1361,13 +1373,17 @@ function (_React$Component) {
             getInputProps = _ref.getInputProps;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
           className: "DragArea"
-        }, getRootProps()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag and drop your photos here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "ReviewPage--ORcontainer"
+        }, getRootProps()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "DragArea--Desc"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "DragArea--Text"
+        }, "Drag and drop your photos here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "DragArea--ORcontainer"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ReviewPage--HrLine"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA0OR\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ReviewPage--HrLine"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           ref: _this5.fileInputRef,
           className: "fileInput",
           id: "file",
@@ -1381,11 +1397,11 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "fileInputButton",
           htmlFor: "file"
-        }, "Browse Files")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
+        }, "Browse Files"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "submit"
-      })));
+      }))));
     }
   }]);
 

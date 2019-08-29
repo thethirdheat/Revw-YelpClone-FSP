@@ -1,10 +1,14 @@
 
 
 .DragArea{
-    border: 3px red dashed;
+    border: 3px #999999 dashed;
     border-radius: 5px;
     width: 838px;
-    height: 358px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .green{
@@ -20,6 +24,9 @@
 }
 .fileInputButton{
     background: green;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 
 }
 
@@ -34,8 +41,58 @@
     width:50px;
 
 }
-.ReviewPage--ORcontainer{
-    display: flex;
+.DragArea--Desc{
+    width: 100%;
+//    display: flex;
+//    align-content: center;
+//    justify-content: center;
+    background: yellow;
 
 }
-.PictureSubmit{}
+.DragArea--Text{
+    background: purple;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+.DragArea--ORcontainer{
+    background: rgb(189, 185, 179);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+.PictureSubmit--BizName{
+    padding-top:18px;
+    padding-bottom:7px;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    color:#3E74BB;
+    letter-spacing: 0px;
+    a:hover {
+        text-decoration: underline;
+    }
+
+}
+.PictureSubmit--Title{
+    color: #D42E51;
+}
+.PictureSubmit{
+
+}
+.PictureSubmit--Header{
+    height: 120px;
+}
+.PictureSubmit--AllPics{
+    color:#3E74BB;
+    font-size: 14px;
+
+
+}
+.DragAreaContainer{
+    display: flex;
+    justify-content: center;
+
+}
