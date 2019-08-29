@@ -1200,6 +1200,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { if (i % 2) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } else { Object.defineProperties(target, Object.getOwnPropertyDescriptors(arguments[i])); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1222,15 +1226,34 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+var dropzoneRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["createRef"])();
+
+var openDialog = function openDialog() {
+  // Note that the ref is set async,
+  // so it might be null at some point 
+  if (dropzoneRef.current) {
+    dropzoneRef.current.open();
+  }
+};
+
 var mstp = function mstp(state, ownProps) {
   //business: state.entities.businesses[ownProps.match.params.bizId]
+  var bizName = "";
+
+  if (state.entities.businesses[business_id]) {
+    bizName = state.entities.businesses[business_id].business_name;
+  }
+
   return {
     form: {
       currentUser: state.session.id,
       business_id: ownProps.match.params.bizId,
       caption: "",
       pictureFile: null
-    }
+    },
+    bizName: bizName
   };
 };
 
@@ -1253,7 +1276,8 @@ function (_React$Component) {
     _classCallCheck(this, UpLoadPicture);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UpLoadPicture).call(this, props));
-    _this.state = _this.props.form;
+    _this.state = _objectSpread({}, _this.props.form);
+    _this.fileInputRef = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.handleSumbit = _this.handleSumbit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
@@ -1272,9 +1296,18 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      this.props.fetchBiz(this.props.match.params.bizId).then(function (res) {
+        return console.log(_this3.props, "this is from reesponse");
+      }); //console.log(this.props,'this is props!!!')
+    }
+  }, {
     key: "handleSumbit",
     value: function handleSumbit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       //params.require(:biz_photo).permit(:user_id, :business_id, :caption)
       e.preventDefault(); //console.log(this.state)
@@ -1290,7 +1323,7 @@ function (_React$Component) {
       formData.append('biz_photo[caption]', this.state.caption); //console.log(formData)
 
       this.props.createBizPicture(formData).then(function (res) {
-        return _this3.props.history.push("/biz/".concat(_this3.state.business_id));
+        return _this4.props.history.push("/biz/".concat(_this4.state.business_id));
       });
     }
   }, {
@@ -1303,24 +1336,52 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
+      console.log(this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "PictureSubmit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureSubmit--Header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "PictureSubmit--BizName"
+      }, this.props.bizName, "  this is bizname"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "#"
+      }, "View all photos")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSumbit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dropzone__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        noClick: true,
         onDrop: function onDrop(acceptedFiles) {
-          return _this4.setState({
+          return _this5.setState({
             pictureFile: acceptedFiles[0]
           });
         }
       }, function (_ref) {
         var getRootProps = _ref.getRootProps,
             getInputProps = _ref.getInputProps;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
-          className: "pink"
-        }, getRootProps()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag 'n' drop some files here, or click to select files"));
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _extends({
+          className: "DragArea"
+        }, getRootProps()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Drag and drop your photos here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "ReviewPage--ORcontainer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "ReviewPage--HrLine"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA0OR\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "ReviewPage--HrLine"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          ref: _this5.fileInputRef,
+          className: "fileInput",
+          id: "file",
+          type: "file",
+          multiple: true,
+          onChange: function onChange(file) {
+            return _this5.setState({
+              pictureFile: file.target.files[0]
+            });
+          }
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "fileInputButton",
+          htmlFor: "file"
+        }, "Browse Files")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "submit"
@@ -1332,8 +1393,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mstp, mdtp)(UpLoadPicture))); //<input className="green"{...getInputProps()} />
-
-I; //                <form onSubmit={this.handleSumbit}>
+//                <form onSubmit={this.handleSumbit}>
 //                    <textarea onChange={this.update("caption")} value={this.state.caption}/>
 //                    <br></br>
 //

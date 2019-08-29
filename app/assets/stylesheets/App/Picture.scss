@@ -1,19 +1,41 @@
 
-.PictureSubmit{
-    height: 700px;
-    position: relative;
-    top: 100px;
-    textarea{
-        height: 500px;
-        width:75%;
-    }
 
+.DragArea{
+    border: 3px red dashed;
+    border-radius: 5px;
+    width: 838px;
+    height: 358px;
+}
 
-}
-.pink{
-    background: pink;
-    height: 500px;
-}
 .green{
     background: green;
 }
+.fileInput{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.fileInputButton{
+    background: green;
+
+}
+
+.fileInput--HzLine{
+    font-size: 1em;
+    padding: 0 15px;
+    margin: 0 auto;
+    color: #666;
+
+}
+.ReviewPage--HrLine{
+    width:50px;
+
+}
+.ReviewPage--ORcontainer{
+    display: flex;
+
+}
+.PictureSubmit{}
