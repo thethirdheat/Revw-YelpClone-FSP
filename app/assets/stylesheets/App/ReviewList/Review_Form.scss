@@ -1,20 +1,100 @@
+
+
+$outer: 960px;
 .FormContainer{
     position: absolute;
     height: 100%;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:grid;
+    grid-template-areas: "left main right";
+
+    grid-template-columns: 1fr $outer 1fr;
 
 }
 .InnerForm{
-    width: 630px;
-    height: 700px;
-    /*background: pink;*/
+    margin-left: 5px;
+    grid-area: main;
+    width: 625px;
+    height: 100%;
+    padding: 00px 3px; 
     textarea{
-        height: 250px;
+        font-size:16px;
+        outline: none;
+        border: none;
+        resize: none;
         width: 100%;
+        min-height: 290px;
+        
     }
 
 
 }
+.reviewPage--Container{
+    padding: 17px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+
+}
+.review--header{
+    background:green;
+    display:grid;
+    grid-template-areas: "l mainHeader r";
+
+    grid-template-columns: 1fr $outer 1fr;
+    height: 64px;;
+    background: #D42E23;
+}
+.review--header__container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    grid-area: mainHeader;
+
+}
+.review--header__logo{
+    font-size:30px;
+    a{
+        color: #FFFFFF;
+        padding-top:10px;
+        font-size:25px;
+    }
+
+}
+.review--desc{
+    color:#FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.reviewBizName{
+    height: 84px;
+    display: flex;
+    align-items: center;
+    color:#3E74BB;
+    font-size: 37px;
+    letter-spacing: 0px;
+    a:hover {
+        text-decoration: underline;
+    }
+
+}
+
+.ReviewFormSubmit{
+    margin-top: 25px;
+    height: 48px;
+    width: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 23px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+
+    background: #D93F3F;
+}
+//            <nav className ="review--header">
+//                <div className ="review--header__container">
+//                    <div className="review--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
+//                </div>
+//            </nav>

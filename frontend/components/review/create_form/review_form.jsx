@@ -3,22 +3,31 @@ import {Link} from 'react-router-dom';
 import {  withRouter } from 'react-router-dom';
 import {connect} from 'react-redux'
 
+import {fetchBusiness} from '../../../actions/business_actions'
 import {createReview} from '../../../actions/review_actions'
 const mstp = (state, ownProps) =>{
     const user_id=state.session.id
     const business_id = ownProps.match.params.bizId
     const rating=0
     const body=""
+    console.log(state.entities.businesses[business_id],'look at me---------------------')
+    let bizName=""
+    if(state.entities.businesses[business_id]){
+        bizName=state.entities.businesses[business_id].business_name
+    }
 
     return {
-        form: {user_id, business_id , rating, body}
+        form: {user_id, business_id , rating, body},
+        bizName
 
     }
 }
 const mdtp = dispatch =>{
 
     return {
+        fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId)),
         makeReview: (reviewData)=>dispatch(createReview(reviewData))
+        //fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId))
     }
 }
 
@@ -49,6 +58,10 @@ class ReviewForm extends React.Component{
         }
 
     }
+    componentDidMount() {
+        this.props.fetchBiz(this.props.match.params.bizId).then(res=>console.log(this.props,"this is from reesponse"));
+        //console.log(this.props,'this is props!!!')
+    }
     updateRating(field,val){
         return (e)=>{
             let prev=Object.assign({},this.state)
@@ -74,6 +87,10 @@ class ReviewForm extends React.Component{
     
     render(){
         //console.log(this.props,'this is props',this.state)
+//        if(!this.props.bizName){
+//            return <div></div>
+//        }
+
         let ratingText
         console.log(this.state.hoverRating,'----------------thisis hover ratint----------------------')
         let hover=this.state.hoverRating
@@ -92,18 +109,15 @@ class ReviewForm extends React.Component{
         }
 
 
-        console.log(this.state.hoverRating,this.state.review.rating)
+        //console.log(this.state.hoverRating,this.state.review.rating)
         return (
         <div>
 
-            <nav className ="login--header">
-                <div className ="login--header__container">
-                    <div className="login--header__biz"  ><Link to ="/">SignUp as Business</Link> </div>
-                    <br></br>
-                    <div className="login--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div>
+            <nav className ="review--header">
+                <div className ="review--header__container">
+                    <div className="review--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div> &nbsp;&nbsp;<span className="review--desc">Write a Review</span>
                 </div>
             </nav>
-            <aside className="login--left-addbar"></aside>
 
             {/*
             <div>
@@ -118,23 +132,23 @@ class ReviewForm extends React.Component{
 
 
 
-            <div className="FormContainer BusnessForm">
+            <div className="FormContainer ">
 
                     <div className="InnerForm" >
-                        <div className="reviewPageStars">
-                            <div onClick={this.updateRating("rating",1)} onMouseEnter={()=>this.setState({hoverRating:1})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=1?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
-                            <div onClick={this.updateRating("rating",2)} onMouseEnter={()=>this.setState({hoverRating:2})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=2?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
-                            <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=3?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
-                            <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=4?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
-                            <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=5?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
-                            <span>&nbsp;&nbsp;{ratingText}</span>
+                        <h1 className="reviewBizName"><Link to={`/biz/${this.props.match.params.bizId}`}>{this.props.bizName}</Link></h1>
+                        <div className="reviewPage--Container">
+                            <div className="reviewPageStars" >
+                                <div onClick={this.updateRating("rating",1)} onMouseEnter={()=>this.setState({hoverRating:1})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=1?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
+                                <div onClick={this.updateRating("rating",2)} onMouseEnter={()=>this.setState({hoverRating:2})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=2?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
+                                <div onClick={this.updateRating("rating",3)} onMouseEnter={()=>this.setState({hoverRating:3})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=3?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
+                                <div onClick={this.updateRating("rating",4)} onMouseEnter={()=>this.setState({hoverRating:4})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=4?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
+                                <div onClick={this.updateRating("rating",5)} onMouseEnter={()=>this.setState({hoverRating:5})} onMouseLeave={()=>this.setState({hoverRating:this.state.review.rating})} className={`reviewPageStars--Background__${this.state.hoverRating>=5?this.state.hoverRating:0}`}><i className={`fas fa-star reviewPageStar--Star `} aria-hidden="true"></i> </div>
+                                <span>&nbsp;&nbsp;{ratingText}</span>
+                            </div>
+
+                            <textarea onChange={ this.update("body")} value={this.state.body}></textarea>
                         </div>
-
-
-
-                        <textarea onChange={ this.update("body")} value={this.state.body}></textarea>
-
-                        <div className="ShowLinks--Review" onClick={()=>this.sendMakeReview(this.state).then(()=>this.props.history.push(`/biz/${this.state.review.business_id}`))}>Post Review</div>
+                            <div className="ReviewFormSubmit" onClick={()=>this.sendMakeReview(this.state).then(()=>this.props.history.push(`/biz/${this.state.review.business_id}`))}>Post Review</div>
                     </div>
 
             </div>

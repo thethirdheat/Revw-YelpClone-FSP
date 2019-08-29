@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {createBizPicture} from '../../../actions/business_actions'
 import { withRouter } from 'react-router-dom';
+import Dropzone from 'react-dropzone'
 
 const mstp = (state,ownProps) =>{
     //business: state.entities.businesses[ownProps.match.params.bizId]
@@ -63,15 +64,13 @@ class UpLoadPicture extends React.Component{
         return (
             <div className="PictureSubmit">
                 <form onSubmit={this.handleSumbit}>
-                    <textarea onChange={this.update("caption")} value={this.state.caption}/>
-                    <br></br>
-
-                    <label> 
-                        <input onChange={this.handleFile} type="file"/>
-                    </label>
-
-
-                    <br></br>
+                    <Dropzone  onDrop={acceptedFiles => this.setState({pictureFile:acceptedFiles[0]})}>
+                        {({getRootProps, getInputProps}) => (
+                                <div className ="pink"{...getRootProps()}>
+                                    <p>Drag 'n' drop some files here, or click to select files</p>
+                                </div>
+                        )}
+                    </Dropzone>
                     <input type="submit" value="submit"/>
                 </form>
 
@@ -81,3 +80,17 @@ class UpLoadPicture extends React.Component{
 }
 
 export default withRouter(connect(mstp,mdtp)(UpLoadPicture))
+                                    //<input className="green"{...getInputProps()} />
+                                    I
+//                <form onSubmit={this.handleSumbit}>
+//                    <textarea onChange={this.update("caption")} value={this.state.caption}/>
+//                    <br></br>
+//
+//                    <label> 
+//                        <input onChange={this.handleFile} type="file"/>
+//                    </label>
+//
+//
+//                    <br></br>
+//                    <input type="submit" value="submit"/>
+//                </form>
