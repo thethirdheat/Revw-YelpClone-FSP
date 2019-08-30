@@ -120,3 +120,35 @@
     font-weight: lighter;
 
 }
+.ImageUploadTips{
+    margin-left:42px; 
+    padding-top: 72px;
+    width: 91%;
+    display: flex;
+    justify-content: space-between;
+}
+.ImageUploadTips--Card{
+    width:150px;
+}
+.ImageUploadTips--Text{
+    color: #999999;
+    text-align: center;
+    width: 155px;
+    font-size: 14px;
+    display: grid;
+}
+.fa-check{
+    color:#51A704;
+}
+.PictureUpload--Suc{
+    font-weight: bold;
+
+}
+.PictureUpload--img{
+    width: 225px;
+    height: 225px;
+
+}
+.PictureUpload--Fin{
+
+}

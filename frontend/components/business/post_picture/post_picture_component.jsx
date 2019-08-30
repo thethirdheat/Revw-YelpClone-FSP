@@ -113,6 +113,7 @@ class UpLoadPicture extends React.Component{
     render(){
                                                 //onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
     let formView=(
+        <div>
                 <div className="DragAreaContainer">
 
                     <form   onSubmit={this.handleSumbit}>
@@ -144,9 +145,49 @@ class UpLoadPicture extends React.Component{
 
                             )}
                         </Dropzone>
-                        <input type="submit" value="submit"/>
                     </form>
                 </div>
+                    <div className="ImageUploadTips">
+                        <div className="ImageUploadTips--Card">
+                            <img src="https://i.imgur.com/dwA0EHT.png"/>
+                            <div className="ImageUploadTips--Text">
+                                <p>Refrain from posting </p>
+                                <p>shaky or out of focus </p>
+                                <p>photos.</p>
+                            </div>
+                        </div>
+
+                        <div className="ImageUploadTips--Card">
+                            <img src="https://i.imgur.com/lc7Y8PX.png"/>
+                            <div className="ImageUploadTips--Text">
+                                <p>Your photos should be </p>
+                                <p>well lit and bright. Don’t</p>
+                                <p>be afraid to use the flash</p>
+                                <p>on your camera.</p>
+                            </div>
+
+                        </div>
+
+                        <div className="ImageUploadTips--Card">
+                            <img src="https://i.imgur.com/TK6nvq5.png"/>
+                            <div className="ImageUploadTips--Text">
+                                <p>If you’re applying filters,</p>
+                                <p>don’t overdo them.</p>
+                                <p>Subtlety is key.</p>
+                            </div>
+                        </div>
+
+                        <div className="ImageUploadTips--Card">
+                            <img src="https://i.imgur.com/fKbIVbX.png"/>
+                            <div className="ImageUploadTips--Text">
+                                <p>Lastly, please only post</p>
+                                <p>photos of the business.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    </div>
 
     )
 //
@@ -162,8 +203,9 @@ class UpLoadPicture extends React.Component{
         formView=(
             
             <div>
-                <img src={this.state.pictureFilePreview}/>
-                <button onClick={this.handleSumbit}>Can we just talk?</button>
+                <p> <i className="fas fa-check "></i> <span className="PictureUpload--Suc">Perfect!</span> Next, describe your photo below.</p>
+                <img className="PictureUpload--img" src={this.state.pictureFilePreview}/>
+                <button className="PictureUpload--Fin"onClick={this.handleSumbit}>Can we just talk?</button>
             </div>
         )
 

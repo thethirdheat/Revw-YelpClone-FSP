@@ -1380,7 +1380,7 @@ function (_React$Component) {
       var _this7 = this;
 
       //onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
-      var formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "DragAreaContainer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSumbit
@@ -1419,10 +1419,33 @@ function (_React$Component) {
           className: "fileInputButton",
           htmlFor: "file"
         }, "Browse Files")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()));
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "submit"
-      }))); //
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://i.imgur.com/dwA0EHT.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Refrain from posting "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "shaky or out of focus "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "photos."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://i.imgur.com/lc7Y8PX.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your photos should be "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "well lit and bright. Don\u2019t"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "be afraid to use the flash"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "on your camera."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://i.imgur.com/TK6nvq5.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you\u2019re applying filters,"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "don\u2019t overdo them."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Subtlety is key."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://i.imgur.com/fKbIVbX.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ImageUploadTips--Text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lastly, please only post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "photos of the business."))))); //
 
       if (this.state.pictureFilePreview) {
         //        console.log('thjis is picutre file',this.state.pictureFile)
@@ -1433,9 +1456,15 @@ function (_React$Component) {
         //
         //        },false)
         //        reader.readAsDataURL(this.state.pictureFile)
-        formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-check "
+        }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "PictureUpload--Suc"
+        }, "Perfect!"), " Next, describe your photo below."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "PictureUpload--img",
           src: this.state.pictureFilePreview
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "PictureUpload--Fin",
           onClick: this.handleSumbit
         }, "Can we just talk?"));
       }
