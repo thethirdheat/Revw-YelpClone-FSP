@@ -47,6 +47,7 @@ class UpLoadPicture extends React.Component{
         this.handleSumbit = this.handleSumbit.bind(this)
         this.update=this.update.bind(this)
         this.handleFile = this.handleFile.bind(this)
+        this.handleFileDrag = this.handleFileDrag.bind(this)
     }
 
     update(field){
@@ -81,22 +82,41 @@ class UpLoadPicture extends React.Component{
     }
 
     handleFile(e){
-        this.setState({pictureFile: e.currentTarget.files[0]})
+        let curFile=  e.currentTarget.files[0]
+        const reader= new FileReader()
+        reader.addEventListener("loadend",()=>{
+            console.log((reader.result))
+            this.setState({pictureFilePreview: reader.result})
+            this.setState({pictureFile:curFile})
+
+        },false)
+        reader.readAsDataURL(curFile)
+        //formView=(
+        //    <img src={this.state.pictureFile}/>
+        //)
 
     }
+    handleFileDrag(curFile){
+        const reader= new FileReader()
+        reader.addEventListener("loadend",()=>{
+            console.log((reader.result))
+            this.setState({pictureFilePreview: reader.result})
+            this.setState({pictureFile:curFile})
 
+        },false)
+        reader.readAsDataURL(curFile)
+        //formView=(
+        //    <img src={this.state.pictureFile}/>
+        //)
+
+    }
     render(){
-        console.log(this.props)
-        return (
-            <div className="PictureSubmit">
-                <div className="PictureSubmit--Header">
-                    <h1 className="PictureSubmit--BizName"><Link to={`/biz/${this.props.match.params.bizId}`} >{this.props.bizName}</Link>:<span className="PictureSubmit--Title">&nbsp;Add Photos</span>  </h1>
-                    <Link to="#"><span className="PictureSubmit--AllPics" >View all photos</span></Link>
-                </div>
+                                                //onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
+    let formView=(
                 <div className="DragAreaContainer">
 
                     <form   onSubmit={this.handleSumbit}>
-                        <Dropzone  noClick={true} onDrop={acceptedFiles => this.setState({pictureFile:acceptedFiles[0]})}>
+                        <Dropzone  noClick={true} onDrop={acceptedFiles => this.handleFileDrag(acceptedFiles[0])}>
                             {({getRootProps, getInputProps}) => (
                                 <div>
 
@@ -114,7 +134,7 @@ class UpLoadPicture extends React.Component{
                                                 id="file"
                                                 type="file"
                                                 multiple
-                                                onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
+                                                onChange={this.handleFile}
                                             />
                                             <div className="DragArea--Submit"><label className="fileInputButton" htmlFor="file">Browse Files</label></div>
                                         </div>
@@ -127,6 +147,35 @@ class UpLoadPicture extends React.Component{
                         <input type="submit" value="submit"/>
                     </form>
                 </div>
+
+    )
+//
+    if(this.state.pictureFilePreview){
+//        console.log('thjis is picutre file',this.state.pictureFile)
+//        const reader= new FileReader()
+//        reader.addEventListener("load",()=>{
+//            console.log((reader.result))
+//            this.setState({pictureFile: reader.result})
+//
+//        },false)
+//        reader.readAsDataURL(this.state.pictureFile)
+        formView=(
+            
+            <div>
+                <img src={this.state.pictureFilePreview}/>
+                <button onClick={this.handleSumbit}>Can we just talk?</button>
+            </div>
+        )
+
+    }
+        console.log(this.props)
+        return (
+            <div className="PictureSubmit">
+                <div className="PictureSubmit--Header">
+                    <h1 className="PictureSubmit--BizName"><Link to={`/biz/${this.props.match.params.bizId}`} >{this.props.bizName}</Link>:<span className="PictureSubmit--Title">&nbsp;Add Photos</span>  </h1>
+                    <Link to="#"><span className="PictureSubmit--AllPics" >View all photos</span></Link>
+                </div>
+                {formView}
 
             </div>
         )

@@ -1285,6 +1285,7 @@ function (_React$Component) {
     _this.handleSumbit = _this.handleSumbit.bind(_assertThisInitialized(_this));
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
+    _this.handleFileDrag = _this.handleFileDrag.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1333,40 +1334,60 @@ function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      this.setState({
-        pictureFile: e.currentTarget.files[0]
-      });
+      var _this5 = this;
+
+      var curFile = e.currentTarget.files[0];
+      var reader = new FileReader();
+      reader.addEventListener("loadend", function () {
+        console.log(reader.result);
+
+        _this5.setState({
+          pictureFilePreview: reader.result
+        });
+
+        _this5.setState({
+          pictureFile: curFile
+        });
+      }, false);
+      reader.readAsDataURL(curFile); //formView=(
+      //    <img src={this.state.pictureFile}/>
+      //)
+    }
+  }, {
+    key: "handleFileDrag",
+    value: function handleFileDrag(curFile) {
+      var _this6 = this;
+
+      var reader = new FileReader();
+      reader.addEventListener("loadend", function () {
+        console.log(reader.result);
+
+        _this6.setState({
+          pictureFilePreview: reader.result
+        });
+
+        _this6.setState({
+          pictureFile: curFile
+        });
+      }, false);
+      reader.readAsDataURL(curFile); //formView=(
+      //    <img src={this.state.pictureFile}/>
+      //)
     }
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this7 = this;
 
-      console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "PictureSubmit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "PictureSubmit--Header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "PictureSubmit--BizName"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        to: "/biz/".concat(this.props.match.params.bizId)
-      }, this.props.bizName), ":", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "PictureSubmit--Title"
-      }, "\xA0Add Photos"), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        to: "#"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "PictureSubmit--AllPics"
-      }, "View all photos"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      //onChange={(file)=>this.setState({pictureFile:file.target.files[0]})}
+      var formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "DragAreaContainer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSumbit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dropzone__WEBPACK_IMPORTED_MODULE_4__["default"], {
         noClick: true,
         onDrop: function onDrop(acceptedFiles) {
-          return _this5.setState({
-            pictureFile: acceptedFiles[0]
-          });
+          return _this7.handleFileDrag(acceptedFiles[0]);
         }
       }, function (_ref) {
         var getRootProps = _ref.getRootProps,
@@ -1386,16 +1407,12 @@ function (_React$Component) {
         }, "\xA0\xA0\xA0OR\xA0\xA0\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "ReviewPage--HrLine"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          ref: _this5.fileInputRef,
+          ref: _this7.fileInputRef,
           className: "fileInput",
           id: "file",
           type: "file",
           multiple: true,
-          onChange: function onChange(file) {
-            return _this5.setState({
-              pictureFile: file.target.files[0]
-            });
-          }
+          onChange: _this7.handleFile
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "DragArea--Submit"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1405,7 +1422,40 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "submit"
-      }))));
+      }))); //
+
+      if (this.state.pictureFilePreview) {
+        //        console.log('thjis is picutre file',this.state.pictureFile)
+        //        const reader= new FileReader()
+        //        reader.addEventListener("load",()=>{
+        //            console.log((reader.result))
+        //            this.setState({pictureFile: reader.result})
+        //
+        //        },false)
+        //        reader.readAsDataURL(this.state.pictureFile)
+        formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: this.state.pictureFilePreview
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleSumbit
+        }, "Can we just talk?"));
+      }
+
+      console.log(this.props);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureSubmit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureSubmit--Header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "PictureSubmit--BizName"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/biz/".concat(this.props.match.params.bizId)
+      }, this.props.bizName), ":", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "PictureSubmit--Title"
+      }, "\xA0Add Photos"), "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "#"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "PictureSubmit--AllPics"
+      }, "View all photos"))), formView);
     }
   }]);
 
