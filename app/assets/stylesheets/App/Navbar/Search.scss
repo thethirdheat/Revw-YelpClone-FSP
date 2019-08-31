@@ -35,10 +35,12 @@ $rounded: 5px;
     height: 100%;
     width:43%;
     background: #fff;
+    outline: none;
 }
 .Search--bar__input{
     height:100%;
     width:48%;
+    outline: none;
     
     /*background: pink;*/
 
@@ -75,6 +77,7 @@ select {
     place-items: center;
     border-radius: 0px $rounded $rounded  0px;
     font-size: 1.3em;
+    cursor: pointer;
 
 }
 .Search--Find{

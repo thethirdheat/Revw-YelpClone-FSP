@@ -1456,17 +1456,37 @@ function (_React$Component) {
         //
         //        },false)
         //        reader.readAsDataURL(this.state.pictureFile)
-        formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        formView = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "PictureUpload--Container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "PictureUpload--Submit"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-check "
         }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "PictureUpload--Suc"
-        }, "Perfect!"), " Next, describe your photo below."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "PictureUpload--img",
-          src: this.state.pictureFilePreview
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "Perfect!"), " Next, describe your photo below."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "PictureUpload--Fin",
           onClick: this.handleSumbit
-        }, "Can we just talk?"));
+        }, "Finish")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "PictureUpload--ImageContainer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "PictureUpload--img",
+          src: this.state.pictureFilePreview
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "PictureUpload--trash",
+          onClick: function onClick() {
+            return _this7.setState({
+              pictureFile: null,
+              pictureFilePreview: null
+            });
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-trash-alt"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          placeholder: "Add a caption",
+          onChange: this.update("caption"),
+          value: this.state.caption
+        })));
       }
 
       console.log(this.props);
@@ -2175,7 +2195,9 @@ var Dummy = function Dummy() {
     className: "DummyMain--RSideBar"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "DummyMain--Footer"
-  }));
+  }, "\"htis is the foooter\"", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://i.imgur.com/nnsPfQv.png"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Dummy);

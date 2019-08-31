@@ -202,10 +202,18 @@ class UpLoadPicture extends React.Component{
 //        reader.readAsDataURL(this.state.pictureFile)
         formView=(
             
-            <div>
-                <p> <i className="fas fa-check "></i> <span className="PictureUpload--Suc">Perfect!</span> Next, describe your photo below.</p>
-                <img className="PictureUpload--img" src={this.state.pictureFilePreview}/>
-                <button className="PictureUpload--Fin"onClick={this.handleSumbit}>Can we just talk?</button>
+            <div className="PictureUpload--Container">
+                <div className="PictureUpload--Submit">
+                    <p> <i className="fas fa-check "></i> <span className="PictureUpload--Suc">Perfect!</span> Next, describe your photo below.</p>
+                    <button className="PictureUpload--Fin"onClick={this.handleSumbit}>Finish</button>
+                </div>
+                <div className="PictureUpload--ImageContainer">
+                    <img className="PictureUpload--img" src={this.state.pictureFilePreview}/>
+                    <div className="PictureUpload--trash" onClick={()=>this.setState({pictureFile:null,pictureFilePreview:null})}>
+                        <i className="fas fa-trash-alt"></i>
+                    </div>
+                    <textarea placeholder="Add a caption" onChange={this.update("caption")} value={this.state.caption}/>
+                </div>
             </div>
         )
 

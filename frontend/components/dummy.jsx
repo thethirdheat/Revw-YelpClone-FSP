@@ -24,7 +24,9 @@ const Dummy=()=>{
             </Switch>
         </div>
         <aside className="DummyMain--RSideBar"></aside>
-        <footer className="DummyMain--Footer"></footer>
+        <footer className="DummyMain--Footer">"htis is the foooter"
+        <img src="https://i.imgur.com/nnsPfQv.png"/>
+        </footer>
     </div>
         )
     }

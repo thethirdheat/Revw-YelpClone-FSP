@@ -4,6 +4,7 @@ $TextColor:#666666;
     justify-content: flex-end;
 }
 .ShowLinks--Review{
+    cursor: pointer;
     height: 35px;
     width: 160px;
     display: flex;
@@ -18,6 +19,7 @@ $TextColor:#666666;
 
 }
 .ShowLinks--Picture{
+    cursor: pointer;
     color: $TextColor;
     border: 1px grey solid;
     font-size: 11px;
