@@ -15,6 +15,7 @@ const Dummy=()=>{
         </header>
         <aside className="DummyMain--LSideBar"></aside>
         <div className="Switching">
+
             <Switch>
                 <ProtectedRoute  exact path ="/biz/new" component={CreateBusinessContainer}/>
                 <ProtectedRoute  path ="/search" component={SearchIndexContainer} />
