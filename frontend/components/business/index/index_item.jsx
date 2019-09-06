@@ -38,7 +38,6 @@ const IndexItem =(props)=>{
                 </div>
                 <div className="IndexItem--Description">
                     <p className="Index--GreyText">"{props.business.description}"</p> 
-                    {<button onClick={()=>props.remove(props.business.id)}>Remove</button>}
                 </div>
 
 
@@ -52,3 +51,5 @@ const IndexItem =(props)=>{
 
 }
 export default withRouter(IndexItem)
+
+                    //{<button onClick={()=>props.remove(props.business.id)}>Remove</button>}

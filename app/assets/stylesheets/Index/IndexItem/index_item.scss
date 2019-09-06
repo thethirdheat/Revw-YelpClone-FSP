@@ -28,6 +28,10 @@ $BorderColour: #E6E6E6;
 
 
 }
+.IndexItemContainer:last-child{
+    //background: purple;
+    border: none;
+}
 .IndexItem{
     /*background: orange;*/
     /*border: green solid .5px;*/

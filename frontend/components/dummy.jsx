@@ -7,6 +7,7 @@ import Nav from './header/Nav'
 import DetailBusinessContainer from './business/show/biz_show_container'
 import UpLoadPictureContainer from './business/post_picture/post_picture_component'
 import SearchIndexContainer from './business/index/search_index'
+import Footer from './footer'
 const Dummy=()=>{
     return(
     <div className ="DummyMain">
@@ -25,11 +26,13 @@ const Dummy=()=>{
             </Switch>
         </div>
         <aside className="DummyMain--RSideBar"></aside>
-        <footer className="DummyMain--Footer">"htis is the foooter"
-        <img src="https://i.imgur.com/nnsPfQv.png"/>
-        </footer>
+        <Footer/>
     </div>
         )
     }
 export default Dummy
 
+
+//        <footer className="DummyMain--Footer">"htis is the foooter"
+//
+//        </footer>

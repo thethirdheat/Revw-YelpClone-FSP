@@ -3,6 +3,9 @@ $ParagraphWidth: 360px;
 $ImageWidth: 60px;
 $LinkColor: #4474BB;
 $BorderColour:#E6E6E6;
+.RevItem:last-child{
+    border: none;
+}
 .RevItem{
     width:630px;
     /*background: pinke*/
@@ -24,6 +27,7 @@ $BorderColour:#E6E6E6;
     border-left: 0px;
     border-right: 0px;*/
     padding: 30px 0px;
+
 
 
 }

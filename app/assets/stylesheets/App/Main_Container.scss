@@ -25,11 +25,62 @@ $BackgroundGrey: #F5F5F5;
 }
 
 
+.BizForm{
+    background: pink;
+    height: 100%;
+
+}
 .DummyMain--Footer{
+    border-top:1px solid #E6E6E6;
+    margin-top:36px;
     //background: black;
-    background: $BackgroundGrey;
-    height: 50px;
+    background: #F5F5F5;
+    //background: $BackgroundGrey;
+    //height: 100%;
     grid-area: bottom;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.FooterBlocks{
+    margin: 10xp;
+    //background: orange;
+    h3{
+        font-size: 16px;
+        color:#D42E23;
+        margin-bottom: 9px;
+        margin-top: 17px;
+    }
+    a{
+        font-size: 14px;
+        color:#3E74BB;
+    }
+    a:hover{
+         text-decoration: underline;
+    }
+    ul{
+        padding-top:5px;
+    }
+
+}
+.FooterBlocksContainer--Center{
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.FoooterBlocksContainer{
+    margin-top:36px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+
+    margin-bottom: 60px;
+
+}
+.FooterImageContainer{
+    text-align: center;
+
 }
 .DummyMain {
   display:grid;
@@ -49,8 +100,10 @@ $BackgroundGrey: #F5F5F5;
 } 
 
 .BusinessForm{
+    background: purple;
+    height: 100%;
     width: 700px;
-    position: absolute;
+    position: relative;
     margin-top: 100px;
     textarea{
         height: 250px;

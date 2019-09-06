@@ -16,6 +16,7 @@ $InBetweenSearchIndexGrey: #F5F5F5;
 
   grid-template-columns: $LeftSideBar 1fr;
   grid-template-rows: 150px 6fr;
+  //border-bottom: 1px solid green;
 }
 .ReviewList--Top{
     grid-area: top;

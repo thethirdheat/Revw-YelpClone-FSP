@@ -672,7 +672,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "BizForm"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
         dealWithFile: this.handleFile,
         change: this.update,
         send: this.handleSumbit,
@@ -944,15 +946,11 @@ var IndexItem = function IndexItem(props) {
       className: "IndexItem--Description"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
-    }, "\"", props.business.description, "\""), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      onClick: function onClick() {
-        return props.remove(props.business.id);
-      }
-    }, "Remove")))))
+    }, "\"", props.business.description, "\"")))))
   );
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(IndexItem));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(IndexItem)); //{<button onClick={()=>props.remove(props.business.id)}>Remove</button>}
 
 /***/ }),
 
@@ -2153,6 +2151,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _business_show_biz_show_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./business/show/biz_show_container */ "./frontend/components/business/show/biz_show_container.js");
 /* harmony import */ var _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./business/post_picture/post_picture_component */ "./frontend/components/business/post_picture/post_picture_component.jsx");
 /* harmony import */ var _business_index_search_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./business/index/search_index */ "./frontend/components/business/index/search_index.jsx");
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer */ "./frontend/components/footer.jsx");
+
 
 
 
@@ -2193,14 +2193,69 @@ var Dummy = function Dummy() {
     component: _business_index_index_container__WEBPACK_IMPORTED_MODULE_1__["default"]
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
     className: "DummyMain--RSideBar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
-    className: "DummyMain--Footer"
-  }, "\"htis is the foooter\"", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://i.imgur.com/nnsPfQv.png"
-  })));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Dummy);
+/* harmony default export */ __webpack_exports__["default"] = (Dummy); //        <footer className="DummyMain--Footer">"htis is the foooter"
+//
+//        </footer>
+
+/***/ }),
+
+/***/ "./frontend/components/footer.jsx":
+/*!****************************************!*\
+  !*** ./frontend/components/footer.jsx ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Footer = function Footer() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "DummyMain--Footer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FoooterBlocksContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterBlocksContainer--Center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterBlocks"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "Developer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "GitHub"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterBlocks"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Discover Projects"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "Pastiche")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "Spacey"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterBlocks"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Contact"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "Email")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "916-504-0023"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterBlocks"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Resume"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: ""
+  }, "hey now"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "FooterImageContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://i.imgur.com/nnsPfQv.png"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "Footer--CopyRight"
+  }, "this is a copy right lul")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 

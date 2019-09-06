@@ -71,7 +71,7 @@ class BusinessForm extends React.Component{
 
     render(){
         return(
-        <div>
+        <div className="BizForm">
             <BizForm dealWithFile ={this.handleFile} change={this.update} send={this.handleSumbit} business={this.state}/>
         </div>)
     }
