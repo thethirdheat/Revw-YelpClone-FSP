@@ -11,11 +11,22 @@ $buttonColor: #BD2E1E;
 }
 .Greeting-Img{
     height: $greeingHeight;
-    border-radius: 0px $borderRadius $borderRadius 0px;
+    border-radius: $borderRadius  0px 0px $borderRadius ;
 
 }
 .Greeting--NameContainer{
+    z-index: 33;
+    background: purple;
     width: 50px;
+
+}
+.Greeting--ProfileContainer{
+    display: flex;
+    img{
+        height: 38px;
+        width: 38px;
+
+    }
 
 }
 .greeting_username{
@@ -24,7 +35,34 @@ $buttonColor: #BD2E1E;
     font-size: 10px;
     position: relative;
 }
+.Greeting--Profile{
+    position: absolute;
+    bottom:0px;
+    background: pink;
+    width: 215px;
+    height: 84px;
+}
+.fa-sort-down{
+    position: relative;
+    font-size: 13px;
+    top:-2px;
+}
 
+.Greeting--ProfileToggle{
+    opacity: .8;
+    width:20px;
+    border-radius: 0px $borderRadius   $borderRadius 0px;
+    height: 38px;
+    color: #fff;
+    font-size: 15px;
+    /*background: pink;*/
+    background: $buttonColor;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 .Greeting--Logout{
     color: #fff;
     font-size: 15px;
