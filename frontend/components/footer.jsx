@@ -9,34 +9,38 @@ const Footer = ()=>{
             <div className="FooterBlocksContainer--Center">
                 <div className="FooterBlocks">
                     <h3>About</h3>
-                    <ul><a href="">Developer</a></ul>
-                    <ul><a href="">LinkedIn</a></ul>
-                    <ul><a href="">GitHub</a></ul>
+                    <ul><a href="https://www.linkedin.com/in/emarson-serrano-289098157/">LinkedIn</a></ul>
+                    <ul><a href="https://github.com/thethirdheat">GitHub</a></ul>
+                    <ul><a href="https://angel.co/emarson-serrano">AngelList</a></ul>
                 </div>
                 <div className="FooterBlocks">
                     <h3>Discover Projects</h3>
-                    <ul><a href="">Pastiche</a></ul>
-                    <ul><a href="">Spacey</a></ul>
+                    <ul><a href="https://draw-pastiche.herokuapp.com/">Pastiche</a></ul>
+                    <ul><a href="https://spacey-aa.herokuapp.com/#/">Spacey</a></ul>
                 </div>
                 <div className="FooterBlocks">
                     <h3>Contact</h3>
-                    <ul><a href="">Email</a></ul>
-                    <h3>Phone</h3>
-                    <ul><a href="">916-504-0023</a></ul>
+                    <ul><a href="mailto:emarson.serrano@gmail.com">Email</a></ul>
+
                 </div>
                 <div className="FooterBlocks">
-                    <h3>Resume</h3>
-                    <ul><a href="">hey now</a></ul>
+                    <h3>Phone</h3>
+                    <ul><a href="">916-504-0023</a></ul>
                 </div>
 
             </div>
         </div>
         <div className="FooterImageContainer">
             <img src="https://i.imgur.com/nnsPfQv.png"/>
-            <p className="Footer--CopyRight">this is a copy right lul</p>
+            <p className="Footer--CopyRight">2019 Emarson Serrano</p>
+
 
         </div>
     </div>)
 
 }
 export default Footer
+//                <div className="FooterBlocks">
+//                    <h3>Resume</h3>
+//                    <ul><a href="">hey now</a></ul>
+//                </div>

@@ -2225,37 +2225,38 @@ var Footer = function Footer() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "FooterBlocks"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, "Developer")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
+    href: "https://www.linkedin.com/in/emarson-serrano-289098157/"
   }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, "GitHub"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    href: "https://github.com/thethirdheat"
+  }, "GitHub")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "https://angel.co/emarson-serrano"
+  }, "AngelList"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "FooterBlocks"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Discover Projects"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
+    href: "https://draw-pastiche.herokuapp.com/"
   }, "Pastiche")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
+    href: "https://spacey-aa.herokuapp.com/#/"
   }, "Spacey"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "FooterBlocks"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Contact"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, "Email")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: ""
-  }, "916-504-0023"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    href: "mailto:emarson.serrano@gmail.com"
+  }, "Email"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "FooterBlocks"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Resume"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: ""
-  }, "hey now"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "916-504-0023"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "FooterImageContainer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://i.imgur.com/nnsPfQv.png"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "Footer--CopyRight"
-  }, "this is a copy right lul")));
+  }, "2019 Emarson Serrano")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Footer);
+/* harmony default export */ __webpack_exports__["default"] = (Footer); //                <div className="FooterBlocks">
+//                    <h3>Resume</h3>
+//                    <ul><a href="">hey now</a></ul>
+//                </div>
 
 /***/ }),
 
