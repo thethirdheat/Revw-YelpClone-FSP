@@ -64,7 +64,7 @@ $buttonColor: #BD2E1E;
 
 }
 .Greeting--ProfileToggle{
-    opacity: 0.6;
+    opacity: 0.75;
     width:23px;
     border-radius: 0px $borderRadius   $borderRadius 0px;
     height: 38px;
@@ -103,3 +103,55 @@ $buttonColor: #BD2E1E;
     //display: grid;
     //place-items: center;
 }
+.ProfileElement{
+    display: flex;
+
+}
+.ProfileElement--Picture{
+    border-radius: 3px;
+    height:  60px;
+    width:  60px;
+}
+.ProfileElement--User{
+    margin-left: 7px;
+    h3{
+        font-size:14px;
+        color: #0073BB;
+    margin-bottom:3px;
+    }
+    p{
+        font-size:12px;
+        color: #333333;
+        font-weight: bold;
+
+    }
+
+
+
+}
+.ProfileElement--Counts{
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+
+    .fa-male{
+        color:#E65A03;
+
+    }
+    .second{
+        color: #EEAA8A;
+    }
+    .fa-star{
+        top:-3px;
+        padding-top: -8px;
+        position: relative;
+        text-align: center;
+        width:12px;
+        font-size: 8px;
+        height: 12px;
+        border-radius:2px; 
+        color: #ffffff;
+        background: #E65A03;
+    }
+}
+//E65A03

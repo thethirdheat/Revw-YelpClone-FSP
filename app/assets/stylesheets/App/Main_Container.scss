@@ -101,7 +101,22 @@ $BackgroundGrey: #F5F5F5;
     //background: purple;
     position: absolute;
 }
+.Greeting--ProfileElement{
+    padding: 10px;
 
+}
+.Greeting--ProfileElement__hr{
+    align-self: center;
+        width:70px;
+}
+.Greeting--ProfileLogout{
+    border-top: 1px green solid;
+    margin: 0px 10px;
+
+}
+.LogOutLink{
+
+}
 .Greeting--Profile{
 
 
@@ -110,7 +125,8 @@ $BackgroundGrey: #F5F5F5;
     right:0px;
     background: pink;
     width: 215px;
-    height: 84px;
+    //height: 84px;
+    height: 124px;
     z-index: 100;
     grid-area: mmain;
 }

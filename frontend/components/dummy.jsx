@@ -8,6 +8,7 @@ import DetailBusinessContainer from './business/show/biz_show_container'
 import UpLoadPictureContainer from './business/post_picture/post_picture_component'
 import SearchIndexContainer from './business/index/search_index'
 import Footer from './footer'
+
 import {receiveModalOff} from '../actions/ui_actions'
 
 import {connect} from 'react-redux'

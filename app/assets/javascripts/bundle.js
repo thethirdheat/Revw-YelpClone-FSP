@@ -2341,8 +2341,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
+/* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile */ "./frontend/components/greeting/profile.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2366,10 +2367,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mdtp = function mdtp(dispatch) {
   return {
     sendComponent: function sendComponent(comp, opacity) {
-      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__["receiveModalOn"])(comp, opacity));
+      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_4__["receiveModalOn"])(comp, opacity));
     }
   };
 };
@@ -2408,12 +2410,25 @@ function (_React$Component) {
       /*className="Nav--Greeting"*/
       var profile = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Greeting--Modal"
-      }, "hi bitch hi?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Greeting--Profile",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Greeting--Profile"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Greeting--ProfileElement"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        user: {
+          userName: "FirstName LastName",
+          location: ""
+        }
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Greeting--ProfileLogout"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "LogOutLink",
         onClick: function onClick() {
           return _this2.props.logout();
         }
-      }, "this si the log out buton?"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/login"
+      }, " Logout")))));
 
       if (this.state.profileOn && this.props.currentUser) {
         this.props.sendComponent(profile, 0); //this.props.sendComponent(profile)
@@ -2425,8 +2440,6 @@ function (_React$Component) {
 
       var withUser = function withUser() {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: ""
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Greeting--ProfileContainer",
           onClick: function onClick() {
             return _this2.props.sendComponent(profile, 0);
@@ -2438,7 +2451,7 @@ function (_React$Component) {
           className: "Greeting--ProfileToggle"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-sort-down"
-        }))));
+        })));
       };
 
       var noUser = function noUser() {
@@ -2456,7 +2469,7 @@ function (_React$Component) {
   return Greeting;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(Greeting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, mdtp)(Greeting));
 
 /***/ }),
 
@@ -2501,6 +2514,58 @@ var mdtp = function mdtp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_greeting__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/greeting/profile.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/greeting/profile.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Profile = function Profile(props) {
+  console.log(props);
+
+  var convertLongName = function convertLongName(name) {
+    console.log(name);
+
+    if (name.length >= 15) {
+      var ret = name.split(" ");
+      ret[1] = ret[1][0] + ".";
+      console.log(ret);
+      return ret.join(" ");
+    }
+
+    return name;
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ProfileElement"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "ProfileElement--Picture",
+    src: props.user.profilePic || "https://i.imgur.com/S5cgOk5.png"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ProfileElement--User"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, convertLongName(props.user.userName), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.user.location || "San Francisco, CA ", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ProfileElement--Counts"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-male"
+  }, "\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas second fa-male"
+  }), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, props.user.friends || 3), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-star",
+    "aria-hidden": "true"
+  }), "\xA0", props.user.reviewAmount || 0)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Profile);
 
 /***/ }),
 

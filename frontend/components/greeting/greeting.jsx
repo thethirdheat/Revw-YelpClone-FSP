@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Profile from './profile'
+
 import {connect} from 'react-redux'
 import {receiveModalOn} from '../../actions/ui_actions'
 const mdtp = (dispatch) =>({
@@ -31,8 +33,19 @@ class Greeting extends React.Component{
 /*className="Nav--Greeting"*/
 
         let profile=(<div className="Greeting--Modal">
-            hi bitch hi?
-                <div className="Greeting--Profile" onClick={()=>this.props.logout()}>this si the log out buton?</div >
+                <div className="Greeting--Profile" >
+                    <div className="Greeting--ProfileElement">
+                        <Profile user={{userName:"FirstName LastName",location: ""}}/>
+
+                    </div>
+                    <div className="Greeting--ProfileLogout">
+                        <div className="LogOutLink" onClick={()=>this.props.logout()} >
+                            <Link to="/login"> Logout</Link>
+
+                        </div>
+
+                    </div>
+                </div >
             </div>)
 
     if(this.state.profileOn&& this.props.currentUser){
@@ -46,15 +59,10 @@ class Greeting extends React.Component{
  
                 //<div className="Greeting--ProfileContainer" onClick={()=>this.setState({profileOn:!this.state.profileOn})}></div>
     const withUser =()=>(
-        <div className=""> 
-
-
-               
                 <div className="Greeting--ProfileContainer" onClick={()=>this.props.sendComponent(profile,0)}>
                     <img className="Greeting-Img" src="https://i.imgur.com/S5cgOk5.png"/>
                     <div className="Greeting--ProfileToggle" ><i className="fas fa-sort-down"></i></div >
                 </div>
-        </div> 
     )
 
     const noUser =()=>(
