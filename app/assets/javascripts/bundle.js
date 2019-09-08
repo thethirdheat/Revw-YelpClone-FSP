@@ -1964,22 +1964,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
 var _this = undefined;
 
 
 
  //export const deleteBizPicture = (picId) => dispatch =>(
 
+
+
 var mdtp = function mdtp(dispatch) {
   return {
     deletePic: function deletePic(id) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["deleteBizPicture"])(id));
+    },
+    sendComponent: function sendComponent(comp, opacity) {
+      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__["receiveModalOn"])(comp, opacity));
     }
   };
 };
 
 var PicCard = function PicCard(props) {
-  var hover = false; //console.log(props, "this is pic card props")
+  var hover = false;
+  var sendModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ModalPicture"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "PicutureContainer"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "",
+    src: props.picture.pictureUrl
+  }))); //console.log(props, "this is pic card props")
 
   var picId = props.picture.id;
   var center = props.center != undefined ? "PicCard__center" : "https://i.imgur.com/yPsQ4pY.png";
@@ -2002,7 +2016,10 @@ var PicCard = function PicCard(props) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "PictureCard ".concat(center)
+    className: "PictureCard ".concat(center),
+    onClick: function onClick() {
+      return props.sendComponent(sendModal, .4);
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard--Overlay"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -3347,7 +3364,7 @@ __webpack_require__.r(__webpack_exports__);
 var MoreInfo = function MoreInfo() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "MoreInfo"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "More business info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takes Reservations ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Take-out ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Credit Cards ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Apple Pay ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Google Pay ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Lunch, Dinner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Parking ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Street")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bike Parking ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Kids Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Groups Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ambience ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Hipster, Casual, Trendy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Noise ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Level Average")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For Dancing ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Alcohol ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Beer & Wine Only")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Coat Check ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Outdoor Seating ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wi-Fi ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Free")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has TV ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dogs Allowed ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Waiter Service ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Drive-Thru ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Caters ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has Pool Table ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gender Neutral Restrooms ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes"), " "));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "More business info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Takes Reservations\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Delivery \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Take-out \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Credit Cards \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Apple Pay \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Accepts Google Pay \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Lunch, Dinner")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Parking \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Street")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Bike Parking \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Kids Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good for \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Groups Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ambience \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Hipster, Casual, Trendy")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Noise \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Level Average")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Good For Dancing \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Alcohol \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Beer & Wine Only")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Coat Check \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Outdoor Seating \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Wi-Fi \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Free")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has TV \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dogs Allowed \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Waiter Service \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Drive-Thru \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Caters \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Has Pool Table \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "No")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Gender Neutral Restrooms \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Yes"), " "));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MoreInfo);

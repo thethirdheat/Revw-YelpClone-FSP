@@ -1,12 +1,23 @@
 import React from 'react'
 import { deleteBizPicture}from '../../../../actions/business_actions'
 import {connect} from 'react-redux'
+
 //export const deleteBizPicture = (picId) => dispatch =>(
+    import { receiveModalOn } from '../../../../actions/ui_actions'
+
 const mdtp=dispatch=>({
-    deletePic: (id)=>dispatch(deleteBizPicture(id))
+    deletePic: (id)=>dispatch(deleteBizPicture(id)),
+    sendComponent: (comp,opacity)=>dispatch(receiveModalOn(comp,opacity))
+
 })
 const PicCard = (props)=>{
     let hover=false
+    let sendModal=(<div className="ModalPicture">
+        <div className="PicutureContainer">
+            <img className="" src={ props.picture.pictureUrl}/> 
+        </div>
+
+    </div>)
 
 
     //console.log(props, "this is pic card props")
@@ -20,7 +31,7 @@ const PicCard = (props)=>{
     }else{
         showCaption=""
     }
-    return (<div className={`PictureCard ${center}`}>
+    return (<div className={`PictureCard ${center}`} onClick={()=>props.sendComponent(sendModal,.4)}>
         <div className="PictureCard--Overlay">
             <img className={` PictureCard--Fit`} src={ props.picture.pictureUrl}/> 
             {showCaption}
