@@ -2408,6 +2408,8 @@ function (_React$Component) {
       /*<h2 className="greeting_username">Hi, {props.currentUser.username}!</h2> */
 
       /*className="Nav--Greeting"*/
+      //<div className="GreetingContainer">
+      //</div >
       var profile = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Greeting--Modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2428,9 +2430,9 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login"
-      }, " Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " Log Out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Pointerblock"
-      }));
+      })));
 
       if (this.state.profileOn && this.props.currentUser) {
         this.props.sendComponent(profile, 0); //this.props.sendComponent(profile)
@@ -2902,6 +2904,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.js");
+/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2919,6 +2923,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -2946,7 +2952,9 @@ var mstp = function mstp(state, ownProps) {
       rating: rating,
       body: body
     },
-    bizName: bizName
+    bizName: bizName,
+    modalComponent: state.ui.component,
+    modalOpacity: state.ui.modalOpacity
   };
 };
 
@@ -2957,6 +2965,9 @@ var mdtp = function mdtp(dispatch) {
     },
     makeReview: function makeReview(reviewData) {
       return dispatch(Object(_actions_review_actions__WEBPACK_IMPORTED_MODULE_4__["createReview"])(reviewData));
+    },
+    turnOffModal: function turnOffModal() {
+      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_6__["receiveModalOff"])());
     } //fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId))
 
   };
@@ -3045,10 +3056,24 @@ function (_React$Component) {
     value: function render() {
       var _this6 = this;
 
-      //console.log(this.props,'this is props',this.state)
+      var curModal = "";
+
+      if (this.props.modalComponent) {
+        curModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "MainModal",
+          style: {
+            opacity: this.props.modalOpacity
+          },
+          onClick: function onClick() {
+            return _this6.props.turnOffModal();
+          }
+        }, " "), this.props.modalComponent);
+      } //console.log(this.props,'this is props',this.state)
       //        if(!this.props.bizName){
       //            return <div></div>
       //        }
+
+
       var ratingText;
       console.log(this.state.hoverRating, '----------------thisis hover ratint----------------------');
       var hover = this.state.hoverRating;
@@ -3068,7 +3093,9 @@ function (_React$Component) {
       } //console.log(this.state.hoverRating,this.state.review.rating)
 
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modalOffset"
+      }, curModal), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "review--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "review--header__container"
@@ -3076,9 +3103,9 @@ function (_React$Component) {
         className: "review--header__logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
-      }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86")), " \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "\uD83C\uDD81\uD83C\uDD74\uD83C\uDD85\uD83C\uDD86"), " \xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "review--desc"
-      }, "Write a Review"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Write a Review"), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_5__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "FormContainer "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "InnerForm"

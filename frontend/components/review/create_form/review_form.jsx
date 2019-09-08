@@ -5,6 +5,11 @@ import {connect} from 'react-redux'
 
 import {fetchBusiness} from '../../../actions/business_actions'
 import {createReview} from '../../../actions/review_actions'
+import GreetingContainer from '../../greeting/greeting_container'
+import {receiveModalOff} from '../../../actions/ui_actions'
+
+
+
 const mstp = (state, ownProps) =>{
     const user_id=state.session.id
     const business_id = ownProps.match.params.bizId
@@ -18,7 +23,9 @@ const mstp = (state, ownProps) =>{
 
     return {
         form: {user_id, business_id , rating, body},
-        bizName
+        bizName,
+        modalComponent:state.ui.component,
+        modalOpacity:state.ui.modalOpacity
 
     }
 }
@@ -26,7 +33,8 @@ const mdtp = dispatch =>{
 
     return {
         fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId)),
-        makeReview: (reviewData)=>dispatch(createReview(reviewData))
+        makeReview: (reviewData)=>dispatch(createReview(reviewData)),
+        turnOffModal: ()=>dispatch(receiveModalOff())
         //fetchBiz: (bizId)=> dispatch(fetchBusiness(bizId))
     }
 }
@@ -86,6 +94,16 @@ class ReviewForm extends React.Component{
 
     
     render(){
+
+    let curModal=""
+    if(this.props.modalComponent){
+        curModal= (<div> 
+            <div className={`MainModal`} style={{opacity: this.props.modalOpacity}} onClick={()=>this.props.turnOffModal()}> </div>
+        {this.props.modalComponent}
+        </div>
+
+        )
+    }
         //console.log(this.props,'this is props',this.state)
 //        if(!this.props.bizName){
 //            return <div></div>
@@ -112,10 +130,13 @@ class ReviewForm extends React.Component{
         //console.log(this.state.hoverRating,this.state.review.rating)
         return (
         <div>
-
+            <div className="modalOffset">
+                {curModal}
+            </div>
             <nav className ="review--header">
                 <div className ="review--header__container">
-                    <div className="review--header__logo"><Link to ="/">🆁🅴🆅🆆</Link></div> &nbsp;&nbsp;<span className="review--desc">Write a Review</span>
+                    <div className="review--header__logo"><Link to ="/">🆁🅴🆅🆆</Link> &nbsp;&nbsp;<span className="review--desc">Write a Review</span> </div>
+                    <GreetingContainer/>
                 </div>
             </nav>
 

@@ -32,7 +32,10 @@ class Greeting extends React.Component{
                     /*<h2 className="greeting_username">Hi, {props.currentUser.username}!</h2> */
 /*className="Nav--Greeting"*/
 
+            //<div className="GreetingContainer">
+                //</div >
         let profile=(<div className="Greeting--Modal">
+
                 <div className="Greeting--Profile" >
                     <div className="Greeting--ProfileElement">
                         <Profile user={{userName:"FirstName LastName",location: ""}}/>
@@ -45,8 +48,8 @@ class Greeting extends React.Component{
                         </div>
 
                     </div>
-                </div >
                 <div className="Pointerblock"></div>
+            </div>
             </div>)
 
     if(this.state.profileOn&& this.props.currentUser){

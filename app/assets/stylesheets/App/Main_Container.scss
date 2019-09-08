@@ -129,7 +129,8 @@ $BackgroundGrey: #F5F5F5;
     position: absolute;
     top:89px;
     right:0px;
-    background: pink;
+    background: #ffffff;
+    //background: pink;
     width: 215px;
     //height: 84px;
     height: 124px;
@@ -139,25 +140,43 @@ $BackgroundGrey: #F5F5F5;
 .Pointerblock{
     z-index: 102;
     position: relative;
-    top:80px;
-    right:180px;
-    width:30px;
-    height: 30px;
-    background: #3E74BB
+    top:-115px;
+    right:-176px;
+    width:15px;
+    height: 15px;
+    //background: #3E74BB;
+    background: #ffffff;
+    box-shadow: -1.5px .5px rgba(3,3,3,.2);
+    transform: rotate(45deg);
+}
+.GreetingContainer{
+    position: relative;
 }
 .Greeting--Profile::after{
-    z-index: 7;
+    z-index: 140;
     box-shadow: -1.5px .5px rgba(3,3,3,.2);
-    top:-5px;
-    right:20px;
+    top:-6px;
+    right:-1053px;
     transform: rotate(45deg);
-    position: absolute;
+    position: relative;
     content: "";
-    height: 20px;
-    width: 20px ;
-    background: orange;
+    height: 130px;
+    width: 130px ;
+//    height: 13px;
+//    width: 13px ;
     background: inherit;
 
+}
+.Greeting--Profile::before{
+    z-index: 142;
+    top:-0.5px;
+    right:19px;
+    position: absolute;
+    content: "";
+    height: 11px;
+    width: 22px ;
+    //background: orange;
+    background: inherit;
 }
 
 .DummyMain {
