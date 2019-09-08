@@ -14,7 +14,13 @@ const PicCard = (props)=>{
     let hover=false
     let sendModal=(<div className="ModalPicture">
         <div className="PicutureContainer">
-            <img className="" src={ props.picture.pictureUrl}/> 
+            wtf
+            <div className="PictureContainerLeft">
+                <img className="" src={ props.picture.pictureUrl}/> 
+            </div>
+            <div className="PictureContainerRight">
+                <p>hubn</p>
+            </div>
         </div>
 
     </div>)
