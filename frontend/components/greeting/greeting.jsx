@@ -40,12 +40,13 @@ class Greeting extends React.Component{
                     </div>
                     <div className="Greeting--ProfileLogout">
                         <div className="LogOutLink" onClick={()=>this.props.logout()} >
-                            <Link to="/login"> Logout</Link>
+                            <Link to="/login"> Log Out</Link>
 
                         </div>
 
                     </div>
                 </div >
+                <div className="Pointerblock"></div>
             </div>)
 
     if(this.state.profileOn&& this.props.currentUser){

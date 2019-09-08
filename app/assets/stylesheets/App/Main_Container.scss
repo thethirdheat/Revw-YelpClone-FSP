@@ -104,20 +104,26 @@ $BackgroundGrey: #F5F5F5;
 .Greeting--ProfileElement{
     padding: 10px;
 
+
 }
 .Greeting--ProfileElement__hr{
     align-self: center;
         width:70px;
 }
 .Greeting--ProfileLogout{
-    border-top: 1px green solid;
+    border-top: 1px #E6E6E6 solid;
     margin: 0px 10px;
 
 }
 .LogOutLink{
+    padding-top:10px;
+    font-size: 14px;
+    color:#3E74BB;
 
 }
 .Greeting--Profile{
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
 
 
     position: absolute;
@@ -129,6 +135,29 @@ $BackgroundGrey: #F5F5F5;
     height: 124px;
     z-index: 100;
     grid-area: mmain;
+}
+.Pointerblock{
+    z-index: 102;
+    position: relative;
+    top:80px;
+    right:180px;
+    width:30px;
+    height: 30px;
+    background: #3E74BB
+}
+.Greeting--Profile::after{
+    z-index: 7;
+    box-shadow: -1.5px .5px rgba(3,3,3,.2);
+    top:-5px;
+    right:20px;
+    transform: rotate(45deg);
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px ;
+    background: orange;
+    background: inherit;
+
 }
 
 .DummyMain {

@@ -2428,7 +2428,9 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login"
-      }, " Logout")))));
+      }, " Log Out")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Pointerblock"
+      }));
 
       if (this.state.profileOn && this.props.currentUser) {
         this.props.sendComponent(profile, 0); //this.props.sendComponent(profile)

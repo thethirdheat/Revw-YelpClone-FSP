@@ -63,8 +63,9 @@ $buttonColor: #BD2E1E;
     opacity: 1;
 
 }
+
 .Greeting--ProfileToggle{
-    opacity: 0.75;
+    opacity: 0.85;
     width:23px;
     border-radius: 0px $borderRadius   $borderRadius 0px;
     height: 38px;
@@ -106,7 +107,9 @@ $buttonColor: #BD2E1E;
 .ProfileElement{
     display: flex;
 
+
 }
+
 .ProfileElement--Picture{
     border-radius: 3px;
     height:  60px;
