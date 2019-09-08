@@ -9,14 +9,14 @@ const Footer = ()=>{
             <div className="FooterBlocksContainer--Center">
                 <div className="FooterBlocks">
                     <h3>About</h3>
-                    <ul><a href="https://www.linkedin.com/in/emarson-serrano-289098157/">LinkedIn</a></ul>
-                    <ul><a href="https://github.com/thethirdheat">GitHub</a></ul>
-                    <ul><a href="https://angel.co/emarson-serrano">AngelList</a></ul>
+                    <ul><a href="https://www.linkedin.com/in/emarson-serrano-289098157/" target="_blank">LinkedIn</a></ul>
+                    <ul><a href="https://github.com/thethirdheat" target="_blank">GitHub</a></ul>
+                    <ul><a href="https://angel.co/emarson-serrano" target="_blank">AngelList</a></ul>
                 </div>
                 <div className="FooterBlocks">
                     <h3>Discover Projects</h3>
-                    <ul><a href="https://draw-pastiche.herokuapp.com/">Pastiche</a></ul>
-                    <ul><a href="https://spacey-aa.herokuapp.com/#/">Spacey</a></ul>
+                    <ul><a href="https://draw-pastiche.herokuapp.com/" target="_blank">Pastiche</a></ul>
+                    <ul><a href="https://spacey-aa.herokuapp.com/#/" target="_blank">Spacey</a></ul>
                 </div>
                 <div className="FooterBlocks">
                     <h3>Contact</h3>

@@ -8,9 +8,36 @@ import DetailBusinessContainer from './business/show/biz_show_container'
 import UpLoadPictureContainer from './business/post_picture/post_picture_component'
 import SearchIndexContainer from './business/index/search_index'
 import Footer from './footer'
-const Dummy=()=>{
+import {receiveModalOff} from '../actions/ui_actions'
+
+import {connect} from 'react-redux'
+
+const mstp = (state,ownProps) =>({
+    modalComponent:state.ui.component,
+
+    modalOpacity:state.ui.modalOpacity
+})
+
+
+const mdtp = (dispatch) =>({
+    turnOffModal: ()=>dispatch(receiveModalOff())
+
+})
+
+
+const Dummy=(props)=>{
+    let curModal=""
+    if(props.modalComponent){
+        curModal= (<div> 
+            <div className={`MainModal`} style={{opacity: props.modalOpacity}} onClick={()=>props.turnOffModal()}> </div>
+        {props.modalComponent}
+        </div>
+
+        )
+    }
     return(
     <div className ="DummyMain">
+        {curModal}
         <header className ="MainHeader">
             <Nav />
         </header>
@@ -30,7 +57,7 @@ const Dummy=()=>{
     </div>
         )
     }
-export default Dummy
+export default connect(mstp,mdtp)(Dummy)
 
 
 //        <footer className="DummyMain--Footer">"htis is the foooter"

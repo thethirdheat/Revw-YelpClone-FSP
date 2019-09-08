@@ -13,8 +13,24 @@ const Nav = () =>(
                 <div className="Nav--Searchbox">
                     <SearchBoxContainer/> 
                 </div>
+                <div className="center">
+                    <div className="greeting--container">
+                        <div className="Greeting--NameContainer">
+                            <a href="https://www.linkedin.com/in/emarson-serrano-289098157/" target="_blank">
+                                <i className="fas Greeting--nameItem fa-comment-alt"></i>
+                            </a>
 
-                    <GreetingContainer />
+                            <a href="https://github.com/thethirdheat" target="_blank">
+                                <i className="fas Greeting--nameItem fa-bell"></i>
+                            </a>
+
+                        </div>
+
+                        <GreetingContainer />
+
+                    </div>
+                </div>
+
 
             </div>
             <aside className="NavAside--right"></aside>

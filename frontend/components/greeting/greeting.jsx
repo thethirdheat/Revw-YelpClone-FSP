@@ -1,6 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import {connect} from 'react-redux'
+import {receiveModalOn} from '../../actions/ui_actions'
+const mdtp = (dispatch) =>({
+    sendComponent: (comp,opacity)=>dispatch(receiveModalOn(comp,opacity))
+
+})
+
+
+
+
 class Greeting extends React.Component{
     constructor(props){
         super(props)
@@ -19,32 +29,31 @@ class Greeting extends React.Component{
 
                     /*<h2 className="greeting_username">Hi, {props.currentUser.username}!</h2> */
 /*className="Nav--Greeting"*/
-        let profile=""
 
-
-    if(this.state.profileOn&& this.props.currentUser){
-        profile=(<div className="Greeting--Profile">
+        let profile=(<div className="Greeting--Modal">
             hi bitch hi?
-                <div className="" val="onClick={()=>this.props.logout()}">this si the log out buton?</div >
+                <div className="Greeting--Profile" onClick={()=>this.props.logout()}>this si the log out buton?</div >
             </div>)
 
+    if(this.state.profileOn&& this.props.currentUser){
+        this.props.sendComponent(profile,0)
+        //this.props.sendComponent(profile)
+
     }
-
+//                <div className="Greeting--NameContainer">
+//                    wut
+//                </div>
+ 
+                //<div className="Greeting--ProfileContainer" onClick={()=>this.setState({profileOn:!this.state.profileOn})}></div>
     const withUser =()=>(
-        <div className="center">
-            <div className="greeting--container"> 
+        <div className=""> 
 
 
-                <div className="Greeting--NameContainer">
-                    wut
-                </div>
-                
-                <div className="Greeting--ProfileContainer" onClick={()=>this.setState({profileOn:!this.state.profileOn})}>
+               
+                <div className="Greeting--ProfileContainer" onClick={()=>this.props.sendComponent(profile,0)}>
                     <img className="Greeting-Img" src="https://i.imgur.com/S5cgOk5.png"/>
                     <div className="Greeting--ProfileToggle" ><i className="fas fa-sort-down"></i></div >
                 </div>
-                {profile}
-            </div>
         </div> 
     )
 
@@ -58,4 +67,4 @@ class Greeting extends React.Component{
 }
 }
 
-export default Greeting;
+export default connect(null,mdtp)(Greeting);
