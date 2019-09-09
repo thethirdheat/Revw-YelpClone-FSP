@@ -58,24 +58,52 @@
 .PicutureContainer{
 
     //background: black;
-    height:95vh;
-    width: 95vw;
+    //height:95vh;
+    //width: 95vw;
     position: relative;
     //top:0;
     //left:0;
     z-index: 101;
 }
 .ModalPicture{
+
+    background-color: rgba(0,0,0,0.7);
     position: fixed;
     transform:translate(-50%,-50%);
     top:50%;
     left:50%;
+    z-index: 111;
+    border-radius:6px;
+    //background: purple;
+    //min-height: 400px;
+    height: 904px;
+    //min-width: 960px;
+    width: 1300px;
+
+    display:grid;
+    grid-template-areas: "picL picR";
+    grid-template-columns: 1fr 300px;
+}
+
+.PictureContainerLeft{
+    //background: yellow;
+    border-radius: 6px 0px 0px 6px;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    grid-area: "picL";
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 111;
-    background: orange;
-    height: 90vh;
-    width: 90vw;
-    margin: 5vh;
+
+
 }
+.PictureContainerRight{
+    width: 100%;
+    border-radius:0px 6px 6px 0px; 
+    background: #FFFFFF;
+    background: pink;
+    grid-area:'picR';
+
+}
+ 

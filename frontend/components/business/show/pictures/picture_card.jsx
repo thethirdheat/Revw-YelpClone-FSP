@@ -13,14 +13,13 @@ const mdtp=dispatch=>({
 const PicCard = (props)=>{
     let hover=false
     let sendModal=(<div className="ModalPicture">
-        <div className="PicutureContainer">
-            wtf
-            <div className="PictureContainerLeft">
+        <div className="PictureContainerLeft">
+            <div className="PicutureContainer">
                 <img className="" src={ props.picture.pictureUrl}/> 
             </div>
-            <div className="PictureContainerRight">
-                <p>hubn</p>
-            </div>
+        </div>
+        <div className="PictureContainerRight">
+            <p>hubn</p>
         </div>
 
     </div>)
@@ -37,7 +36,7 @@ const PicCard = (props)=>{
     }else{
         showCaption=""
     }
-    return (<div className={`PictureCard ${center}`} onClick={()=>props.sendComponent(sendModal,.4)}>
+    return (<div className={`PictureCard ${center}`} onClick={()=>props.sendComponent(sendModal,.7)}>
         <div className="PictureCard--Overlay">
             <img className={` PictureCard--Fit`} src={ props.picture.pictureUrl}/> 
             {showCaption}

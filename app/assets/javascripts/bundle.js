@@ -1989,15 +1989,15 @@ var PicCard = function PicCard(props) {
   var sendModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ModalPicture"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "PicutureContainer"
-  }, "wtf", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureContainerLeft"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "PicutureContainer"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "",
     src: props.picture.pictureUrl
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureContainerRight"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hubn")))); //console.log(props, "this is pic card props")
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hubn"))); //console.log(props, "this is pic card props")
 
   var picId = props.picture.id;
   var center = props.center != undefined ? "PicCard__center" : "https://i.imgur.com/yPsQ4pY.png";
@@ -2022,7 +2022,7 @@ var PicCard = function PicCard(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard ".concat(center),
     onClick: function onClick() {
-      return props.sendComponent(sendModal, .4);
+      return props.sendComponent(sendModal, .7);
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard--Overlay"
