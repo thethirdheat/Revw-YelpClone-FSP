@@ -2154,6 +2154,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      //if(this.props.pictures.length<=1){
+      //return ""
+      //}
       var convertLongName = function convertLongName(name) {
         console.log(name);
 
@@ -2164,13 +2167,35 @@ function (_React$Component) {
             ret[1] = ret[1][0] + ".";
             return ret.join(" ");
           }
-
-          return name;
         }
+
+        return name;
       };
 
-      var userName = this.props.picture.username;
       console.log(this.props, 'this is the foprpsslsjafkdafs-rops;', this.props.match.params.bizId);
+      var date = this.props.picture.created_at;
+
+      if (!date) {
+        return "";
+      }
+
+      var convertDate = function convertDate(date) {
+        //console.log(date)
+        date = date.toString();
+        date = date.split("T")[0];
+        date = date.split('-');
+        console.log('this is date', date); //            let holder = date[0]
+        //            date[0]=date[2]
+        //            date[2]=holder
+
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        date.push(date.shift());
+        date = "".concat(months[parseInt(date[0])], " ").concat(date[1], ", ").concat(date[2]);
+        return date;
+      };
+
+      var userName = convertLongName(this.props.picture.username);
+      date = convertDate(date);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ModalPicture"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2182,11 +2207,15 @@ function (_React$Component) {
         src: this.props.picture.photoUrl
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "PictureContainerRight"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ModalProfile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "ProfileElement--Picture",
+        className: "ModalProfile--Picture",
         src: "https://i.imgur.com/S5cgOk5.png"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, userName, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ProfileElement--Counts"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ModalProfile--Right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, userName, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ModalProfile--Counts"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-male"
       }, "\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2194,7 +2223,11 @@ function (_React$Component) {
       }), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, 3), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-star",
         "aria-hidden": "true"
-      }), "\xA0", 0)));
+      }), "\xA0", 0), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ModalProfile--Caption"
+      }, this.props.picture.caption), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ModalProfile--Date"
+      }, date)))));
     }
   }]);
 
@@ -2444,11 +2477,11 @@ var Dummy = function Dummy(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/biz/:bizId/biz_photos/",
-    component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _business_show_biz_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/biz/:bizId/biz_photos/:picId",
-    component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _business_show_biz_show_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/",
@@ -3519,7 +3552,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_stars__WEBPACK_IMPORTED_MODULE_1__["default"], {
         amount: review.rating
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "ReviewDAate--Reverse"
+        className: "ReviewDate--Reverse"
       }, " \xA0\xA0", this.state.date)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.body)));
     }
   }]);
@@ -4581,6 +4614,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_pictures_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/pictures_actions */ "./frontend/actions/pictures_actions.js");
+/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/ui_actions */ "./frontend/actions/ui_actions.js");
+
 
 
 
@@ -4592,6 +4627,9 @@ var picturesReducer = function picturesReducer() {
   switch (action.type) {
     case _actions_pictures_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_PICTURE"]:
       return action.picture;
+
+    case _actions_ui_actions__WEBPACK_IMPORTED_MODULE_2__["UI_MODAL_TURN_OFF"]:
+      return {};
 
     default:
       return state;

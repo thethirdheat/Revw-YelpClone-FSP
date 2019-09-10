@@ -45,7 +45,7 @@ class ReviewItem extends React.Component{
 
                 <div className="RevItem--RightSide"> 
                 <div className="ReviewStars">
-                    <Stars amount={review.rating}/> <span className="ReviewDAate--Reverse" > &nbsp;&nbsp;{this.state.date }</span>
+                    <Stars amount={review.rating}/> <span className="ReviewDate--Reverse" > &nbsp;&nbsp;{this.state.date }</span>
                 </div>
                     <p>{review.body}</p>
                  </div>

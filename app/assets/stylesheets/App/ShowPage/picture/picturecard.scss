@@ -102,8 +102,65 @@
     width: 100%;
     border-radius:0px 6px 6px 0px; 
     background: #FFFFFF;
-    background: pink;
+    //background: pink;
     grid-area:'picR';
-
 }
  
+.ModalProfile{
+    padding:12px;
+    display:grid;
+    grid-template-areas: "mpl mpr";
+    grid-template-columns: 30px 1fr;
+    //background: yellow;
+}
+.ModalProfile--Right{
+    grid-area: mpr;
+    padding-left:8px;
+    //background: green;
+    font-size:14px;
+    h3{
+        //font-weight:bold;
+        color: #5B95D1;
+    }
+    p{
+        padding-top:7px;
+        color: #A0A0A0;
+    }
+}
+.ModalProfile--Date{
+    margin-top:10px;
+    font-size:12px;
+}
+.ModalProfile--Picture{
+    //background: purple;
+    width:30px;
+    height: 30px;
+    border-radius: 3px;
+    grid-area: mpl;
+}
+.ModalProfile--Counts{
+    padding-top:.5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666666;
+
+    .fa-male{
+        color:#E65A03;
+
+    }
+    .second{
+        color: #EEAA8A;
+    }
+    .fa-star{
+        top:-3px;
+        padding-top: -8px;
+        position: relative;
+        text-align: center;
+        width:12px;
+        font-size: 8px;
+        height: 12px;
+        border-radius:2px; 
+        color: #ffffff;
+        background: #E65A03;
+    }
+}
