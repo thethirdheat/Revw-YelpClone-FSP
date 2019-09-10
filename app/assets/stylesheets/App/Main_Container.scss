@@ -25,11 +25,6 @@ $BackgroundGrey: #F5F5F5;
 }
 
 
-.BizForm{
-    background: pink;
-    height: 100%;
-
-}
 .DummyMain--Footer{
     border-top:1px solid #E6E6E6;
     margin-top:36px;
@@ -206,17 +201,79 @@ $BackgroundGrey: #F5F5F5;
     display: flex;
     justify-content: center;
 } 
+.BizForm{
+    //background: pink;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.BizForm--Desc{
+    padding:25px 0px;
+    font-size: 30px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.BizForm--Pic{
+    padding-top:30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:100%;
+
+}
 
 .BusinessForm{
-    background: purple;
+    //background: purple;
     height: 100%;
-    width: 700px;
+    width: 465px;
     position: relative;
-    margin-top: 100px;
+    font-size:14px; 
+    label{
+        font-weight: bold;
+    }
+    input{
+        border-radius: 3px;
+        margin:7px 0px;
+        height: 30px;
+        border:1px solid #999;
+        padding: 5px 9px;
+        color:#656565;
+    }
+    select{
+        border-radius: 3px;
+        margin:7px 0px;
+        border:1px solid #999;
+
+    }
     textarea{
+        color:#656565;
+        padding: 5px 9px;
+        border:1px solid #999;
+        border-radius: 3px;
+        margin:7px 0px;
         height: 250px;
     }
     *{
         width: 100%;
+    }
+    .submit{
+        display: flex;
+        background: green;
+        width: 100%;
+        justify-items: end;
+    }
+    input[type=submit]{
+        font-weight: bold;
+        border: none;
+        height: 35px;
+        width: 134px;
+        background: #D42E23;
+        position: relative;
+        right:-331px;
+        color:#FFFFFF;
+        font-size:14px;
     }
 }

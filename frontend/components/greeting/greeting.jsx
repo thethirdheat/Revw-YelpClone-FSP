@@ -9,6 +9,13 @@ const mdtp = (dispatch) =>({
     sendComponent: (comp,opacity)=>dispatch(receiveModalOn(comp,opacity))
 
 })
+const mstp = (state)=>{
+    console.log(state)
+    let user=state.entities.user[Object.keys(state.entities.user)[0]].username
+
+    return{
+    user
+}}
 
 
 
@@ -34,11 +41,12 @@ class Greeting extends React.Component{
 
             //<div className="GreetingContainer">
                 //</div >
+        console.log(this.props.user)
         let profile=(<div className="Greeting--Modal">
 
                 <div className="Greeting--Profile" >
                     <div className="Greeting--ProfileElement">
-                        <Profile user={{userName:"FirstName LastName",location: ""}}/>
+                        <Profile user={{userName:this.props.user,location: ""}}/>
 
                     </div>
                     <div className="Greeting--ProfileLogout">
@@ -79,4 +87,4 @@ class Greeting extends React.Component{
 }
 }
 
-export default connect(null,mdtp)(Greeting);
+export default connect(mstp,mdtp)(Greeting);

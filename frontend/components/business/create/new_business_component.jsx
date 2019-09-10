@@ -72,6 +72,14 @@ class BusinessForm extends React.Component{
     render(){
         return(
         <div className="BizForm">
+            <div className="BizForm--Pic">
+            <img src="https://i.imgur.com/A1NNGmX.png"/>
+            <div className="BizForm--Desc">
+
+                <p>Add Your Business Details</p>
+            </div>
+
+            </div>
             <BizForm dealWithFile ={this.handleFile} change={this.update} send={this.handleSumbit} business={this.state}/>
         </div>)
     }

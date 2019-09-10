@@ -15,6 +15,7 @@ class DetailBusiness extends React.Component{
 
     componentDidMount() {
         this.props.fetchBusiness(this.props.match.params.bizId);
+        window.scrollTo(0, 0);
     }
 
 //    componentDidUpdate(prevProps) {

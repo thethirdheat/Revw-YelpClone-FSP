@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Profile=(props)=>{
-    console.log(props)
+    console.log('take a loot at me now!!!', props.user)
     const convertLongName=(name)=>{
         console.log(name)
         if(name.length>=15){
@@ -19,7 +19,7 @@ const Profile=(props)=>{
 
             <img className="ProfileElement--Picture" src={ props.user.profilePic||`https://i.imgur.com/S5cgOk5.png`}></img>
             <div className="ProfileElement--User">
-                <h3>{convertLongName( props.user.userName)} </h3>
+                <h3>{( props.user.userName)} </h3>
                 <p>{props.user.location||"San Francisco, CA "} </p>
                 <div className="ProfileElement--Counts">
                     <i className="fas fa-male">&nbsp;</i><i className="fas second fa-male"></i>&nbsp;&nbsp;<span>{props.user.friends||3}</span> 

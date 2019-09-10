@@ -3,11 +3,14 @@ import React from 'react'
 const BizForm =(props)=>(
     <div className="BusinessForm">
         <form onSubmit={props.send}>
-            <label>Business Name
-            </label>
-            <br></br>
+                <label>
+                    Business Name
+                </label>
+                <br></br>
                 <input onChange={props.change('business_name')} type="text" value={props.business.business_name}/> 
+
             <br/>
+            <div className="BizLabel"></div>
 
             <label>Description
             </label>
@@ -34,17 +37,24 @@ const BizForm =(props)=>(
             <input onChange={props.change('price')} type="text" value={props.business.price}/> 
             <br/>
 
+            <div className="long/lat">
             <label>Latitude
             </label>
             <br/>
             <input onChange={props.change('lat')} type="text" value={props.business.lat}/> 
             <br/>
 
+    
             <label>Longitude
             </label>
-            <br/>
             <input onChange={props.change('long')} type="text" value={props.business.long}/> 
             <br/>
+
+            </div>
+
+            <label>Business Type
+            </label>
+
             <select value={props.business_type} onChange={props.change('business_type')}>
                 <option defaultValue value="Restaurant">Restaurant</option>
                 <option value="Home Service">Home Service</option>
@@ -52,11 +62,11 @@ const BizForm =(props)=>(
                 <option value="Night Life">Night Life</option>
             </select>
             <br/>
-            <input onChange={props.dealWithFile} type="file"/>
+                <input onChange={props.dealWithFile} type="file"/>
             <br/>
 
 
-            <input type="submit" value="submit"/>
+            <input type="submit" value="Add Business"/>
         </form>
     </div>
 )

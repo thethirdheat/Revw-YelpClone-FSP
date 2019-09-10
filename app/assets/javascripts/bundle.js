@@ -568,7 +568,9 @@ var BizForm = function BizForm(props) {
     onChange: props.change('business_name'),
     type: "text",
     value: props.business.business_name
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "BizLabel"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     onChange: props.change('description'),
     value: props.business.description
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -583,15 +585,17 @@ var BizForm = function BizForm(props) {
     onChange: props.change('price'),
     type: "text",
     value: props.business.price
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Latitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "long/lat"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Latitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('lat'),
     type: "text",
     value: props.business.lat
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Longitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Longitude"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     onChange: props.change('long'),
     type: "text",
     value: props.business["long"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Business Type"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     value: props.business_type,
     onChange: props.change('business_type')
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -608,7 +612,7 @@ var BizForm = function BizForm(props) {
     type: "file"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "submit",
-    value: "submit"
+    value: "Add Business"
   })));
 };
 
@@ -739,7 +743,13 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "BizForm"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "BizForm--Pic"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: "https://i.imgur.com/A1NNGmX.png"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "BizForm--Desc"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Add Your Business Details"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_business_from_component__WEBPACK_IMPORTED_MODULE_2__["default"], {
         dealWithFile: this.handleFile,
         change: this.update,
         send: this.handleSumbit,
@@ -1652,6 +1662,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchBusiness(this.props.match.params.bizId);
+      window.scrollTo(0, 0);
     } //    componentDidUpdate(prevProps) {
     //        if (prevProps.match.params.bizId !== this.props.match.params.bizId) {
     //            this.props.fetchBusiness(this.props.match.params.bizId);
@@ -2607,6 +2618,14 @@ var mdtp = function mdtp(dispatch) {
   };
 };
 
+var mstp = function mstp(state) {
+  console.log(state);
+  var user = state.entities.user[Object.keys(state.entities.user)[0]].username;
+  return {
+    user: user
+  };
+};
+
 var Greeting =
 /*#__PURE__*/
 function (_React$Component) {
@@ -2641,6 +2660,7 @@ function (_React$Component) {
       /*className="Nav--Greeting"*/
       //<div className="GreetingContainer">
       //</div >
+      console.log(this.props.user);
       var profile = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Greeting--Modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2649,7 +2669,7 @@ function (_React$Component) {
         className: "Greeting--ProfileElement"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
         user: {
-          userName: "FirstName LastName",
+          userName: this.props.user,
           location: ""
         }
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2704,7 +2724,7 @@ function (_React$Component) {
   return Greeting;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, mdtp)(Greeting));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mstp, mdtp)(Greeting));
 
 /***/ }),
 
@@ -2766,7 +2786,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Profile = function Profile(props) {
-  console.log(props);
+  console.log('take a loot at me now!!!', props.user);
 
   var convertLongName = function convertLongName(name) {
     console.log(name);
@@ -2790,7 +2810,7 @@ var Profile = function Profile(props) {
     src: props.user.profilePic || "https://i.imgur.com/S5cgOk5.png"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ProfileElement--User"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, convertLongName(props.user.userName), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.user.location || "San Francisco, CA ", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.user.userName, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.user.location || "San Francisco, CA ", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ProfileElement--Counts"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-male"
