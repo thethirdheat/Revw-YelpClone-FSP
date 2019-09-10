@@ -50,6 +50,8 @@ const Dummy=(props)=>{
                 <ProtectedRoute  path ="/search" component={SearchIndexContainer} />
                 <ProtectedRoute exact path="/biz/:bizId" component={DetailBusinessContainer} />
                 <ProtectedRoute exact path="/biz/:bizId/pic" component={UpLoadPictureContainer} />
+                <ProtectedRoute  exact path ="/biz/:bizId/biz_photos/"  component={UpLoadPictureContainer}/>
+                <ProtectedRoute  exact path ="/biz/:bizId/biz_photos/:picId"  component={UpLoadPictureContainer}/>
                 <ProtectedRoute  exact path ="/" component={IndexContainer}/>
             </Switch>
         </div>

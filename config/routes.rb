@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :search , only: [:index]
 
     resources  :businesses, only: [:create, :index, :show, :update, :destroy]
-    resources :biz_photos, only: [:create, :destroy]
+    resources :biz_photos, only: [:create, :destroy,:show]
     resources  :reviews, only: [:create, :update, :destroy]
 
   end

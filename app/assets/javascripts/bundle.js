@@ -246,6 +246,40 @@ var searchForBusiness = function searchForBusiness(query_type, query_desc) {
 
 /***/ }),
 
+/***/ "./frontend/actions/pictures_actions.js":
+/*!**********************************************!*\
+  !*** ./frontend/actions/pictures_actions.js ***!
+  \**********************************************/
+/*! exports provided: RECEIVE_SINGLE_PICTURE, dispatchRequestSinglePicture */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SINGLE_PICTURE", function() { return RECEIVE_SINGLE_PICTURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dispatchRequestSinglePicture", function() { return dispatchRequestSinglePicture; });
+/* harmony import */ var _util_pictures_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/pictures_util */ "./frontend/util/pictures_util.js");
+
+var RECEIVE_SINGLE_PICTURE = "RECEIVE_SINGLE_PICTURE";
+
+var receiveSinglePicture = function receiveSinglePicture(picture) {
+  return {
+    type: RECEIVE_SINGLE_PICTURE,
+    picture: picture
+  };
+};
+
+var dispatchRequestSinglePicture = function dispatchRequestSinglePicture(picId) {
+  return function (dispatch) {
+    return _util_pictures_util__WEBPACK_IMPORTED_MODULE_0__["requestPic"](picId).then(function (pic) {
+      return dispatch(receiveSinglePicture(pic));
+    }, function (err) {
+      return dispatch(receiveBusinessError(err.responseJSON));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/review_actions.js":
 /*!********************************************!*\
   !*** ./frontend/actions/review_actions.js ***!
@@ -1630,7 +1664,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      //console.log(this.props,"i'm tyring to fin dthe id")
+      console.log(this.props, '-------------- this is i the biz info? hopefull user info is ther?----------------'); //console.log(this.props,"i'm tyring to fin dthe id")
+
       var business = this.props.business;
       if (!business) return null;
       /*console.log(business,'this is biz')*/
@@ -1964,8 +1999,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
+/* harmony import */ var _picture_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./picture_modal */ "./frontend/components/business/show/pictures/picture_modal.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_ui_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../actions/ui_actions */ "./frontend/actions/ui_actions.js");
 var _this = undefined;
+
+
 
 
 
@@ -1979,25 +2018,18 @@ var mdtp = function mdtp(dispatch) {
       return dispatch(Object(_actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["deleteBizPicture"])(id));
     },
     sendComponent: function sendComponent(comp, opacity) {
-      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_3__["receiveModalOn"])(comp, opacity));
+      return dispatch(Object(_actions_ui_actions__WEBPACK_IMPORTED_MODULE_5__["receiveModalOn"])(comp, opacity));
     }
   };
 };
 
 var PicCard = function PicCard(props) {
+  console.log('--------------------------look at me---------------------', props, 'this is props before');
   var hover = false;
-  var sendModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ModalPicture"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "PictureContainerLeft"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "PicutureContainer"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "",
-    src: props.picture.pictureUrl
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "PictureContainerRight"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hubn"))); //console.log(props, "this is pic card props")
+  var sendModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    id: props.picture.id,
+    bizId: props.picture.business_id
+  }); //console.log(props, "this is pic card props")
 
   var picId = props.picture.id;
   var center = props.center != undefined ? "PicCard__center" : "https://i.imgur.com/yPsQ4pY.png";
@@ -2019,10 +2051,17 @@ var PicCard = function PicCard(props) {
     showCaption = "";
   }
 
+  var handleClick = function handleClick(el, amount) {
+    console.log(props, "this should be the porops"); //this.props.match.params.bizId
+
+    props.history.push("/biz/".concat(props.match.params.bizId, "/biz_photos/").concat(props.picture.id));
+    props.sendComponent(el, amount);
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard ".concat(center),
     onClick: function onClick() {
-      return props.sendComponent(sendModal, .7);
+      return handleClick(sendModal, .7);
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "PictureCard--Overlay"
@@ -2032,7 +2071,137 @@ var PicCard = function PicCard(props) {
   }), showCaption));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard)); ///${props.hover}/
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, mdtp)(PicCard))); ///${props.hover}/
+
+/***/ }),
+
+/***/ "./frontend/components/business/show/pictures/picture_modal.jsx":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/business/show/pictures/picture_modal.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_pictures_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../actions/pictures_actions */ "./frontend/actions/pictures_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _greeting_profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../greeting/profile */ "./frontend/components/greeting/profile.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var mstp = function mstp(state, ownProps) {
+  return {
+    picture: state.entities.pictures
+  };
+};
+
+var mdtp = function mdtp(dispatch) {
+  return {
+    requestSinglePic: function requestSinglePic(picId) {
+      return dispatch(Object(_actions_pictures_actions__WEBPACK_IMPORTED_MODULE_2__["dispatchRequestSinglePicture"])(picId));
+    }
+  };
+};
+
+var PictureModal =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PictureModal, _React$Component);
+
+  function PictureModal(props) {
+    _classCallCheck(this, PictureModal);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PictureModal).call(this, props));
+  }
+
+  _createClass(PictureModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.requestSinglePic(this.props.id);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      //this.props.history.push(`/biz/${this.props.picture.business_id}`)
+      //this.props.history.push(this.props.history.location.pathname)
+      this.props.history.push("/biz/".concat(this.props.bizId));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var convertLongName = function convertLongName(name) {
+        console.log(name);
+
+        if (name.length >= 15) {
+          var ret = name.split(" ");
+
+          if (ret.length > 2) {
+            ret[1] = ret[1][0] + ".";
+            return ret.join(" ");
+          }
+
+          return name;
+        }
+      };
+
+      var userName = this.props.picture.username;
+      console.log(this.props, 'this is the foprpsslsjafkdafs-rops;', this.props.match.params.bizId);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ModalPicture"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureContainerLeft"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PicutureContainer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "",
+        src: this.props.picture.photoUrl
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "PictureContainerRight"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "ProfileElement--Picture",
+        src: "https://i.imgur.com/S5cgOk5.png"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, userName, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ProfileElement--Counts"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-male"
+      }, "\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas second fa-male"
+      }), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, 3), "\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-star",
+        "aria-hidden": "true"
+      }), "\xA0", 0)));
+    }
+  }]);
+
+  return PictureModal;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mstp, mdtp)(PictureModal)));
 
 /***/ }),
 
@@ -2271,6 +2440,14 @@ var Dummy = function Dummy(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
     path: "/biz/:bizId/pic",
+    component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+    exact: true,
+    path: "/biz/:bizId/biz_photos/",
+    component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
+    exact: true,
+    path: "/biz/:bizId/biz_photos/:picId",
     component: _business_post_picture_post_picture_component__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_3__["ProtectedRoute"], {
     exact: true,
@@ -2563,9 +2740,11 @@ var Profile = function Profile(props) {
 
     if (name.length >= 15) {
       var ret = name.split(" ");
-      ret[1] = ret[1][0] + ".";
-      console.log(ret);
-      return ret.join(" ");
+
+      if (ret.length > 2) {
+        ret[1] = ret[1][0] + ".";
+        return ret.join(" ");
+      }
     }
 
     return name;
@@ -4323,6 +4502,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _business_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./business/businesses_reducer */ "./frontend/reducers/business/businesses_reducer.js");
 /* harmony import */ var _reducers_reviews_reviews_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/reviews/reviews_reducer */ "./frontend/reducers/reviews/reviews_reducer.js");
+/* harmony import */ var _reducers_pictures_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers/pictures_reducer */ "./frontend/reducers/pictures_reducer.js");
+
 
 
 
@@ -4330,7 +4511,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   businesses: _business_businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   user: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  reviews: _reducers_reviews_reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  reviews: _reducers_reviews_reviews_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  pictures: _reducers_pictures_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 }));
 
 /***/ }),
@@ -4384,6 +4566,39 @@ __webpack_require__.r(__webpack_exports__);
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   businessForm: _errors_business_form_errors__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/pictures_reducer.js":
+/*!***********************************************!*\
+  !*** ./frontend/reducers/pictures_reducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_pictures_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/pictures_actions */ "./frontend/actions/pictures_actions.js");
+
+
+
+var picturesReducer = function picturesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_pictures_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_PICTURE"]:
+      return action.picture;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (picturesReducer);
 
 /***/ }),
 
@@ -4823,6 +5038,25 @@ var requestForBusiness = function requestForBusiness(searchString) {
   return $.ajax({
     method: 'get',
     url: urlString
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/pictures_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/pictures_util.js ***!
+  \****************************************/
+/*! exports provided: requestPic */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPic", function() { return requestPic; });
+var requestPic = function requestPic(picId) {
+  return $.ajax({
+    method: 'get',
+    url: "/api/biz_photos/".concat(picId)
   });
 };
 

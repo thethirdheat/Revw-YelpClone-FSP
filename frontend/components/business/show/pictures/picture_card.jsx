@@ -1,8 +1,11 @@
 import React from 'react'
 import { deleteBizPicture}from '../../../../actions/business_actions'
 import {connect} from 'react-redux'
+import PictureModalContainer from './picture_modal'
+import { withRouter } from 'react-router-dom';
 
 //export const deleteBizPicture = (picId) => dispatch =>(
+
     import { receiveModalOn } from '../../../../actions/ui_actions'
 
 const mdtp=dispatch=>({
@@ -11,18 +14,10 @@ const mdtp=dispatch=>({
 
 })
 const PicCard = (props)=>{
+    console.log('--------------------------look at me---------------------',props,'this is props before')
     let hover=false
-    let sendModal=(<div className="ModalPicture">
-        <div className="PictureContainerLeft">
-            <div className="PicutureContainer">
-                <img className="" src={ props.picture.pictureUrl}/> 
-            </div>
-        </div>
-        <div className="PictureContainerRight">
-            <p>hubn</p>
-        </div>
+    let sendModal= <PictureModalContainer id={props.picture.id} bizId={props.picture.business_id}/>
 
-    </div>)
 
 
     //console.log(props, "this is pic card props")
@@ -36,11 +31,18 @@ const PicCard = (props)=>{
     }else{
         showCaption=""
     }
-    return (<div className={`PictureCard ${center}`} onClick={()=>props.sendComponent(sendModal,.7)}>
+    const handleClick=(el,amount)=>{
+        console.log(props,"this should be the porops")
+        //this.props.match.params.bizId
+        props.history.push(`/biz/${props.match.params.bizId}/biz_photos/${props.picture.id}`)
+        props.sendComponent(el,amount)
+
+    }
+    return (<div className={`PictureCard ${center}`} onClick={()=>handleClick(sendModal,.7)}>
         <div className="PictureCard--Overlay">
             <img className={` PictureCard--Fit`} src={ props.picture.pictureUrl}/> 
             {showCaption}
         </div>
 </div>)}
-export default connect(null,mdtp)(PicCard)
+export default withRouter(connect(null,mdtp)(PicCard))
 ///${props.hover}/

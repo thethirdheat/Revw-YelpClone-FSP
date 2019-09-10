@@ -7,9 +7,10 @@ const Profile=(props)=>{
         console.log(name)
         if(name.length>=15){
             let ret=name.split(" ")
-            ret[1]=ret[1][0]+"."
-            console.log(ret)
-            return ret.join(" ")
+            if(ret.length>2){
+                ret[1]=ret[1][0]+"."
+                return ret.join(" ")
+            }
         }
         return name
     }

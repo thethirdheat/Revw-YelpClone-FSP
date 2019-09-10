@@ -12,6 +12,12 @@ class Api::BizPhotosController < ApplicationController
             render json: @pic.errors.full_messages, status: 422 
         end
     end
+    def show
+        @pic = BizPhoto.find(params[:id]) 
+        @user=User.find(@pic.user_id)
+        #render plain: @user.username
+        render '../views/api/bizphotos/show'
+    end
 
     def destroy
         @pic = BizPhoto.find(params[:id]) 
