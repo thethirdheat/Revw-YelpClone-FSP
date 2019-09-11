@@ -75,7 +75,7 @@ class ReviewForm extends React.Component{
             let prev=Object.assign({},this.state)
             prev.review[field]=val
             //console.log(prev)
-            console.log(this.state.review.rating)
+            //console.log(this.state.review.rating)
             return this.setState(prev) 
         }
 
@@ -110,7 +110,7 @@ class ReviewForm extends React.Component{
 //        }
 
         let ratingText
-        console.log(this.state.hoverRating,'----------------thisis hover ratint----------------------')
+        //console.log(this.state.hoverRating,'----------------thisis hover ratint----------------------')
         let hover=this.state.hoverRating
         if(hover===0){
             ratingText="Select your rating"

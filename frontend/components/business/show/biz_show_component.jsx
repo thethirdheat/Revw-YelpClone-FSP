@@ -27,7 +27,6 @@ class DetailBusiness extends React.Component{
     //business
         //this.props.signIn({user: facebook}).then(()=>this.props.history.push('/'), ()=>{
     render(){
-        console.log(this.props,'-------------- this is i the biz info? hopefull user info is ther?----------------')
         //console.log(this.props,"i'm tyring to fin dthe id")
         const { business } = this.props;
         if (!business ) return null;

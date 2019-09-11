@@ -10,7 +10,7 @@ const mdtp = (dispatch) =>({
 
 })
 const mstp = (state)=>{
-    console.log(state)
+    //console.log(state)
     let user=state.entities.user[Object.keys(state.entities.user)[0]].username
 
     return{
@@ -41,7 +41,7 @@ class Greeting extends React.Component{
 
             //<div className="GreetingContainer">
                 //</div >
-        console.log(this.props.user)
+        //console.log(this.props.user)
         let profile=(<div className="Greeting--Modal">
 
                 <div className="Greeting--Profile" >

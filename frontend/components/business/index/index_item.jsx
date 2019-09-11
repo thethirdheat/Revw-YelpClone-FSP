@@ -16,7 +16,7 @@ const IndexItem =(props)=>{
     //debugger
     let descShortenedFlag=false
     const convertBizDesc=(desc)=>{
-        console.log(desc)
+        //console.log(desc)
         desc= desc.split(" ")
         if( desc.length>32){
             descShortenedFlag=true

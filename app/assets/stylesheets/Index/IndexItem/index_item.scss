@@ -115,7 +115,6 @@ $BorderColour: #E6E6E6;
     /*background: green;*/
     background: $Background;
     font-weight: lighter;
-    letter-spacing: 1.3px;
     font-size: 14px;
     color:#FFFFFF;
 
@@ -133,9 +132,10 @@ $BorderColour: #E6E6E6;
     top:-3px;
 }
 .Index--GreyText{
+    font-size:14px;
     color: $GreyText;
     //height: 64px;
-    padding-bottom:5px;
+    padding-bottom:5px 0px;;
     overflow: hidden;
     //background: pink;
     span{

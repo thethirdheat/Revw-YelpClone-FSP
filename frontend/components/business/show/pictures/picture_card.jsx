@@ -14,7 +14,7 @@ const mdtp=dispatch=>({
 
 })
 const PicCard = (props)=>{
-    console.log('--------------------------look at me---------------------',props,'this is props before')
+    //console.log('--------------------------look at me---------------------',props,'this is props before')
     let hover=false
     let sendModal= <PictureModalContainer id={props.picture.id} bizId={props.picture.business_id}/>
 

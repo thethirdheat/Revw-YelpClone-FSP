@@ -80,7 +80,7 @@ class SessionForm extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        //console.log(this.state)
         const errDiv=this.state.errors.length ?<div className="login--errors">
 
         <p>{this.state.errors.join(", ")}.</p> <button onClick={this.removeErr} className="login--erors__cross">&times;</button>

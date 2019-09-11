@@ -988,7 +988,7 @@ var IndexItem = function IndexItem(props) {
   var descShortenedFlag = false;
 
   var convertBizDesc = function convertBizDesc(desc) {
-    console.log(desc);
+    //console.log(desc)
     desc = desc.split(" ");
 
     if (desc.length > 32) {
@@ -1696,8 +1696,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props, '-------------- this is i the biz info? hopefull user info is ther?----------------'); //console.log(this.props,"i'm tyring to fin dthe id")
-
+      //console.log(this.props,"i'm tyring to fin dthe id")
       var business = this.props.business;
       if (!business) return null;
       /*console.log(business,'this is biz')*/
@@ -2056,7 +2055,7 @@ var mdtp = function mdtp(dispatch) {
 };
 
 var PicCard = function PicCard(props) {
-  console.log('--------------------------look at me---------------------', props, 'this is props before');
+  //console.log('--------------------------look at me---------------------',props,'this is props before')
   var hover = false;
   var sendModal = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_picture_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
     id: props.picture.id,
@@ -2640,7 +2639,7 @@ var mdtp = function mdtp(dispatch) {
 };
 
 var mstp = function mstp(state) {
-  console.log(state);
+  //console.log(state)
   var user = state.entities.user[Object.keys(state.entities.user)[0]].username;
   return {
     user: user
@@ -2681,7 +2680,7 @@ function (_React$Component) {
       /*className="Nav--Greeting"*/
       //<div className="GreetingContainer">
       //</div >
-      console.log(this.props.user);
+      //console.log(this.props.user)
       var profile = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Greeting--Modal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3301,8 +3300,8 @@ function (_React$Component) {
       return function (e) {
         var prev = Object.assign({}, _this4.state);
         prev.review[field] = val; //console.log(prev)
+        //console.log(this.state.review.rating)
 
-        console.log(_this4.state.review.rating);
         return _this4.setState(prev);
       };
     }
@@ -3348,8 +3347,8 @@ function (_React$Component) {
       //        }
 
 
-      var ratingText;
-      console.log(this.state.hoverRating, '----------------thisis hover ratint----------------------');
+      var ratingText; //console.log(this.state.hoverRating,'----------------thisis hover ratint----------------------')
+
       var hover = this.state.hoverRating;
 
       if (hover === 0) {
@@ -4359,7 +4358,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
+      //console.log(this.state)
       var errDiv = this.state.errors.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login--errors"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.errors.join(", "), "."), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -4544,7 +4543,7 @@ var businessesReducer = function businessesReducer() {
 
   switch (action.type) {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_BUSINESSES"]:
-      console.log('wer recieve new businesses???');
+      //console.log('wer recieve new businesses???')
       return action.businesses;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_SINGLE_BUSINESS"]:
@@ -5119,8 +5118,7 @@ var requestForBusiness = function requestForBusiness(searchString) {
   var urlString = "/api/search?search_string=".concat(searchString);
 
   if (searchBizTitle) {
-    urlString = "/api/search?search_string=".concat(searchString, "&find_desc=").concat(searchBizTitle);
-    console.log(urlString, 'llllllllllllllllllllllllllllllllllllllllllllllllllllthis is url string lllllllllllllllllllllllllllllllllllllll');
+    urlString = "/api/search?search_string=".concat(searchString, "&find_desc=").concat(searchBizTitle); //console.log(urlString,'llllllllllllllllllllllllllllllllllllllllllllllllllllthis is url string lllllllllllllllllllllllllllllllllllllll')
   }
 
   return $.ajax({
