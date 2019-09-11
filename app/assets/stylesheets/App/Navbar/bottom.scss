@@ -64,6 +64,13 @@ $outer: 960px;
     background: $SideCorlors;
     border-bottom: 1px $BorderColor solid;
 }
+.Navbar--Bot__button{
+    font-size:13px;
+    i{
+        font-size: 18px;
+    }
+
+}
 .NavBar--OuterContainer{
     height: 100%;
 }
