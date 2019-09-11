@@ -12,6 +12,22 @@ const IndexItem =(props)=>{
         dollars+="$" 
     }
     //console.log('-----------------------------------------dolarrs----------------------------------------------',dollars)
+    let desc=props.business.description
+    //debugger
+    let descShortenedFlag=false
+    const convertBizDesc=(desc)=>{
+        console.log(desc)
+        desc= desc.split(" ")
+        if( desc.length>32){
+            descShortenedFlag=true
+            return desc.slice(0,31).join(' ').concat('...')
+        }
+        return desc
+    }
+
+    desc=convertBizDesc(desc)
+
+
     return (
         //onClick={()=>props.history.push(`/biz/${props.business.id}`)}
     <div className="IndexItemContainer" >
@@ -37,7 +53,7 @@ const IndexItem =(props)=>{
 
                 </div>
                 <div className="IndexItem--Description">
-                    <p className="Index--GreyText">"{props.business.description}"</p> 
+                    <pre className="Index--GreyText">"{desc}" {descShortenedFlag?<Link to={"biz/".concat(props.business.id.toString())}>read more</Link>: ""}</pre>
                 </div>
 
 

@@ -80,3 +80,16 @@ $BorderColour:#E6E6E6;
     font-weight: bold;
 
 }
+.RevItemBody{
+    font-size:14px;
+    color:#333333;
+    pre{
+        overflow-x: auto;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+
+    }
+}

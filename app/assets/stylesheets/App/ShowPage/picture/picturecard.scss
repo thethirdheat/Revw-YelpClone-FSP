@@ -122,6 +122,14 @@
         //font-weight:bold;
         color: #5B95D1;
     }
+    pre{
+        overflow-x: auto;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+    }
     p{
         padding-top:7px;
         color: #A0A0A0;

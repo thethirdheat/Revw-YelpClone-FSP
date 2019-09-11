@@ -75,6 +75,17 @@ $BorderColour: #E6E6E6;
 }
 .IndexItem--Description{
     grid-area: desc;
+    font-size: 14px;
+    color:#333333;
+    pre{
+        overflow-x: auto;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+
+    }
 }
 .IndexItem--Image{
     object-fit: cover;
@@ -118,5 +129,9 @@ $BorderColour: #E6E6E6;
 
 
 .Index--GreyText{
-    color: $GreyText
+    color: $GreyText;
+    height: 64px;
+    overflow: hidden;
+    //background: pink;
+
 }

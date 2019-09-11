@@ -983,6 +983,23 @@ var IndexItem = function IndexItem(props) {
   } //console.log('-----------------------------------------dolarrs----------------------------------------------',dollars)
 
 
+  var desc = props.business.description; //debugger
+
+  var descShortenedFlag = false;
+
+  var convertBizDesc = function convertBizDesc(desc) {
+    console.log(desc);
+    desc = desc.split(" ");
+
+    if (desc.length > 32) {
+      descShortenedFlag = true;
+      return desc.slice(0, 31).join(' ').concat('...');
+    }
+
+    return desc;
+  };
+
+  desc = convertBizDesc(desc);
   return (//onClick={()=>props.history.push(`/biz/${props.business.id}`)}
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItemContainer"
@@ -1019,9 +1036,11 @@ var IndexItem = function IndexItem(props) {
       className: "Index--GreyText"
     }, props.business.address, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Description"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", {
       className: "Index--GreyText"
-    }, "\"", props.business.description, "\"")))))
+    }, "\"", desc, "\" ", descShortenedFlag ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "biz/".concat(props.business.id.toString())
+    }, "read more") : "")))))
   );
 };
 
@@ -2236,7 +2255,7 @@ function (_React$Component) {
         "aria-hidden": "true"
       }), "\xA0", 0), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ModalProfile--Caption"
-      }, this.props.picture.caption), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, this.props.picture.caption)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ModalProfile--Date"
       }, date)))));
     }
@@ -3492,6 +3511,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _stars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stars */ "./frontend/components/review/stars.jsx");
+/* harmony import */ var _greeting_profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../greeting/profile */ "./frontend/components/greeting/profile.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3509,6 +3529,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -3554,18 +3575,12 @@ function (_React$Component) {
       var button;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevItem--LeftSide"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevUser"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevUser--Left"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "Rev-Img",
-        src: "https://i.imgur.com/S5cgOk5.png"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "RevUser--Right"
-      }, review.username))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_profile__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        user: {
+          profilePic: false,
+          userName: review.username
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--RightSide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "ReviewStars"
@@ -3573,14 +3588,27 @@ function (_React$Component) {
         amount: review.rating
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "ReviewDate--Reverse"
-      }, " \xA0\xA0", this.state.date)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, review.body)));
+      }, " \xA0\xA0", this.state.date)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "RevItemBody"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, review.body)))));
     }
   }]);
 
   return ReviewItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ReviewItem);
+/* harmony default export */ __webpack_exports__["default"] = (ReviewItem); //                 <div className="RevItem--LeftSide">
+//                     <div className="RevUser">
+//                         <div className="RevUser--Left">
+//
+//                            <img className="Rev-Img" src="https://i.imgur.com/S5cgOk5.png"></img>
+//                         </div>
+//                         <div className="RevUser--Right">
+//                            {review.username}
+//                         </div>
+//                     </div>
+//                    
+//                 </div>
 
 /***/ }),
 

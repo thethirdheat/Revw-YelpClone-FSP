@@ -6,6 +6,7 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @rev= Review.new(review_params)
+        p @rev
         if @rev.save
             @biz=Business.find(@rev.business_id)
             #render '../views/api/businesses/show'

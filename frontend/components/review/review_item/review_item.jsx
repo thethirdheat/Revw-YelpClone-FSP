@@ -1,5 +1,6 @@
 import React from 'react'
 import Stars from '../stars'
+import Profile from '../../greeting/profile'
 
 class ReviewItem extends React.Component{
     constructor(props){
@@ -29,26 +30,18 @@ class ReviewItem extends React.Component{
 
         return(
             <div className="RevItem">
+                <Profile user={{profilePic:false, userName: review.username}}/>
                 
-                 <div className="RevItem--LeftSide">
-                     <div className="RevUser">
-                         <div className="RevUser--Left">
-
-                            <img className="Rev-Img" src="https://i.imgur.com/S5cgOk5.png"></img>
-                         </div>
-                         <div className="RevUser--Right">
-                            {review.username}
-                         </div>
-                     </div>
-                    
-                 </div>
 
                 <div className="RevItem--RightSide"> 
-                <div className="ReviewStars">
-                    <Stars amount={review.rating}/> <span className="ReviewDate--Reverse" > &nbsp;&nbsp;{this.state.date }</span>
+                    <div className="ReviewStars">
+                        <Stars amount={review.rating}/> <span className="ReviewDate--Reverse" > &nbsp;&nbsp;{this.state.date }</span>
+                    </div>
+
+                    <div className="RevItemBody">
+                        <p><pre>{review.body}</pre></p>
+                    </div>
                 </div>
-                    <p>{review.body}</p>
-                 </div>
 
             </div>
         )
@@ -57,3 +50,15 @@ class ReviewItem extends React.Component{
     }
 }
 export default ReviewItem
+//                 <div className="RevItem--LeftSide">
+//                     <div className="RevUser">
+//                         <div className="RevUser--Left">
+//
+//                            <img className="Rev-Img" src="https://i.imgur.com/S5cgOk5.png"></img>
+//                         </div>
+//                         <div className="RevUser--Right">
+//                            {review.username}
+//                         </div>
+//                     </div>
+//                    
+//                 </div>

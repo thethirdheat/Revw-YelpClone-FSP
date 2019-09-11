@@ -92,7 +92,7 @@ class PictureModal extends React.Component{
                         <i className="fas fa-male">&nbsp;</i><i className="fas second fa-male"></i>&nbsp;&nbsp;<span>{3}</span> 
                         &nbsp;&nbsp;<i className="fas fa-star" aria-hidden="true"></i>&nbsp;{0}
                     </div>
-                    <p className="ModalProfile--Caption">{this.props.picture.caption}</p>
+                    <p className="ModalProfile--Caption"><pre>{this.props.picture.caption}</pre></p>
                     <p className="ModalProfile--Date">{date}</p>
 
                 </div>
