@@ -1028,7 +1028,9 @@ var IndexItem = function IndexItem(props) {
       rating: true
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
-    }, dollars.length ? dollars : "$", " \xA0\u25CF \xA0", props.business.business_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, dollars.length ? dollars : "$", " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "IndexDot"
+    }, "\u25CF"), " \xA0", props.business.business_type))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "IndexItem--Info__Right"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "Index--GreyText"
@@ -52982,7 +52984,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
