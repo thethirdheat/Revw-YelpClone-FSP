@@ -31,8 +31,8 @@ class SessionForm extends React.Component{
     demoLoginFacebook(e){
         e.preventDefault(); 
         const facebook= {username: 'FacebookUser', password:'password'}
-        const google = {username: 'Googleuser', password:'password'} 
-        this.props.signIn({user: facebook}).then(()=>this.props.history.push('/'), ()=>{
+        const google = {username: 'Googler', password:'password'} 
+        this.props.signIn({user: facebook}).then(()=>kthis.props.history.push('/'), ()=>{
             if(this.props.errors){
                 let prev=Object.assign({},this.state)
                 prev.errors= this.props.errors 
@@ -42,7 +42,7 @@ class SessionForm extends React.Component{
     }
     demoLoginGoogle(e){
         e.preventDefault(); 
-        const google = {username: 'Googleuser', password:'password'} 
+        const google = {username: 'Googler', password:'password'} 
         this.props.signIn({user: google}).then(()=>this.props.history.push('/'), ()=>{
             if(this.props.errors){
                 let prev=Object.assign({},this.state)

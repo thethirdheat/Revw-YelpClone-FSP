@@ -4277,13 +4277,13 @@ function (_React$Component) {
         password: 'password'
       };
       var google = {
-        username: 'Googleuser',
+        username: 'Googler',
         password: 'password'
       };
       this.props.signIn({
         user: facebook
       }).then(function () {
-        return _this2.props.history.push('/');
+        return kthis.props.history.push('/');
       }, function () {
         if (_this2.props.errors) {
           var prev = Object.assign({}, _this2.state);
@@ -4300,7 +4300,7 @@ function (_React$Component) {
 
       e.preventDefault();
       var google = {
-        username: 'Googleuser',
+        username: 'Googler',
         password: 'password'
       };
       this.props.signIn({
