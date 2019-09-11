@@ -4277,7 +4277,7 @@ function (_React$Component) {
         password: 'password'
       };
       var google = {
-        username: 'GoogleUser',
+        username: 'Googleuser',
         password: 'password'
       };
       this.props.signIn({
@@ -4300,7 +4300,7 @@ function (_React$Component) {
 
       e.preventDefault();
       var google = {
-        username: 'GoogleUser',
+        username: 'Googleuser',
         password: 'password'
       };
       this.props.signIn({
