@@ -13,12 +13,17 @@
 }
 .hovered{
     background: #F5F5F5;
+    border:none !important;
+    
     transform: scale(1.1);
     transition: transform .5s; /* Animation */
     box-shadow: 0 0 25px black;
+    border: none;
     z-index:8;
 }
 .PictureCard--Overlay{
+
+    border:none;
     position: absolute;
     top:50%;
     left:50%;
@@ -44,6 +49,7 @@
 //  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 //}
 .ShowPictures--Caption{
+    border: none;
     opacity: .80;
     bottom: 0px;
     position: absolute;

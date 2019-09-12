@@ -15,8 +15,9 @@ class ReviewItem extends React.Component{
         date= date.split("T")[0]
         date=date.split('-')
         let holder = date[0]
-        date[0]=date[2]
-        date[2]=holder
+        //date[0]=date[2]
+        //date[2]=holder
+        date.push(date.shift())
         date=date.join('/')
         this.setState({date})
             //this.setState({date: this.props.review.updated_at.toString().split('T')[0].reverse() })
@@ -34,7 +35,7 @@ class ReviewItem extends React.Component{
                 
 
                 <div className="RevItem--RightSide"> 
-                    <div className="ReviewStars">
+                    <div className="ReviewStars ReviewItem">
                         <Stars amount={review.rating}/> <span className="ReviewDate--Reverse" > &nbsp;&nbsp;{this.state.date }</span>
                     </div>
 

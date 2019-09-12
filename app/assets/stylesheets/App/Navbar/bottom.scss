@@ -71,6 +71,9 @@ $outer: 960px;
     }
 
 }
+.Navbar--Bot__button:hover{
+    background:#ffffff;
+}
 .NavBar--OuterContainer{
     height: 100%;
 }
@@ -82,4 +85,10 @@ $outer: 960px;
     border-bottom: $BorderWidth;
     border-top: 0px;
     border-left: 0px; 
+    
 }
+.NavBar--Bot__Link:hover{
+    background: #ffffff;
+}
+
+//Navbar--Bot__button Button--Mid__Left

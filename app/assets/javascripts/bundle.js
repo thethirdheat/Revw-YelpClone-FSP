@@ -3558,9 +3558,10 @@ function (_React$Component) {
       var date = this.props.review.updated_at.toString();
       date = date.split("T")[0];
       date = date.split('-');
-      var holder = date[0];
-      date[0] = date[2];
-      date[2] = holder;
+      var holder = date[0]; //date[0]=date[2]
+      //date[2]=holder
+
+      date.push(date.shift());
       date = date.join('/');
       this.setState({
         date: date
@@ -3584,7 +3585,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RevItem--RightSide"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "ReviewStars"
+        className: "ReviewStars ReviewItem"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_stars__WEBPACK_IMPORTED_MODULE_1__["default"], {
         amount: review.rating
       }), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
